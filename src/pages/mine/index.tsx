@@ -1,6 +1,7 @@
 import {View, Text, Button} from '@tarojs/components'
 import { useLoad } from '@tarojs/taro'
 import {useAccountStore} from "@/common/store";
+import { DebugEnv } from '@/common/components';
 
 import './index.scss'
 
@@ -15,6 +16,9 @@ export default function Index() {
 
   return (
     <View className='container'>
+
+      <DebugEnv />
+
       <View>
         <Text>我的页面</Text>
       </View>

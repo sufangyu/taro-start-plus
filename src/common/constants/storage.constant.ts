@@ -3,9 +3,8 @@ export enum StorageKey {
   ACCOUNT_KEY = 'ACCOUNT',
   /** 是否已经登录 */
   LOGGED_KEY = 'IS_LOGGED',
-  /** API 环境 */
-  API_ENV_KEY ='API_ENV',
   /** 角色 */
   ROLE_KEY ='ROLE',
+  /** API 环境 */
+  API_ENV_CODE_KEY ='DEBU-API_ENV_CODE',
 }
-

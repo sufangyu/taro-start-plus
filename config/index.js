@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/no-commonjs
+/* eslint-disable import/no-commonjs */
 const path = require("path");
 
 const config = {
@@ -12,7 +12,11 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
-  plugins: [],
+  plugins: [
+    // new webpack.ProvidePlugin({ 
+    //   process: 'process/browser.js', 
+    // }), 
+  ],
   alias: {
     '@': path.resolve(__dirname, '..', 'src'),
   },
@@ -50,6 +54,12 @@ const config = {
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
+    },
+    // fix: ReferenceError: process is not defined
+    webpackChain(chain, webpack) {
+      chain.plugin('record').use(webpack.ProvidePlugin, [{
+        process: 'process/browser',
+      }]);
     }
   },
   h5: {

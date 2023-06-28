@@ -1,0 +1,14 @@
+.debug-env {
+  display: block;
+  font-size: 0;
+}
+
+.debug-env-entry {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  display: block;
+  width: 64px;
+  height: 64px;
+  opacity: 0.5;
+}

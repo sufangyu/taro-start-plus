@@ -2,6 +2,7 @@ export const DEMO_ROUTER = {
   BASE: '/pages/demo/base/index',
   STORE: '/pages/demo/store/index',
   NAVIGATION: '/pages/demo/navigation/index',
+  REQUEST: '/pages/demo/request/index',
 };
 
 
@@ -13,4 +14,5 @@ export const DEMO_ROUTER_PATH:string[] = [
   'pages/demo/base/index',
   'pages/demo/store/index',
   'pages/demo/navigation/index',
+  'pages/demo/request/index',
 ];

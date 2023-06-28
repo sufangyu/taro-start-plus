@@ -26,15 +26,19 @@ export const useAccountStore = create<AccountStore>()(
     isLogged: storageUtil.getAsync(StorageKey.ACCOUNT_KEY) ?? false,
     login: (account) => {
       const isLogged = true;
-      set(() => ({ account: account }));
-      set(() => ({ isLogged: isLogged }));
+      set(() => ({
+        account: account,
+        isLogged: isLogged,
+      }));
 
       storageUtil.set(StorageKey.ACCOUNT_KEY, account);
       storageUtil.set(StorageKey.LOGGED_KEY, isLogged);
     },
     logout:()=> {
-      set(() => ({ account: null }));
-      set(() => ({ isLogged: false }));
+      set(() => ({
+        account: null,
+        isLogged: false,
+      }));
 
       storageUtil.remove(StorageKey.ACCOUNT_KEY);
       storageUtil.remove(StorageKey.LOGGED_KEY);

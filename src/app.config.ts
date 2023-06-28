@@ -1,4 +1,4 @@
-import {DEMO_ROUTER_PATH, TAB_BAR_ROUTER_PATH} from "@/common/router";
+import {DEBUG_ROUTER_PATH, DEMO_ROUTER_PATH, TAB_BAR_ROUTER_PATH} from "@/common/router";
 
 
 export default defineAppConfig({
@@ -6,6 +6,14 @@ export default defineAppConfig({
     ...TAB_BAR_ROUTER_PATH,
 
     ...DEMO_ROUTER_PATH,
+  ],
+  subPackages: [
+    {
+      root: 'sub-pages',
+      pages: [
+        ...DEBUG_ROUTER_PATH,
+      ]
+    }
   ],
   window: {
     backgroundTextStyle: 'light',
