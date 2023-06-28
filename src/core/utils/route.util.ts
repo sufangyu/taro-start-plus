@@ -1,6 +1,11 @@
+import { tabBarList } from "@/common/router";
 import Taro from "@tarojs/taro";
 
-import { TAB_BAR_ROUTER_PATH} from "@/common/router";
+
+// tabbar 的路径
+const TAB_BAR_ROUTER_PATH = (tabbarList => {
+  return tabbarList.map((item: { pagePath: string }) => `/${item.pagePath}`);
+})(tabBarList);
 
 // 跳转的方式
 const MODE_MAP: {push: string, replace: string} = {
@@ -18,7 +23,7 @@ export const routeUtil = {
     const fullPath = this.getFullPath(url, query);
 
     // 是否 tabBar 页面
-    const isTabBar = TAB_BAR_ROUTER_PATH.includes(url.replace('/', ''));
+    const isTabBar = TAB_BAR_ROUTER_PATH.includes(url);
     let toAction: string;
 
     if (isTabBar) {

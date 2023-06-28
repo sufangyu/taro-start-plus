@@ -1,7 +1,7 @@
 import { View, Text, Button } from '@tarojs/components'
 import { useRouter } from '@tarojs/taro';
 import { routeUtil } from '@/core/utils'
-import { DEMO_ROUTER, TAB_BAR_ROUTER } from '@/common/router'
+import { appRouterConfig } from '@/common/router'
 
 import './index.scss'
 
@@ -16,7 +16,7 @@ export default function Index() {
         type='primary'
         onClick={() => {
           routeUtil.toPage({
-            url: DEMO_ROUTER.BASE,
+            url: appRouterConfig.base.path,
           });
         }}
       >
@@ -27,7 +27,7 @@ export default function Index() {
         type='primary'
         onClick={() => {
           routeUtil.toPage({
-            url: DEMO_ROUTER.NAVIGATION,
+            url: appRouterConfig.navigation.path,
             query: {
               name: '张三疯',
               age: 45,
@@ -43,7 +43,7 @@ export default function Index() {
         type='primary'
         onClick={() => {
           routeUtil.toPage({
-            url: TAB_BAR_ROUTER.MINE,
+            url: appRouterConfig.mine.path,
           });
         }}
       >
@@ -54,7 +54,7 @@ export default function Index() {
         type='primary'
         onClick={() => {
           routeUtil.toPage({
-            url: DEMO_ROUTER.BASE,
+            url: appRouterConfig.base.path,
             mode: 'replace',
           });
         }}
@@ -76,7 +76,7 @@ export default function Index() {
         type='primary'
         onClick={() => {
           routeUtil.reLaunch({
-            url: TAB_BAR_ROUTER.HOME,
+            url: appRouterConfig.home.path,
           });
         }}
       >
@@ -86,7 +86,7 @@ export default function Index() {
       <Button
         type='primary'
         onClick={() => {
-          const page = routeUtil.getPage(1);
+          const page = routeUtil.getPage();
           console.log('page =>>', page.config);
         }}
       >

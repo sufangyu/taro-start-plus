@@ -1,20 +1,11 @@
-import {DEBUG_ROUTER_PATH, DEMO_ROUTER_PATH, TAB_BAR_ROUTER_PATH} from "@/common/router";
+import {pages, subPackages, tabBarList} from "@/common/router";
 
+// console.log('pages::', pages);
+// console.log('subPackages::', subPackages);
 
 export default defineAppConfig({
-  pages: [
-    ...TAB_BAR_ROUTER_PATH,
-
-    ...DEMO_ROUTER_PATH,
-  ],
-  subPackages: [
-    {
-      root: 'sub-pages',
-      pages: [
-        ...DEBUG_ROUTER_PATH,
-      ]
-    }
-  ],
+  pages,
+  subPackages,
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',
@@ -27,26 +18,7 @@ export default defineAppConfig({
     selectedColor: '#5171f0',
     borderStyle: 'black',
     backgroundColor: '#ffffff',
-    list: [
-      {
-        text: '首页',
-        pagePath: 'pages/home/index',
-        iconPath: 'assets/images/tabbar/home.png',
-        selectedIconPath: 'assets/images/tabbar/home-selected.png',
-      },
-      {
-        text: '示例',
-        pagePath: 'pages/demo/entry/index',
-        iconPath: 'assets/images/tabbar/started.png',
-        selectedIconPath: 'assets/images/tabbar/started-selected.png',
-      },
-      {
-        text: '我的',
-        pagePath: 'pages/mine/index',
-        iconPath: 'assets/images/tabbar/mine.png',
-        selectedIconPath: 'assets/images/tabbar/mine-selected.png',
-      },
-    ],
+    list: tabBarList,
   },
   permission: {
     'scope.userLocation': {

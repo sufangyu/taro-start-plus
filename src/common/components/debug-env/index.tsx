@@ -1,6 +1,6 @@
 import { View, Image } from '@tarojs/components';
 import { routeUtil } from '@/core/utils';
-import { DEBUG_ROUTER } from '@/common/router';
+import { appRouterConfig } from '@/common/router';
 
 import iconDebug from './icon-debug.png';
 import './index.scss';
@@ -23,7 +23,7 @@ export default function Index() {
               className='debug-env-entry'
               onClick={() => {
                 routeUtil.toPage({
-                  url: DEBUG_ROUTER['SWITCH-ENV'],
+                  url: appRouterConfig.switchEnv.path
                 });
               }}
             />
