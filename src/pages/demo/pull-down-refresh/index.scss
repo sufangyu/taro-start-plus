@@ -1,0 +1,30 @@
+@import '@/common/styles/mixins/index.scss';
+
+.container {
+  background: #f5f5f5;
+  padding-top: 120px;
+}
+
+.header {
+  box-sizing: border-box;
+  height: 120px;
+  line-height: 120px;
+  background: #fff;
+  text-align: center;
+  font-size: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.content {
+  padding: 30px;
+  @include safeAreaPaddingBottom('30px');
+}
+
+.list {
+  background: #fff;
+  padding: 50px 20px;
+  margin-bottom: 30px;
+}

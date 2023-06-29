@@ -6,4 +6,6 @@ export default {
   store: { path: '/pages/demo/store/index', title: '全局数据'} as RouterConfig,
   navigation: { path: '/pages/demo/navigation/index', title: '页面导航'} as RouterConfig,
   request: { path: '/pages/demo/request/index', title: '网络请求'} as RouterConfig,
+  pullDownRefresh: { path: '/pages/demo/pull-down-refresh/index', title: '下拉刷新'} as RouterConfig,
+  list: { path: '/pages/demo/list/index', title: '列表'} as RouterConfig,
 };

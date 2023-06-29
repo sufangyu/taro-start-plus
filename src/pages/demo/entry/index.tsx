@@ -16,6 +16,8 @@ export default function Index() {
     {label: '全局状态', path: appRouterConfig.store.path},
     {label: '页面跳转', path: appRouterConfig.navigation.path},
     {label: '网络请求', path: appRouterConfig.request.path},
+    {label: '下拉刷新', path: appRouterConfig.pullDownRefresh.path},
+    {label: '列表', path: appRouterConfig.list.path},
   ];
 
 

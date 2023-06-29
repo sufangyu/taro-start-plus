@@ -181,13 +181,24 @@ let myName = 'zhangsanfeng';
 import { routeUtil } from '@/core/utils';
 import { appRouterConfig } from '@/common/router';
 
-// ……
-
 routeUtil.toPage({
   url: appRouterConfig.switchEnv.path
 });
-//
 
 ```
+
+## Hooks
+
+### useList
+列表请求的处理，提供能力有：
+- loading: 是否加载中
+- isInit: 是否初始化. 只有初始加载才是 true
+- isLasted: 是否最后一页. 根据当前页码与总页码对比
+- list: 列表数据
+- pagination: 页码信息. 当前页码、页条数、总条数
+- getList: 请求列表
+- getListNext: 请求下一页. 处理页码 + 1 后执行 `onPageChange`
+- onSearch: 搜索. 用于查询条件变更
+- onPageChange: 页码信息. 当前页码、页条数 变更触发
 
 

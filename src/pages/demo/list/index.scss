@@ -1,0 +1,26 @@
+@import '@/common/styles/mixins/index.scss';
+
+.container {
+  background: #f5f5f5;
+  padding-top: 190px;
+  min-height: 100vh;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0 32px 20px;
+  background-color: #fff;
+}
+
+.content {
+  @include safeAreaPaddingBottom('80px');
+}
+
+.list-item {
+  background: #fff;
+  padding: 35px 20px;
+  margin-bottom: 30px;
+}

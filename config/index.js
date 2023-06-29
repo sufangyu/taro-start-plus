@@ -12,11 +12,7 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
-  plugins: [
-    // new webpack.ProvidePlugin({ 
-    //   process: 'process/browser.js', 
-    // }), 
-  ],
+  plugins: [],
   alias: {
     '@': path.resolve(__dirname, '..', 'src'),
   },
@@ -24,6 +20,10 @@ const config = {
   },
   copy: {
     patterns: [
+      {
+        from: 'src/sitemap.json',
+        to: 'dist/sitemap.json'
+      }
     ],
     options: {
     }

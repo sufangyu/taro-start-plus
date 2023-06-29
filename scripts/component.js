@@ -1,3 +1,4 @@
+/* eslint-disable import/no-commonjs */
 /**
  *  components 组件快速生成脚本
  *
@@ -5,6 +6,7 @@
 */
 const fs = require('fs');
 const { mkdirsSync } = require('./utils');
+
 const dirName = process.argv[2];
 
 if (!dirName) {
@@ -22,13 +24,12 @@ if (isExist) {
 
 
 // 模板
-const indexTep = `import Taro, { FC } from '@tarojs/taro';
-import { View } from '@tarojs/components';
+const indexTep = `import { View } from '@tarojs/components';
 import './index.scss';
 
 interface Props {}
 
-const Index: FC<Props> = (props: Props) => {
+const Index = (props: Props) => {
   return (
     <View className="container">
       This is empty component

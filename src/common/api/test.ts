@@ -11,7 +11,7 @@ import { List, ListQuery } from '@/common/models';
  */
 export function getList(params?: ListQuery) {
   return http.get<{list: List[];}>({
-    url: 'http://localhost:3721/api/list',
+    url: 'http://10.25.5.151:3721/api/list',
     data: params,
   });
 }

@@ -7,7 +7,8 @@ export default defineAppConfig({
   pages,
   subPackages,
   window: {
-    backgroundTextStyle: 'light',
+    backgroundColor: '#f5f5f5',
+    backgroundTextStyle: 'dark',
     navigationBarBackgroundColor: '#fff',
     navigationBarTitleText: 'Taro start plus',
     navigationBarTextStyle: 'black'
