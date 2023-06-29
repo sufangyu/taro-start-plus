@@ -8,4 +8,5 @@ export default {
   request: { path: '/pages/demo/request/index', title: '网络请求'} as RouterConfig,
   pullDownRefresh: { path: '/pages/demo/pull-down-refresh/index', title: '下拉刷新'} as RouterConfig,
   list: { path: '/pages/demo/list/index', title: '列表'} as RouterConfig,
+  imagePreview: { path: '/pages/demo/image-preview/index', title: '图片查看'} as RouterConfig,
 };

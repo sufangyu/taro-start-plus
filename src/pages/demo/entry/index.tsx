@@ -18,7 +18,7 @@ export default function Index() {
     {label: '网络请求', path: appRouterConfig.request.path},
     {label: '下拉刷新', path: appRouterConfig.pullDownRefresh.path},
     {label: '列表', path: appRouterConfig.list.path},
-
+    {label: '图片查看', path: appRouterConfig.imagePreview.path},
     { label: '分包示例', path: appRouterConfig.switchEnv.path },
   ];
 

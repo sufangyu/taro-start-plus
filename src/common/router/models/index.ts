@@ -12,6 +12,7 @@ const appRouterConfig = {
 };
 
 
+
 // tabbar list 配置
 const tabBarList = [
   {
