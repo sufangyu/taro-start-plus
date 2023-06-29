@@ -1,4 +1,4 @@
-import {View, Text, Button} from '@tarojs/components'
+import {View, Text, Button, MovableArea, MovableView} from '@tarojs/components'
 import { useLoad } from '@tarojs/taro'
 import {useAccountStore} from "@/common/store";
 import { DebugEnv } from '@/common/components';
@@ -15,10 +15,8 @@ export default function Index() {
   })
 
   return (
-    <View className='container'>
-
-      <DebugEnv />
-
+    <MovableArea style={{ minWidth: '100vw', minHeight: '100vh'}}>
+      <View className='container'>
       <View>
         <Text>我的页面</Text>
       </View>
@@ -49,7 +47,11 @@ export default function Index() {
           >登录</Button>
         </View>
       }
-
-    </View>
+      </View>
+      
+      <MovableView style='height: 32px; width: 32px;' direction='all' x={320} y={0}>
+        <DebugEnv />
+      </MovableView>
+    </MovableArea>
   )
 }
