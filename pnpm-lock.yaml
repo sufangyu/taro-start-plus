@@ -11,6 +11,7 @@ specifiers:
   '@tarojs/plugin-platform-alipay': 3.6.8
   '@tarojs/plugin-platform-h5': 3.6.8
   '@tarojs/plugin-platform-jd': 3.6.8
+  '@tarojs/plugin-platform-lark': ^1.1.1
   '@tarojs/plugin-platform-qq': 3.6.8
   '@tarojs/plugin-platform-swan': 3.6.8
   '@tarojs/plugin-platform-tt': 3.6.8
@@ -55,6 +56,7 @@ dependencies:
   '@tarojs/plugin-platform-alipay': 3.6.8_i73ekzlbntu7jol6ph2fvy4mga
   '@tarojs/plugin-platform-h5': 3.6.8_@types+react@18.2.14
   '@tarojs/plugin-platform-jd': 3.6.8_@types+react@18.2.14
+  '@tarojs/plugin-platform-lark': 1.1.1_nl3l2jfmefkitumpi3ra7qg3sa
   '@tarojs/plugin-platform-qq': 3.6.8_@types+react@18.2.14
   '@tarojs/plugin-platform-swan': 3.6.8_@types+react@18.2.14
   '@tarojs/plugin-platform-tt': 3.6.8_@types+react@18.2.14
@@ -2319,6 +2321,17 @@ packages:
       - '@types/webpack-dev-server'
       - supports-color
       - vue
+
+  /@tarojs/plugin-platform-lark/1.1.1_nl3l2jfmefkitumpi3ra7qg3sa:
+    resolution: {integrity: sha512-nCCQ+HAA7IjPoB8ET0lmUlFUOppJQF1BoUe7WhcVZGBj7SiXGMCaNUoktJveu8QEC5FHqDCw7T6O+7TOFccr4Q==}
+    peerDependencies:
+      '@tarojs/components': ^3.3.0
+      '@tarojs/service': ^3.3.0
+      '@tarojs/shared': ^3.3.0
+    dependencies:
+      '@tarojs/components': 3.6.8_@types+react@18.2.14
+      '@tarojs/shared': 3.6.8
+    dev: false
 
   /@tarojs/plugin-platform-qq/3.6.8_@types+react@18.2.14:
     resolution: {integrity: sha512-jrqQ+fTWey02kEgHgFPO4zQm3J6IFdJ5KUk0S/xQP1yDRkm3OXr+V6g6+eJuRK/LmtHzCVEDpKwr7+DeFonGmw==}
