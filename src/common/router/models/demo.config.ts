@@ -13,4 +13,5 @@ export default {
   formValidate: { path: '/pages/demo/form-validate/index', title: '表单校验'} as RouterConfig,
   eventsList: { path: '/pages/demo/events/list/index', title: '事件总线-列表'} as RouterConfig,
   eventsDetail: { path: '/pages/demo/events/detail/index', title: '事件总线-详情'} as RouterConfig,
+  format: { path: '/pages/demo/format/index', title: '数据格式化'} as RouterConfig,
 };

@@ -6,7 +6,7 @@ export enum StatusEnum {
   NORMAL = 1
 }
 
-/** 状态描素 */
+/** 状态描述 */
 export const StatusMessage = {
   0: '禁用',
   1: '正常'
@@ -18,5 +18,5 @@ export const StatusNextMessage = {
   1: '停用'
 }
 
-/** 状态类型 */
+/** 状态描述类型 */
 export type StatusType = keyof typeof StatusMessage

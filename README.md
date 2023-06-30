@@ -1,10 +1,10 @@
 # Taro start plus
 
-## 一、介绍
+## 介绍
 Taro 小程序通用模板， 开箱即用
 
 
-## 二、安装、开发、构建
+## 安装、开发、构建
 
 ```bash
 # install with yarn
@@ -21,7 +21,7 @@ pnpm run build:weapp
 pnpm run build:weapp -- --env=test
 ```
 
-## 三、快速创建页面/组件
+## 快速创建页面/组件
 ```bash
 # 页面
 pnpm run create:page mine
@@ -32,7 +32,7 @@ pnpm run create:comp button
 ```
 
 
-## 四、目录结构 
+## 目录结构 
 TODO: 更新
 ```bash
 .
@@ -105,9 +105,9 @@ TODO: 更新
 ```
 
 
-## 五、推荐规范
+## 推荐规范
 
-### 5.1 命名
+### 命名
 
 **文件后缀**
 
@@ -137,7 +137,7 @@ TODO: 更新
 let myName = 'zhangsanfeng';
 ```
 
-### 5.2 属性书写
+### 属性书写
 - 少于2个, 一行书写
 - 超过2个则每个写一行, 最后一个尖括号占一行
  
@@ -155,7 +155,7 @@ let myName = 'zhangsanfeng';
 ```
 
 
-## 六、组件组织
+## 组件组织
 - 基础 UI 组件统一放在 `src/components`, 并且通过 `src/components` 入口文件对外导出
 - 页面业务组件放在对于页面下的 components 文件.
 
@@ -175,7 +175,7 @@ let myName = 'zhangsanfeng';
 
   ```
 
-## 八、页面跳转
+## 页面跳转
 ```ts
 import { routeUtil } from '@/core/utils';
 import { appRouterConfig } from '@/common/router';
@@ -186,7 +186,7 @@ routeUtil.toPage({
 
 ```
 
-## 九、Hooks
+## Hooks
 
 ### useList
 列表请求的处理，提供能力有：
@@ -264,4 +264,39 @@ useEvents<{name: string; age: number}>(EventNameEnum.刷新列表, (args) => {
 Taro.eventCenter.trigger(EventNameEnum.刷新列表, {
   name: 'zsf', age: 20,
 } as {name: string; age: number});
+```
+
+## 枚举、状态管理
+统一在 `src/common/enums` 文件夹下面管理。如果有枚举及用于UI枚举中文描述的需要，可以按以下三步定义：
+1. 定义枚举（enum）
+2. 定义状态对应的描述（map）
+3. 定义状态描述类型（type）
+
+具体代码可以参考下面：
+```ts
+/** 状态枚举类型 */
+export enum StatusEnum {
+  FORBIDDEN = 0,
+  NORMAL = 1
+}
+
+/** 状态描述 */
+export const StatusMessage = {
+  0: '禁用',
+  1: '正常'
+}
+
+/** 状态描述类型 */
+export type StatusType = keyof typeof StatusMessage
+```
+定义完成之后，可以想以下示例代码类似的使用
+```ts
+// 参数定义, 用于接口传参
+const user = {
+  status: StatusMessage.FORBIDDEN,
+}
+
+// UI 显示
+<View>禁用: {StatusMessage[0]}</View>
+<View>正常: {StatusMessage[1]}</View>
 ```
