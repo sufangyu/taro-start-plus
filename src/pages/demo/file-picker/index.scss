@@ -1,0 +1,24 @@
+.container {
+  padding: 30px;
+}
+
+.demo {
+  &-title {
+    font-size: 28px;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  margin-bottom: 26px;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  background-color: #ddd;
+  margin: 44px 0;
+}
+
+.space {
+  height: 36px;
+  width: 100%;
+}
