@@ -10,4 +10,5 @@ export default {
   list: { path: '/pages/demo/list/index', title: '列表'} as RouterConfig,
   imagePreview: { path: '/pages/demo/image-preview/index', title: '图片查看'} as RouterConfig,
   filePicker: { path: '/pages/demo/file-picker/index', title: '文件选择&上传'} as RouterConfig,
+  formValidate: { path: '/pages/demo/form-validate/index', title: '表单校验'} as RouterConfig,
 };
