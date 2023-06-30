@@ -21,6 +21,7 @@ export default function Index() {
     {label: '图片查看', path: appRouterConfig.imagePreview.path},
     {label: '文件选择&上传', path: appRouterConfig.filePicker.path},
     {label: '表单校验', path: appRouterConfig.formValidate.path},
+    {label: '事件总线', path: appRouterConfig.eventsList.path},
     { label: '分包示例', path: appRouterConfig.switchEnv.path },
   ];
 

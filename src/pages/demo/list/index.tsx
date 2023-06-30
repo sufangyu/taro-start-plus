@@ -8,7 +8,6 @@ import './index.scss'
 
 
 export default function Index() {
-
   const time = Date.now();
   const [query, setQuery] = useState({
     time,
@@ -24,8 +23,6 @@ export default function Index() {
     query,
     fetch: getList,
   });
-
-  console.log('loading::', loading, pagination);
 
 
   return (

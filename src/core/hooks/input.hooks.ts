@@ -13,7 +13,7 @@ import { useState } from "react";
  * ]}
  * 
  * 示例:
- * ``` ts
+ * ```ts
  * // 单个值
  * const [name, setName] = useInput<string>('');
  * const [address, setAddress] = useInput<string[]>([]);
