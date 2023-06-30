@@ -9,5 +9,5 @@ export default {
   pullDownRefresh: { path: '/pages/demo/pull-down-refresh/index', title: '下拉刷新'} as RouterConfig,
   list: { path: '/pages/demo/list/index', title: '列表'} as RouterConfig,
   imagePreview: { path: '/pages/demo/image-preview/index', title: '图片查看'} as RouterConfig,
-  imagePicker: { path: '/pages/demo/file-picker/index', title: '文件选择&上传'} as RouterConfig,
+  filePicker: { path: '/pages/demo/file-picker/index', title: '文件选择&上传'} as RouterConfig,
 };
