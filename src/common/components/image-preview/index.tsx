@@ -19,7 +19,7 @@ interface Props {
   /** 是否显示长按菜单，默认值：true */
   showmenu?: boolean;
 
-  /** item 尺寸. 默认为 160 */
+  /** item 尺寸. 默认为 157 */
   size?: number;
 
   /** item 间距. 默认为 10 */
