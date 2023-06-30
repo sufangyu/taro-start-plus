@@ -1,8 +1,10 @@
-## Taro start plus
+# Taro start plus
+
+## 一、介绍
 Taro 小程序通用模板， 开箱即用
 
 
-## 安装、开发、构建
+## 二、安装、开发、构建
 
 ```bash
 # install with yarn
@@ -19,7 +21,7 @@ pnpm run build:weapp
 pnpm run build:weapp -- --env=test
 ```
 
-## 快速创建页面/组件
+## 三、快速创建页面/组件
 ```bash
 # 页面
 pnpm run create:page mine
@@ -30,7 +32,7 @@ pnpm run create:comp button
 ```
 
 
-## 目录结构 
+## 四、目录结构 
 TODO: 更新
 ```bash
 .
@@ -103,9 +105,9 @@ TODO: 更新
 ```
 
 
-## 推荐规范
+## 五、推荐规范
 
-### 命名
+### 5.1 命名
 
 **文件后缀**
 
@@ -122,8 +124,7 @@ TODO: 更新
 
 ```html
 <!-- tsx 文件 -->
-<view className="app-home-taro">
-</view>
+<view className="app-home-taro"></view>
 
 <!-- 样式文件 -->
 .app-home-taro {}
@@ -136,7 +137,7 @@ TODO: 更新
 let myName = 'zhangsanfeng';
 ```
 
-### 属性书写
+### 5.2 属性书写
 - 少于2个, 一行书写
 - 超过2个则每个写一行, 最后一个尖括号占一行
  
@@ -154,13 +155,11 @@ let myName = 'zhangsanfeng';
 ```
 
 
-## 组件组织
-
+## 六、组件组织
 - 基础 UI 组件统一放在 `src/components`, 并且通过 `src/components` 入口文件对外导出
 - 页面业务组件放在对于页面下的 components 文件.
 
-
-## 创建、配置页面
+## 七、创建、配置页面
 1. 手动或者命令行创建页面
 2. 配置页面的路由信息
   - 存在 config 文件: `src/common/router/models` 对应的配置 `path`、`title`、`isSubPackage`（分包）
@@ -176,7 +175,7 @@ let myName = 'zhangsanfeng';
 
   ```
 
-## 页面跳转
+## 八、页面跳转
 ```ts
 import { routeUtil } from '@/core/utils';
 import { appRouterConfig } from '@/common/router';
@@ -187,7 +186,7 @@ routeUtil.toPage({
 
 ```
 
-## Hooks
+## 九、Hooks
 
 ### useList
 列表请求的处理，提供能力有：
@@ -200,5 +199,69 @@ routeUtil.toPage({
 - getListNext: 请求下一页. 处理页码 + 1 后执行 `onPageChange`
 - onSearch: 搜索. 用于查询条件变更
 - onPageChange: 页码信息. 当前页码、页条数 变更触发
+```ts
+// 使用
+const {
+  list,
+  isLasted,
+  loading,
+  isInit,
+  pagination,
+  onSearch, getListNext,
+} = useList<List>({
+  initPage: 1,
+  initSize: 15,
+  query,
+  fetch: getList,
+});
+```
 
+### useInput
+处理表单的输入赋值
 
+```ts
+// 1. 单个值
+const [name, setName] = useInput<string>('');
+const [address, setAddress] = useInput<string[]>([]);
+
+<Input value={name} onInput={(ev) => setName(ev)} />
+
+// 2. 对象值
+const [others, setOthers] = useInput({
+  password: '',
+  mobile: '',
+  age: '',
+  address: [],
+  delivery: true,
+});
+
+<Input
+  value={others.age}
+  type='number'
+  onInput={(ev) => {
+    return setOthers(ev, 'age', (val: number) => {
+      return val > 18 ? 18 : val;
+    });
+  }}
+/>
+```
+
+### useEvents
+事件总线监听. 用于跨页面数据通信
+
+```ts
+// 监听事件
+useEvents<{name: string; age: number}>(EventNameEnum.刷新列表, (args) => {
+  console.log('监听用户信息=>>', args);
+  setPerson((prevState) => ({
+    ...prevState,
+    name: args.name,
+    age: args.age
+  }));
+});
+
+// 触发事件
+Taro.eventCenter.trigger(EventNameEnum.刷新列表, {
+  name: 'zsf', age: 20,
+} as {name: string; age: number});
+```
