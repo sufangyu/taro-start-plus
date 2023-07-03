@@ -14,5 +14,6 @@ export default {
   eventsList: { path: '/pages/demo/events/list/index', title: '事件总线-列表'} as RouterConfig,
   eventsDetail: { path: '/pages/demo/events/detail/index', title: '事件总线-详情'} as RouterConfig,
   format: { path: '/pages/demo/format/index', title: '数据格式化'} as RouterConfig,
+  numberPrecision: { path: '/pages/demo/number-precision/index', title: '小数精度'} as RouterConfig,
   location: { path: '/pages/demo/location/index', title: '定位地图'} as RouterConfig,
 };

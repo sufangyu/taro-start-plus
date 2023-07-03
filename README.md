@@ -300,3 +300,17 @@ const user = {
 <View>禁用: {StatusMessage[0]}</View>
 <View>正常: {StatusMessage[1]}</View>
 ```
+
+
+## 第三方库使用
+
+### number-precision
+处理小数点精度问题
+```ts
+<View>接近正确数字：{NP.strip(0.09999999999999998)}</View>
+<View>加法（0.1+0.2=0.3）：{NP.plus(0.1, 0.2)}</View>
+<View>减法（1.0-0.9=0.1）：{NP.minus(1.0, 0.9)}</View>
+<View>乘法（3*0.3=0.9）：{NP.times(3, 0.3)}</View>
+<View>除法（1.21/1.1=1.1）：{NP.divide(1.21, 1.1)}</View>
+<View>取整：{NP.round(0.105, 2)}</View>
+```

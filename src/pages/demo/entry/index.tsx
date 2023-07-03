@@ -23,6 +23,7 @@ export default function Index() {
     {label: '表单校验', path: appRouterConfig.formValidate.path},
     {label: '事件总线', path: appRouterConfig.eventsList.path},
     {label: '数据格式化', path: appRouterConfig.format.path},
+    {label: '小数精度', path: appRouterConfig.numberPrecision.path},
     {label: '定位地图', path: appRouterConfig.location.path},
     { label: '分包示例', path: appRouterConfig.switchEnv.path },
   ];
