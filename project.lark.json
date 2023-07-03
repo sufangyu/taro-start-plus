@@ -1,0 +1,12 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "taro-start-plus",
+  "appid": "cli_a428868c0cdad013",
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "postcss": false,
+    "minified": false
+  },
+  "compileType": "miniprogram"
+}
