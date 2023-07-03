@@ -1,4 +1,4 @@
-import {View} from '@tarojs/components'
+import {ScrollView, View} from '@tarojs/components'
 import {routeUtil} from "@/core/utils";
 import { appRouterConfig } from '@/common/router';
 
@@ -31,7 +31,7 @@ export default function Index() {
 
 
   return (
-    <View className='container'>
+    <ScrollView className='container'>
       <View className='page-title'>入门教程</View>
       <View className='menu'>
         {
@@ -48,6 +48,6 @@ export default function Index() {
           })
         }
       </View>
-    </View>
+    </ScrollView>
   )
 }
