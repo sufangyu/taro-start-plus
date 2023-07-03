@@ -4,6 +4,7 @@ import {pages, subPackages, tabBarList} from "@/common/router";
 // console.log('subPackages::', subPackages);
 
 export default defineAppConfig({
+  style: 'v2',
   pages,
   subPackages,
   window: {
@@ -25,5 +26,9 @@ export default defineAppConfig({
     'scope.userLocation': {
       desc: '你的位置信息将用于小程序位置接口的效果展示',
     },
+    'scope.userFuzzyLocation': {
+			desc: '你的位置信息将用于小程序位置接口的效果展示'
+		},
   },
+  requiredPrivateInfos: ['getLocation', 'onLocationChange', 'chooseLocation']
 })
