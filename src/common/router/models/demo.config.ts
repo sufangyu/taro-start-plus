@@ -16,4 +16,5 @@ export default {
   format: { path: '/pages/demo/format/index', title: '数据格式化'} as RouterConfig,
   numberPrecision: { path: '/pages/demo/number-precision/index', title: '小数精度'} as RouterConfig,
   location: { path: '/pages/demo/location/index', title: '定位地图'} as RouterConfig,
+  actionsheet: { path: '/pages/demo/actionsheet/index', title: '动作面板'} as RouterConfig,
 };

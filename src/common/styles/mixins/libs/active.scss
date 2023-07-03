@@ -1,0 +1,10 @@
+/**
+ * 点击状态
+ */
+ @mixin active {
+  transition: background-color 0.3s;
+
+  &:active {
+    background-color: #F0F0F0;
+  }
+}
