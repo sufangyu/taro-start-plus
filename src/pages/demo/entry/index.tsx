@@ -26,6 +26,7 @@ export default function Index() {
     {label: '小数精度', path: appRouterConfig.numberPrecision.path},
     {label: '定位地图', path: appRouterConfig.location.path},
     {label: '动作面板', path: appRouterConfig.actionsheet.path},
+    {label: '权限&未登录拦截', path: appRouterConfig.auth.path},
     { label: '分包示例', path: appRouterConfig.switchEnv.path },
   ];
 

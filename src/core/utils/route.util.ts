@@ -1,4 +1,4 @@
-import { tabBarList } from "@/common/router";
+import { appRouterConfig, tabBarList } from "@/common/router";
 import Taro from "@tarojs/taro";
 
 
@@ -14,13 +14,16 @@ const MODE_MAP: {push: string, replace: string} = {
 };
 
 
+
 export const routeUtil = {
   /**
    * 跳转页面
+   *
+   * @param {PageOptions} options
    */
   toPage(options:PageOptions):void {
     const { url, mode = 'push', query } = options;
-    const fullPath = this.getFullPath(url, query);
+    const fullPath = (this as RouteUtil).getFullPath(url, query);
 
     // 是否 tabBar 页面
     const isTabBar = TAB_BAR_ROUTER_PATH.includes(url);
@@ -40,10 +43,11 @@ export const routeUtil = {
     });
   },
 
-
   /**
    * 返回之前页面
-   * @param delta 页面 History 列表中的相对位置
+   *
+   * @param {number} [delta=1] 页面 History 列表中的相对位置
+   * @return {*}  {void}
    */
   back(delta: number = 1):void {
     const pages = Taro.getCurrentPages();
@@ -54,6 +58,30 @@ export const routeUtil = {
     Taro.navigateBack({ delta });
   },
 
+  /**
+   * 跳转登录页
+   *
+   * @param {('push' | 'replace')} [mode] 跳转方式
+   * - push: 保留上一页
+   * - replace: 替换上一页, 不保留
+   */
+  toLoginPage(mode?: 'push' | 'replace'): void {
+    const { route } = (this as OmitThisParameter<typeof routeUtil>).getPage() as Taro.Page;
+    const fullpath = (this as RouteUtil).getFullPath(`/${route}`);
+    const fromUrl = encodeURIComponent(fullpath);
+    const url = `${appRouterConfig.login.path}?from=${fromUrl}`;
+
+    (this as RouteUtil).toPage({
+      url,
+      mode,
+    });
+  },
+
+  /**
+   * 关闭所有页面，打开到应用内的某个页面
+   *
+   * @param {PageOptions} options
+   */
   reLaunch(options:PageOptions):void {
     const { url } = Object.assign({}, {
       url: '',
@@ -69,8 +97,9 @@ export const routeUtil = {
 
   /**
    * 获取页面信息
-   * @param offset 偏移量
-   * @returns 
+   *
+   * @param {number} [offset=0] 偏移量
+   * @return {*}  {Taro.Page}
    */
   getPage(offset: number = 0): Taro.Page {
     const pages = Taro.getCurrentPages();
@@ -88,10 +117,12 @@ export const routeUtil = {
 
   /**
    * 获取完整路径 (path + query)
-   * @param url
-   * @param query
+   *
+   * @param {string} url 页面路径
+   * @param {{ [key: string]: any; }} [query] 页面参数
+   * @return {*}  {string}
    */
-  getFullPath(url: string , query: { [key: string]: any; }): string {
+  getFullPath(url: string , query?: { [key: string]: any; }): string {
     if (!url) {
       return '';
     }
@@ -112,10 +143,10 @@ export const routeUtil = {
   },
 };
 
-
 /**
  * 显示 错误信息
- * @param error 
+ *
+ * @param {string} [error={ errMsg: '' }] 错误信息
  */
 const routeErrorToast = (error = { errMsg: '' }): void=> {
   const { errMsg } = error;
@@ -131,9 +162,9 @@ interface PageOptions {
   /** 页面路径 */
   url: string;
   /** 查询参数  RootQuery */
-  query? : object;
+  query? : { [key: string]: any; };
   /** 页面跳转方式 */
   mode? : 'push' | 'replace';
 }
 
-
+type RouteUtil = OmitThisParameter<typeof routeUtil>

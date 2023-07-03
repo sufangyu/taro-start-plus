@@ -4,6 +4,7 @@ import {useAccountStore} from "@/common/store";
 import { DebugEnv } from '@/common/components';
 
 import './index.scss'
+import { routeUtil } from '@/core/utils';
 
 export default function Index() {
 
@@ -27,7 +28,7 @@ export default function Index() {
           <View>name: {accountStore.account?.name}</View>
           <View>token: {accountStore.account?.token}</View>
 
-          <Button type='primary' onClick={()=> accountStore.logout()}>退出登录</Button>
+          <Button onClick={()=> accountStore.logout()}>退出登录</Button>
         </View>
       }
 
@@ -36,14 +37,7 @@ export default function Index() {
         <View>
           <Button
             type='primary'
-            onClick={()=> {
-              const account = {
-                token:'token-xxx-?-yy-asd-zs',
-                name: '张三疯',
-                age: 18
-              };
-              accountStore.login(account);
-            }}
+            onClick={()=> routeUtil.toLoginPage()}
           >登录</Button>
         </View>
       }
