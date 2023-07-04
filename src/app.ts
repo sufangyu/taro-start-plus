@@ -1,5 +1,7 @@
 import { PropsWithChildren } from 'react'
-import { useLaunch } from '@tarojs/taro'
+import { useDidShow, useLaunch } from '@tarojs/taro'
+import { updateUtil } from '@/core/utils'
+
 import './app.scss'
 
 function App({ children }: PropsWithChildren) {
@@ -7,6 +9,10 @@ function App({ children }: PropsWithChildren) {
   useLaunch(() => {
     console.log('App launched.')
   })
+
+  useDidShow(() => {
+    updateUtil.checkUpdate();
+  });
 
   // children 是将要会渲染的页面
   return children
