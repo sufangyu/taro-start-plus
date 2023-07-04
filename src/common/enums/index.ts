@@ -1,2 +1,3 @@
 export * from './status.enum';
-export * from './events.enum';
+export * from './event.enum';
+export * from './report-event.enum';

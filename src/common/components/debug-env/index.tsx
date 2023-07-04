@@ -8,10 +8,7 @@ import './index.scss';
 export default function Index() {
   
   // 只处理 微信小程序
-  let envVersion = 'release';
-  try {
-    envVersion = __wxConfig.envVersion;
-  } catch (_) {}
+  const envVersion = __wxConfig?.envVersion ?? 'release';
 
   return (
     <View className='debug-env'>

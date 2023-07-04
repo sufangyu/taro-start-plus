@@ -1,0 +1,14 @@
+.container {
+  padding: 30px;
+
+  button {
+    display: block;
+    width: 600px;
+    margin: 16px auto;
+  }
+
+  > view {
+    text-align: center;
+    margin: 24px auto;
+  }
+}

@@ -314,3 +314,92 @@ const user = {
 <View>除法（1.21/1.1=1.1）：{NP.divide(1.21, 1.1)}</View>
 <View>取整：{NP.round(0.105, 2)}</View>
 ```
+
+
+
+## 埋点
+### 友盟手动埋点
+1. 在文件 `src/common/config/umeng.config.ts` 配置 appkey.
+```ts
+const umengConfig = {
+  /** 微信小程序 appKey */
+  mpWXAppKey: 'YOU_APP_KEY',
+
+  /** 支付宝小程序 appKey */
+  mpAliAppKey: 'YOU_APP_KEY',
+  
+  /** 飞书小程序 appKey */
+  mpLarkAppKey: 'YOU_APP_KEY',
+};
+```
+2. 在文件 `src/common/enums/report-event.enum.ts` 维护事件枚举.
+```ts
+export enum ReportEventNameEnum {
+  // ……
+  中文事件名 = 'YOU_EVENT_CODE',
+}
+```
+3. 使用（手动触发）
+```ts
+import { trackUtil } from '@/core/utils/track.util'
+import { ReportEventNameEnum } from '@/common/enums'
+
+// 无参数
+trackUtil.eventHandler(ReportEventNameEnum.自定义事件);
+
+// 带参数
+trackUtil.eventHandler<{name: string; age: number;}>(ReportEventNameEnum.自定义事件带参数, {
+  name: '张三疯',
+  age: 18,
+});
+```
+
+4. 使用（半手动埋点）
+- 通过事件冒泡进行实现, 在页面最外层的绑定监听事件（`trackUtil.catchElementTracker`）. 
+- 通过设置 `data-code`、`data=params` 给需要埋点的元素进行埋点、参数
+
+```ts
+import { trackUtil } from '@/core/utils/track.util'
+import { ReportEventNameEnum } from '@/common/enums'
+
+// some code ……
+return (
+  <View className='container' onClick={trackUtil.catchElementTracker}>
+    <Button type='primary' onClick={handleTriggerEvent}>埋点(事件触发)</Button>
+    <Button type='primary' onClick={handleTriggerEventWithParams}>埋点有带参数(事件触发)</Button>
+
+    <Button
+      type='primary'
+      data-code={ReportEventNameEnum.自定义事件}
+    >埋点(自定义属性)</Button>
+    <Button
+      type='primary'
+      data-code={ReportEventNameEnum.自定义事件}
+      data-params={{
+        name: '张三疯',
+        age: 18,
+      }}
+    >埋点有参数(自定义属性)</Button>
+
+    <Button
+      type='primary'
+      data-code={ReportEventNameEnum.自定义事件}
+      data-params={{name: '张三疯', age: 18}}
+      onClick={handleTriggerEventByStatic}
+    >埋点-绑定事件(自定义属性)</Button>
+    
+    
+    <View data-code={ReportEventNameEnum.自定义事件}>View-埋点(自定义属性)</View>
+    <View
+      data-code={ReportEventNameEnum.自定义事件}
+      data-params={{name: '张三疯', age: 18}}
+    >View-埋点有参数(自定义属性)</View>
+    <View style={{textAlign: 'center'}}>View-无埋点</View>
+  </View>
+);
+```
+
+### 自动全埋点
+可使用 `@antmjs/trace` 实现, 具体参考:
+- https://www.npmjs.com/package/@antmjs/trace
+- https://github.com/AntmJS/temptaro/blob/main/src/trace.ts

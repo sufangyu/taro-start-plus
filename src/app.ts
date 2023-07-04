@@ -1,6 +1,7 @@
 import { PropsWithChildren } from 'react'
 import { useDidShow, useLaunch } from '@tarojs/taro'
 import { updateUtil } from '@/core/utils'
+import '@/core/analysis';
 
 import './app.scss'
 

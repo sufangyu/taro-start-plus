@@ -18,4 +18,5 @@ export default {
   location: { path: '/pages/demo/location/index', title: '定位地图'} as RouterConfig,
   actionsheet: { path: '/pages/demo/actionsheet/index', title: '动作面板'} as RouterConfig,
   auth: { path: '/pages/demo/auth/index', title: '权限&未登录拦截'} as RouterConfig,
+  event: { path: '/pages/demo/event/index', title: '自定义事件'} as RouterConfig,
 };
