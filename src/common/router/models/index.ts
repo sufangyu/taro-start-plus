@@ -1,3 +1,4 @@
+import frameworkRouterConfig from "./framework.config";
 import debugRouterConfig from "./debug.config";
 import homeRouterConfig from "./home.config";
 import accountRouterConfig from "./account.config";
@@ -5,10 +6,11 @@ import demoRouterConfig from "./demo.config";
 
 // 整个 app 的配置
 const appRouterConfig = {
-  ...debugRouterConfig,
   ...homeRouterConfig,
   ...accountRouterConfig,
   ...demoRouterConfig,
+  ...frameworkRouterConfig,
+  ...debugRouterConfig,
 };
 
 

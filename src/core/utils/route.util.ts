@@ -77,6 +77,27 @@ export const routeUtil = {
     });
   },
 
+
+  /**
+   * 跳转 Webview
+   *
+   * @param {string} url 页面路径
+   * @param {string} [title] 页面标题
+   * @param {('push' | 'replace')} [mode='push'] 跳转方式
+   */
+  toWebviewPage(url: string, title?: string, mode: 'push' | 'replace' = 'push') {
+    const webUrl = (this as RouteUtil).getFullPath(appRouterConfig.webview.path, {
+      url: encodeURIComponent(url),
+      title: encodeURIComponent(title ?? ''),
+    });
+    console.log('toWebviewPage =>>', webUrl);
+
+    (this as RouteUtil).toPage({
+      url: decodeURIComponent(webUrl),
+      mode,
+    });
+  },
+
   /**
    * 关闭所有页面，打开到应用内的某个页面
    *
@@ -135,7 +156,7 @@ export const routeUtil = {
     const queries: string[] = [];
     Object.keys(query??{}).forEach((key) => {
       const value = query[key];
-      queries.push(`${key}=${value}`);
+      value && queries.push(`${key}=${value}`);
     });
 
     const separator: "?" | "&" = hasSearch ? '&' : '?';

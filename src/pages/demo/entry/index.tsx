@@ -27,6 +27,8 @@ export default function Index() {
     {label: '定位地图', path: appRouterConfig.location.path},
     {label: '动作面板', path: appRouterConfig.actionsheet.path},
     {label: '权限&未登录拦截', path: appRouterConfig.auth.path},
+    {label: '扫码（二维码&条形码）', path: appRouterConfig.scan.path},
+    {label: '网页', path: `${appRouterConfig.webview.path}?url=https://www.ithome.com`},
     { label: '分包示例', path: appRouterConfig.switchEnv.path },
   ];
 
