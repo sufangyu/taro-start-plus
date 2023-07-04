@@ -21,11 +21,17 @@ const scanUtil = {
           reject(result);
         }
       } catch (error) {
+        console.warn(error);
+
+        // 取消扫描: 微信使用 errMsg, 飞书使用 errString
+        if (error?.errMsg?.includes('cancel') || error?.errString?.includes('canceled')) {
+          return;
+        }
         Taro.showToast({
           title: '识别失败',
           icon: 'error',
         });
-        console.warn(error);
+
         // reject(error);
       }
     });
