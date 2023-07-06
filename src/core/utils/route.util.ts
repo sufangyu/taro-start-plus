@@ -93,7 +93,7 @@ export const routeUtil = {
     console.log('toWebviewPage =>>', webUrl);
 
     (this as RouteUtil).toPage({
-      url: decodeURIComponent(webUrl),
+      url: webUrl,
       mode,
     });
   },
