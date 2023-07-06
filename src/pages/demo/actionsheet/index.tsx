@@ -1,9 +1,9 @@
 import { View, Button } from '@tarojs/components'
 import { useState } from 'react'
 import { Action, ActionSheet } from '@/common/components'
+import Taro from '@tarojs/taro';
 
 import './index.scss'
-import Taro from '@tarojs/taro';
 
 
 export default function Index() {

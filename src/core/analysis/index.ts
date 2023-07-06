@@ -4,7 +4,7 @@
  */
 import Taro from '@tarojs/taro';
 
-const isDebug = true;
+const isDebug = false;
 
 if (isDebug || (__wxConfig?.envVersion ?? 'release') === 'release') {
   const umeng = require('@/core/analysis/umeng').default;
