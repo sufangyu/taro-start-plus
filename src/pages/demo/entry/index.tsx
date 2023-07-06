@@ -30,6 +30,7 @@ export default function Index() {
     {label: '扫码（二维码&条形码）', path: appRouterConfig.scan.path},
     {label: '加载网页', path: `${appRouterConfig.webview.path}?url=https://www.ithome.com`},
     {label: '埋点-自定义事件', path: appRouterConfig.event.path},
+    {label: '海报分享图生成', path: appRouterConfig.posterRender.path},
     { label: '分包示例', path: appRouterConfig.switchEnv.path },
   ];
 

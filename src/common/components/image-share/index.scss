@@ -1,0 +1,93 @@
+@import '@/common/styles/mixins/index.scss';
+
+$actionsheet-duration : 300ms;
+$timing-func          : cubic-bezier(.36,.66,.04,1);
+
+.image-share {
+  &__wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1010;
+    visibility: hidden;
+    transition: visibility $actionsheet-duration $timing-func;
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+
+    view {
+      margin: 0 !important;
+    }
+
+    #taro-poster-render {
+      margin: 0 auto;
+    }
+
+    /* 显示 visible */
+    &--active {
+      visibility: visible;
+
+      .image-share__overlay {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.65);
+  }
+
+  &__footer {
+    position: absolute;
+    bottom: 0;
+    z-index: 1011;
+    width: 100vw;
+  } 
+
+  &__actions__wrapper {
+    width: 100vw;
+    background-color: #f7f7f7;
+    padding: 30px;
+    box-sizing: border-box;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: row;
+
+    .action-item {
+      width: 80px;
+      font-size: 18px;
+      color: #999;
+      margin-right: 30px !important;
+    }
+
+    .ic-action {
+      display: block;
+      width: 80px;
+      height: 80px;
+      background-color: rgba(0,0,0,0.15);
+      border-radius: 16px;
+      margin-bottom: 10px !important;
+    }
+  }
+  &__cancel {
+    box-sizing: content-box;
+    background-color: #fff;
+    height: 90px;
+    line-height: 90px;
+
+    @include safeAreaPaddingBottom();
+    @include active();
+  }
+}
+
