@@ -30,7 +30,7 @@ $space : 10px;
     width: 40px;
     height: 40px;
     overflow: hidden;
-    border-radius: 0 0 0 60px;
+    border-radius: 0 0 0 30px;
     background-color: rgba(0, 0, 0, 0.7);
   
     &::before,
@@ -41,7 +41,7 @@ $space : 10px;
       width: 20px;
       position: absolute;
       top: 40%;
-      left: 40%;
+      left: 36%;
       background-color: #fff;
     }
   

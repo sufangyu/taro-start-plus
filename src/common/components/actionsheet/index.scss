@@ -127,7 +127,7 @@ $timing-func          : cubic-bezier(.36,.66,.04,1);
     }
   }
 
-  //
+  // 圆角
   &--round {
     .actionsheet__container {
       border-radius: 24px 16px 0 0;
