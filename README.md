@@ -403,3 +403,23 @@ return (
 可使用 `@antmjs/trace` 实现, 具体参考:
 - https://www.npmjs.com/package/@antmjs/trace
 - https://github.com/AntmJS/temptaro/blob/main/src/trace.ts
+
+
+
+## 海报图生成+分享实现
+### 方案一、小程序 canvas
+
+### 方案二、webview 图片通过长按实现
+具体可以查看 `_webview/src/views/demo/share.vue` 的大致实现
+1. 获取动态数据
+2. 通过 htmltocanvas 把 html 的 DOM 生成图片（base64）, 然后通过 img 标签显示. 
+
+> 如果 base64 无法实现效果，可以先把 base64 上传给接口，返回 http/https 的远程图片地址
+
+
+
+
+
+## 问题
+###  编译时报错缺少必要CPU feature？
+删除同目录下 .swc 文件夹即可 rm -rf .swc
