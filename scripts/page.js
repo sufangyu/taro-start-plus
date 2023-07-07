@@ -25,6 +25,7 @@ if (isExist) {
 // view 模板
 const viewTep = `import { View, Text } from '@tarojs/components'
 import { useLoad } from '@tarojs/taro'
+
 import './index.scss'
 
 export default function Index() {
@@ -34,7 +35,7 @@ export default function Index() {
   })
 
   return (
-    <View className='index'>
+    <View className='container'>
       <Text>Hello world!</Text>
     </View>
   )
@@ -43,7 +44,7 @@ export default function Index() {
 
 // config 模板
 const configTep = `export default definePageConfig({
-  navigationBarTitleText: '首页'
+  navigationBarTitleText: ''
 });
 `;
 
