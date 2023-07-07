@@ -32,6 +32,7 @@ export default function Index() {
     {label: '埋点-自定义事件', path: appRouterConfig.event.path},
     {label: '条形码、二维码生成', path: appRouterConfig.code.path},
     {label: '海报分享图生成', path: appRouterConfig.posterRender.path},
+    {label: '自定义导航栏', path: appRouterConfig.navigationBar.path},
     { label: '分包示例', path: appRouterConfig.switchEnv.path },
   ];
 

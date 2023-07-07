@@ -21,4 +21,5 @@ export default {
   event: { path: '/pages/demo/event/index', title: '自定义事件'} as RouterConfig,
   posterRender: { path: '/pages/demo/poster-render/index', title: '海报分享图'} as RouterConfig,
   code: { path: '/pages/demo/code/index', title: '条形码、二维码生成'} as RouterConfig,
+  navigationBar: { path: '/pages/demo/navigation-bar/index', title: '自定义导航栏'} as RouterConfig,
 };
