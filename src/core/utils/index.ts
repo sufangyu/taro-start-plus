@@ -1,3 +1,4 @@
+export * from "./app.utils";
 export * from "./update.util";
 export * from "./route.util";
 export * from "./storage.util";

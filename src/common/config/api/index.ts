@@ -1,5 +1,5 @@
 import {StorageKey} from '@/common/constants'
-import { storageUtil } from '@/core/utils';
+import { appUtil, storageUtil } from '@/core/utils';
 import {ENV_MAP} from './api.config'
 
 
@@ -7,10 +7,7 @@ import {ENV_MAP} from './api.config'
 export const ENV_CODE_DEFAULT = getDefaultEnvCode();
 
 
-let isReadStore = false;
-try {
-  isReadStore = ['develop', 'trial'].includes(__wxConfig.envVersion);  
-} catch (_) {}
+let isReadStore = ['develop', 'trial'].includes(appUtil.getConfig().envVersion);
 
 // 当前环境标识
 export const ENV_CODE = isReadStore

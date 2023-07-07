@@ -1,5 +1,5 @@
 import { View, Image } from '@tarojs/components';
-import { routeUtil } from '@/core/utils';
+import { appUtil, routeUtil } from '@/core/utils';
 import { appRouterConfig } from '@/common/router';
 
 import iconDebug from './icon-debug.png';
@@ -7,8 +7,7 @@ import './index.scss';
 
 export default function Index() {
   
-  // 只处理 微信小程序
-  const envVersion = __wxConfig?.envVersion ?? 'release';
+  const envVersion = appUtil.getConfig()?.envVersion;
 
   return (
     <View className='debug-env'>
