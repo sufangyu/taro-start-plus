@@ -1,8 +1,8 @@
 import { View } from '@tarojs/components';
 import { FC } from 'react';
-import { appUtil } from '@/core/utils';
 import Taro from '@tarojs/taro';
 import { isFunction } from '@tarojs/shared';
+import { appUtil } from '@/core/utils';
 
 import './index.scss';
 import { ConfigStyle, Props } from './types';
@@ -25,10 +25,11 @@ const Index: FC<Props> = (props: Props) => {
     delta,
     onHome,
     onBack,
-    onSearch
+    onSearch,
   } = props;
 
   const globalSystemInfo = appUtil.getSystemInfo();
+  // eslint-disable-next-line no-use-before-define
   const styleInfo = getStyleInfo(globalSystemInfo!, props);
 
   const {
@@ -37,7 +38,7 @@ const Index: FC<Props> = (props: Props) => {
     navBarHeight,
     navBarExtendHeight,
     ios,
-    rightDistance
+    rightDistance,
   } = styleInfo;
 
   // 返回按钮事件
@@ -66,14 +67,14 @@ const Index: FC<Props> = (props: Props) => {
     if (onSearch && isFunction(onSearch)) {
       onSearch('');
     }
-  }
+  };
 
 
   /** 占位 */
   const renderPlaceholder = (): JSX.Element => {
     return (
       <View
-        className={`navigation-bar__placeholder ${ios ? "ios" : "android"}`}
+        className={`navigation-bar__placeholder ${ios ? 'ios' : 'android'}`}
         style={{ paddingTop: `${navBarHeight! + navBarExtendHeight!}px;` }}
       />
     );
@@ -82,7 +83,7 @@ const Index: FC<Props> = (props: Props) => {
   /** 左侧内容 */
   const renderBarLeft = (): JSX.Element => {
     return (
-      <View className='navigation-bar__left' style={navBarLeft}>
+      <View className="navigation-bar__left" style={navBarLeft}>
         {back && !home && (
           <View
             onClick={handleBack}
@@ -99,7 +100,7 @@ const Index: FC<Props> = (props: Props) => {
 
         {back && home && (
           <View
-            className={`navigation-bar__buttons ${ios ? "ios" : "android"}`}
+            className={`navigation-bar__buttons ${ios ? 'ios' : 'android'}`}
           >
             <View
               onClick={handleBack}
@@ -119,55 +120,55 @@ const Index: FC<Props> = (props: Props) => {
 
   /** 中间内容 */
   const renderBarCenter = (): JSX.Element => {
-    let navbar__center: JSX.Element | null | undefined;
+    let navbarCenter: JSX.Element | null | undefined;
 
     if (title) {
-      navbar__center = <text>{title}</text>;
+      navbarCenter = <text>{title}</text>;
     } else if (searchBar) {
-      navbar__center = (
+      navbarCenter = (
         <View
-          className='navigation-bar-search'
+          className="navigation-bar-search"
           style={`height:${styleInfo.capsulePosition!.height}px;`}
           onClick={handleSearchClick}
         >
-          <View className='navigation-bar-search__icon' />
-          <View className='navigation-bar-search__input'>{searchText}</View>
+          <View className="navigation-bar-search__icon" />
+          <View className="navigation-bar-search__input">{searchText}</View>
         </View>
       );
     } else if (renderCenter) {
-      navbar__center = renderCenter;
+      navbarCenter = renderCenter;
     }
     
     return (
       <View
-        className='navigation-bar__center'
-        style={{paddingLeft: `${rightDistance}px`}}
+        className="navigation-bar__center"
+        style={{ paddingLeft: `${rightDistance}px` }}
       >
-        {navbar__center}
+        {navbarCenter}
       </View>
     );
-  }
+  };
 
 
   return (
     <View
-      className={`navigation-bar ${ios ? "ios" : "android"} ${extClass}`}
+      className={`navigation-bar ${ios ? 'ios' : 'android'} ${extClass}`}
       style={{
-        background: `${backgroundColorTop ? backgroundColorTop : background}`,
+        background: `${backgroundColorTop || background}`,
         height: `${navBarHeight! + navBarExtendHeight!}px`,
       }}
     >
       {renderPlaceholder()}
       
       <View
-        className={`navigation-bar__inner ${ios ? "ios" : "android"}`}
+        className={`navigation-bar__inner ${ios ? 'ios' : 'android'}`}
         style={{ background: `${background};${navigationbarinnerStyle};` }}
       >
         {renderBarLeft()}
         {renderBarCenter()}
         
         <View
-          className='navigation-bar__right'
+          className="navigation-bar__right"
           style={`margin-right: ${rightDistance}px`}
         >
           {renderRight}
@@ -196,7 +197,6 @@ Index.defaultProps = {
 export default Index;
 
 
-
 /**
  * 设置配置样式
  *
@@ -205,47 +205,49 @@ export default Index;
  * @return {*}  {ConfigStyle}
  */
 const getStyleInfo = (systemInfo: typeof Taro.globalSystemInfo, props: Props): ConfigStyle => {
-  const {color, back, home, title} = props;
+  const {
+    color, back, home, title, 
+  } = props;
   const {
     statusBarHeight,
     navBarHeight,
     capsulePosition,
     navBarExtendHeight,
     ios,
-    windowWidth
+    windowWidth,
   } = systemInfo;
 
-    // 胶囊按钮右侧到屏幕右侧的边距
-  let rightDistance = windowWidth - capsulePosition!.right;
-    // 胶囊按钮左侧到屏幕右侧的边距
-  let leftWidth = windowWidth - capsulePosition!.left;
+  // 胶囊按钮右侧到屏幕右侧的边距
+  const rightDistance = windowWidth - capsulePosition!.right;
+  // 胶囊按钮左侧到屏幕右侧的边距
+  const leftWidth = windowWidth - capsulePosition!.left;
 
   const navigationbarinnerStyle = [
     `color: ${color}`,
     `height: ${navBarHeight! + navBarExtendHeight!}px`,
     `padding-top: ${statusBarHeight}px`,
     `padding-right: ${leftWidth}px`,
-    `padding-bottom: ${navBarExtendHeight}px`
-  ].join(";");
+    `padding-bottom: ${navBarExtendHeight}px`,
+  ].join(';');
 
   let navBarLeft = '';
   if ((back && !home) || (!back && home)) {
     navBarLeft = [
       `width:${capsulePosition!.width / 2}px`,
       `height:${capsulePosition!.height}px`,
-      `margin-left:0px`,
+      'margin-left:0px',
       // `margin-right:${rightDistance}px`,
-      `display: flex;`,
-      `justify-content: center;`,
-    ].join(";");
+      'display: flex;',
+      'justify-content: center;',
+    ].join(';');
   } else if ((back && home) || title) {
     navBarLeft = [
       `width: ${capsulePosition!.width}px`,
       `height: ${capsulePosition!.height}px`,
-      `margin-left: ${rightDistance}px`
-    ].join(';')
+      `margin-left: ${rightDistance}px`,
+    ].join(';');
   } else {
-    navBarLeft = [`width:auto`, `margin-left:0px`].join(";");
+    navBarLeft = ['width:auto', 'margin-left:0px'].join(';');
   }
   
   return {
@@ -257,4 +259,4 @@ const getStyleInfo = (systemInfo: typeof Taro.globalSystemInfo, props: Props): C
     ios,
     rightDistance,
   };
-}
+};

@@ -1,7 +1,6 @@
-import { SubPackage } from "@tarojs/taro";
-import { appRouterConfig } from "./models";
-import { RouterConfig } from "./types";
-
+import { SubPackage } from '@tarojs/taro';
+import { appRouterConfig } from './models';
+import { RouterConfig } from './types';
 
 
 // 主包页面列表, 数组第一项代表小程序初始页面
@@ -12,16 +11,13 @@ const subPackageConfig: Record<string, string[]> = Object.create(null);
 const subPackages: SubPackage[] = [];
 
 
-getPages(appRouterConfig);
-getSubPackages(subPackageConfig);
-
-
 /**
  * 获取页面列表配置
  *
  * @param {Record<string, any>} pathMap
  */
 function getPages(pathMap: Record<string, any>) {
+  // eslint-disable-next-line no-restricted-syntax, guard-for-in
   for (const key in pathMap) {
     const currentRouter = pathMap[key] as RouterConfig;
     // console.log('key::', key, 'currentRouter::', currentRouter);
@@ -29,7 +25,7 @@ function getPages(pathMap: Record<string, any>) {
       return;
     }
 
-    const path = currentRouter.path;
+    const { path } = currentRouter;
     const isSubPackage = currentRouter.isSubPackage ?? false;
 
     if (isSubPackage) {
@@ -58,15 +54,18 @@ function getPages(pathMap: Record<string, any>) {
  * @param {Record<string, string[]>} config
  */
 function getSubPackages(config: Record<string, string[]>) {
+  // eslint-disable-next-line no-restricted-syntax, guard-for-in
   for (const key in config) {
     const subPackage = {
       root: key,
-      pages: config[key]
+      pages: config[key],
     };
     subPackages.push(subPackage);
   }
 }
 
 
+getPages(appRouterConfig);
+getSubPackages(subPackageConfig);
 
-export {pages, subPackages};
+export { pages, subPackages };

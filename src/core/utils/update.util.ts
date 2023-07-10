@@ -1,4 +1,4 @@
-import Taro from "@tarojs/taro";
+import Taro from '@tarojs/taro';
 
 const updateUtil = {
   /**
@@ -19,20 +19,20 @@ const updateUtil = {
 
     const updateManager = Taro.getUpdateManager();
 
-    updateManager.onCheckForUpdate(function (res) {
+    updateManager.onCheckForUpdate((res) => {
       console.log('有新版本=>>', res.hasUpdate);
     });
 
     // 下载完成
     updateManager.onUpdateReady(async () => {
-      const { confirm }  = await Taro.showModal({
+      const { confirm } = await Taro.showModal({
         title: '更新提示',
         content: '新版本已准备好，需要重启应用',
         showCancel,
       });
 
       if (confirm) {
-        updateManager.applyUpdate()
+        updateManager.applyUpdate();
       }
     });
 
@@ -46,6 +46,6 @@ const updateUtil = {
       });
     });
   },
-}
+};
 
 export { updateUtil };

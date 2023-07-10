@@ -1,7 +1,7 @@
-import Taro from "@tarojs/taro";
-import { useState } from "react";
-import { permissionUtil } from "../utils";
-import { mapConfig } from "@/common/config";
+import Taro from '@tarojs/taro';
+import { useState } from 'react';
+import { permissionUtil } from '@/core/utils';
+import { mapConfig } from '@/common/config';
 
 type Location = {
   longitude: number;
@@ -20,7 +20,6 @@ interface Regeocode {
 }
 
 
-
 /**
  * 地址信息 (转换、地址&经纬度获取)
  * 
@@ -35,15 +34,15 @@ export default function useGeocoder() {
    * @param {string} address
    * @return {*}  {Promise<{location: string;}>} 经度，纬度
    */
-  const getGeocoder = async(address: string): Promise<{
+  const getGeocoder = async (address: string): Promise<{
     location: Location;
   }> => {
     return new Promise(async (resolve, reject) => {
       const params = {
         key: mapConfig.amap.key,
         address,
-      }
-      const {statusCode, data} = await Taro.request({
+      };
+      const { statusCode, data } = await Taro.request({
         method: 'GET',
         url: 'https://restapi.amap.com/v3/geocode/geo',
         header: { 'content-type': 'application/json' },
@@ -51,11 +50,12 @@ export default function useGeocoder() {
       });
       
       if ((statusCode < 200 || statusCode >= 400) || data.status === '0') {
-        reject({status: data.status, info: data.info});
+        // eslint-disable-next-line prefer-promise-reject-errors
+        reject({ status: data.status, info: data.info });
       }
 
-      const {location} = (data?.geocodes ?? [])[0];
-      const [longitude, latitude] = location ? (location as string).split(',') : [0, 0]
+      const { location } = (data?.geocodes ?? [])[0];
+      const [longitude, latitude] = location ? (location as string).split(',') : [0, 0];
 
       resolve({
         location: {
@@ -83,7 +83,7 @@ export default function useGeocoder() {
         coordsys: 'gps',
       };
 
-      const {statusCode, data} = await Taro.request({
+      const { statusCode, data } = await Taro.request({
         method: 'GET',
         url: 'https://restapi.amap.com/v3/assistant/coordinate/convert',
         header: { 'content-type': 'application/json' },
@@ -91,18 +91,55 @@ export default function useGeocoder() {
       });
       
       if ((statusCode < 200 || statusCode >= 400) || data.status === '0') {
-        reject({status: data.status, info: data.info});
+        // eslint-disable-next-line prefer-promise-reject-errors
+        reject({ status: data.status, info: data.info });
       }
 
-      const [lon, lat] = data?.locations ? (data?.locations as string).split(',') : [0, 0]
+      const [lon, lat] = data?.locations ? (data?.locations as string).split(',') : [0, 0];
 
       resolve({
         longitude: Number(lon),
         latitude: Number(lat),
       });
     });
-
   };
+
+  /**
+   * 根据经纬度获取地址信息
+   *
+   * @param {number} latitude 纬度
+   * @param {number} longitude 经度
+   */
+  const reverseGeocoder = (latitude: number, longitude: number): Promise<Regeocode> => {
+    return new Promise(async (resolve, reject) => {
+      const params = {
+        key: mapConfig.amap.key,
+        location: `${longitude},${latitude}`,
+      };
+      const { statusCode, errMsg, data } = await Taro.request({
+        method: 'GET',
+        url: 'https://restapi.amap.com/v3/geocode/regeo',
+        header: { 'content-type': 'application/json' },
+        data: params,
+        complete() {
+          Taro.hideLoading();
+        },
+      });
+      if ((statusCode < 200 || statusCode >= 400) || data.status === '0') {
+        console.error('status:', data.status, 'info:', data.info);
+        const message = `获取地址信息失败（${data.info ?? errMsg}）`;
+        Taro.showToast({
+          title: message,
+          icon: 'none',
+        });
+        // eslint-disable-next-line prefer-promise-reject-errors
+        reject({ status: data.status, info: data.info });
+      }
+
+      resolve(data?.regeocode);
+    });
+  };
+
 
   /**
    * 地址逆解析
@@ -122,13 +159,13 @@ export default function useGeocoder() {
 
 
       Taro.showLoading({
-        title: '正在定位'
+        title: '正在定位',
       });
 
       setGetting(true);
-      let {latitude, longitude} = await Taro.getLocation({
+      const { latitude, longitude } = await Taro.getLocation({
         type: 'gcj02', // wgs84
-        isHighAccuracy: true
+        isHighAccuracy: true,
       });
       console.log('getLocation=>>', `${longitude},${latitude}`);
       
@@ -138,47 +175,12 @@ export default function useGeocoder() {
       Taro.showToast({
         title: '请打开手机定位并授权后重试',
         icon: 'none',
-        mask: true
+        mask: true,
       });
       return error;
     } finally {
       setGetting(false);
     }
-  };
-
-  /**
-   * 根据经纬度获取地址信息
-   *
-   * @param {number} latitude 纬度
-   * @param {number} longitude 经度
-   */
-  const reverseGeocoder = (latitude: number, longitude: number): Promise<Regeocode> => {
-    return new Promise(async (resolve, reject) => {
-      const params = {
-        key: mapConfig.amap.key,
-        location: `${longitude},${latitude}`,
-      }
-      const {statusCode, errMsg, data} = await Taro.request({
-        method: 'GET',
-        url: 'https://restapi.amap.com/v3/geocode/regeo',
-        header: { 'content-type': 'application/json' },
-        data: params,
-        complete() {
-          Taro.hideLoading();
-        },
-      });
-      if ((statusCode < 200 || statusCode >= 400) || data.status === '0') {
-        console.error('status:', data.status, 'info:', data.info);
-        const message = `获取地址信息失败（${data.info ?? errMsg}）`;
-        Taro.showToast({
-          title: message,
-          icon: 'none',
-        });
-        reject({status: data.status, info: data.info});
-      }
-
-      resolve(data?.regeocode);
-    });
   };
 
 

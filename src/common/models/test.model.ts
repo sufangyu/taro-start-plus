@@ -1,4 +1,5 @@
-import { Pagination } from "./base.model";
+/* eslint-disable import/extensions */
+import { Pagination } from './base.model';
 
 /**
  * 列表项

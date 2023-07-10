@@ -1,5 +1,6 @@
-import Taro, { usePullDownRefresh, useReachBottom } from "@tarojs/taro";
-import { useEffect, useState } from "react";
+/* eslint-disable no-use-before-define */
+import Taro, { usePullDownRefresh, useReachBottom } from '@tarojs/taro';
+import { useEffect, useState } from 'react';
 
 interface UseList {
   /** 初始化页码 */
@@ -39,7 +40,7 @@ export default function useList<T>({
   listKey = 'list',
   enablePullDownRefresh = true,
   query = {},
-  fetch = () => {}
+  fetch = () => {},
 }: UseList) {
   const [loading, setLoading] = useState(false);
   const [isRefresh, setIsRefresh] = useState(false);
@@ -48,11 +49,11 @@ export default function useList<T>({
   const [pagination, setPagination] = useState({
     page: initPage,
     size: initSize,
-    total: 0 /** 总条目数 */
+    total: 0, /** 总条目数 */
   });
   const [listQuery, setListQuery] = useState({
     ...query,
-    ...pagination
+    ...pagination,
   });
   const [list, setList] = useState<T[]>([]);
 
@@ -79,7 +80,7 @@ export default function useList<T>({
     setIsLasted(false);
     onPageChange({
       page: initPage,
-      size: initSize
+      size: initSize,
     });
     Taro.showNavigationBarLoading();
   });
@@ -97,7 +98,7 @@ export default function useList<T>({
 
     // 请求参数
     const fetchQuery = {
-      ...listQuery
+      ...listQuery,
     };
 
     // 删除不必要的参数
@@ -113,7 +114,7 @@ export default function useList<T>({
       setIsInit(false);
       setPagination(prevPagination => ({
         ...prevPagination,
-        total: data?.total || 0
+        total: data?.total || 0,
       }));
 
       // 判断是否是最后一页
@@ -123,7 +124,7 @@ export default function useList<T>({
       // 请求失败, 回设页码
       setPagination(prevPagination => ({
         ...prevPagination,
-        page: prevPagination.page - 1
+        page: prevPagination.page - 1,
       }));
     } finally {
       setLoading(false);
@@ -139,14 +140,14 @@ export default function useList<T>({
    *
    * @return {*} 
    */
-  function getListNext(): void{
+  function getListNext(): void {
     if (loading || isLasted) {
       return;
     }
 
     const nextPage = pagination.page + 1;
     onPageChange({
-      page: nextPage
+      page: nextPage,
     });
   }
 
@@ -155,16 +156,16 @@ export default function useList<T>({
    *
    * @param {{ page: number; size?: number }} { page = 1, size = initSize } 页码信息
    */
-  function onPageChange({ page = 1, size = initSize }: { page: number; size?: number }): void{
+  function onPageChange({ page = 1, size = initSize }: { page: number; size?: number }): void {
     setPagination(prevPagination => ({
       ...prevPagination,
       page,
-      size
+      size,
     }));
 
     setListQuery(prevQuery => ({
       ...prevQuery,
-      page
+      page,
     }));
   }
 
@@ -184,14 +185,14 @@ export default function useList<T>({
         ...prevQueryResult,
         ...nextQuery,
         page: initPage,
-        size: initSize
+        size: initSize,
       };
     });
 
     setPagination(prevState => ({
       ...prevState,
       page: initPage,
-      size: initSize
+      size: initSize,
     }));
   }
 

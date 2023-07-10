@@ -1,16 +1,15 @@
-import { View, Text } from '@tarojs/components'
-import { useLoad } from '@tarojs/taro'
-import './index.scss'
+import { View, Text } from '@tarojs/components';
+import { useLoad } from '@tarojs/taro';
+import './index.scss';
 
 export default function Index() {
-
   useLoad(() => {
-    console.log('Page loaded.')
-  })
+    console.log('Page loaded.');
+  });
 
   return (
-    <View className='container'>
+    <View className="container">
       <Text>这是注册页面</Text>
     </View>
-  )
+  );
 }

@@ -1,3 +1,3 @@
 export default definePageConfig({
-  navigationBarTitleText: '图片查看'
+  navigationBarTitleText: '图片查看',
 });

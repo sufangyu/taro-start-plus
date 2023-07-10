@@ -1,3 +1,3 @@
 export default definePageConfig({
-  navigationBarTitleText: '权限&未登录拦截'
+  navigationBarTitleText: '权限&未登录拦截',
 });

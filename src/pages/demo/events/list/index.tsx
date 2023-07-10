@@ -1,11 +1,11 @@
-import { View, Button } from '@tarojs/components'
-import { useState } from 'react'
+import { View, Button } from '@tarojs/components';
+import { useState } from 'react';
 import { routeUtil } from '@/core/utils';
 import { appRouterConfig } from '@/common/router';
 import { useEvents } from '@/core/hooks';
 import { EventNameEnum } from '@/common/enums';
 
-import './index.scss'
+import './index.scss';
 
 
 export default function Index() {
@@ -19,23 +19,23 @@ export default function Index() {
     setPerson((prevState) => ({
       ...prevState,
       name: args.name,
-      age: args.age
+      age: args.age,
     }));
   });
 
   return (
-    <View className='container'>
+    <View className="container">
       <View>姓名：{person.name}，年龄：{person.age}</View>
       <Button
-        type='primary'
+        type="primary"
         onClick={() => {
           routeUtil.toPage({
             url: appRouterConfig.eventsDetail.path,
-          })
+          });
         }}
       >
         查看详情
       </Button>
     </View>
-  )
+  );
 }

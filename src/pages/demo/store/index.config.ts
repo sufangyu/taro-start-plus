@@ -1,3 +1,3 @@
 export default definePageConfig({
-  navigationBarTitleText: '全局状态'
+  navigationBarTitleText: '全局状态',
 });

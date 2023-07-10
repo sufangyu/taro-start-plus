@@ -1,9 +1,10 @@
-import { View, Button, Map } from '@tarojs/components'
-import Taro, { useDidShow, usePullDownRefresh } from '@tarojs/taro'
+/* eslint-disable no-use-before-define */
+import { View, Button, Map } from '@tarojs/components';
+import Taro, { useDidShow, usePullDownRefresh } from '@tarojs/taro';
 import { useState } from 'react';
 import { useGeocoder } from '@/core/hooks';
 
-import './index.scss'
+import './index.scss';
 
 export default function Index() {
   const locationAddress = '广州市越秀区中山五路70号捷登都会';
@@ -30,7 +31,7 @@ export default function Index() {
   });
 
   // 获取当前位置地址
-  const getCurrentAddress =async () => {
+  const getCurrentAddress = async () => {
     const { addressComponent, formatted_address: formattedAddress } = await getReverseGeocoder();
     setCurrentAddress(formattedAddress);
     setAddressInfo((prevState) => {
@@ -39,7 +40,7 @@ export default function Index() {
   };
 
   // 获取当前位置经纬度
-  const getCurrentLocation =async () => {
+  const getCurrentLocation = async () => {
     const { location } = await getGeocoder(locationAddress);
     console.log('location=>>', location);
     setCurLocation((prevState) => {
@@ -62,7 +63,7 @@ export default function Index() {
   };
 
   return (
-    <View className='container'>
+    <View className="container">
       <View>地址：{currentAddress}</View>
       <View>
         具体：
@@ -73,16 +74,16 @@ export default function Index() {
       </View>
 
       <View>
-        <Button type='primary' size='mini' onClick={openMap}>打开地图(当前地址)</Button>
+        <Button type="primary" size="mini" onClick={openMap}>打开地图(当前地址)</Button>
       </View>
 
       <View>
         <Map
-          id='map-demo'
+          id="map-demo"
           show-location
           longitude={curLocation.longitude}
           latitude={curLocation.latitude}
-          style={{width: '100%', height: '280px'}}
+          style={{ width: '100%', height: '280px' }}
           markers={
             [
               {
@@ -115,5 +116,5 @@ export default function Index() {
 
 
     </View>
-  )
+  );
 }

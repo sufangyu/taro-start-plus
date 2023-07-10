@@ -1,9 +1,9 @@
-import { View, Text, Button } from '@tarojs/components'
+import { View, Text, Button } from '@tarojs/components';
 import { useRouter } from '@tarojs/taro';
-import { routeUtil } from '@/core/utils'
-import { appRouterConfig } from '@/common/router'
+import { routeUtil } from '@/core/utils';
+import { appRouterConfig } from '@/common/router';
 
-import './index.scss'
+import './index.scss';
 
 
 export default function Index() {
@@ -11,9 +11,9 @@ export default function Index() {
   console.log('router params->>', router.params);
 
   return (
-    <View className='container'>
+    <View className="container">
       <Button
-        type='primary'
+        type="primary"
         onClick={() => {
           routeUtil.toPage({
             url: appRouterConfig.base.path,
@@ -24,7 +24,7 @@ export default function Index() {
       </Button>
 
       <Button
-        type='primary'
+        type="primary"
         onClick={() => {
           routeUtil.toPage({
             url: appRouterConfig.navigation.path,
@@ -40,7 +40,7 @@ export default function Index() {
 
 
       <Button
-        type='primary'
+        type="primary"
         onClick={() => {
           routeUtil.toPage({
             url: appRouterConfig.mine.path,
@@ -51,7 +51,7 @@ export default function Index() {
       </Button>
 
       <Button
-        type='primary'
+        type="primary"
         onClick={() => {
           routeUtil.toPage({
             url: appRouterConfig.base.path,
@@ -63,7 +63,7 @@ export default function Index() {
       </Button>
 
       <Button
-        type='primary'
+        type="primary"
         onClick={() => {
           routeUtil.back();
         }}
@@ -73,7 +73,7 @@ export default function Index() {
 
 
       <Button
-        type='primary'
+        type="primary"
         onClick={() => {
           routeUtil.reLaunch({
             url: appRouterConfig.home.path,
@@ -84,7 +84,7 @@ export default function Index() {
       </Button>
 
       <Button
-        type='primary'
+        type="primary"
         onClick={() => {
           const page = routeUtil.getPage();
           console.log('page =>>', page.config);
@@ -93,5 +93,5 @@ export default function Index() {
         <Text>获取当前页面对象</Text>
       </Button>
     </View>
-  )
+  );
 }

@@ -1,3 +1,3 @@
 export default definePageConfig({
-  navigationBarTitleText: '条形码、二维码生成'
+  navigationBarTitleText: '条形码、二维码生成',
 });

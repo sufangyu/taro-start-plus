@@ -5,19 +5,19 @@ export declare type Method = 'GET' | 'POST' | 'PUT' | 'DELETE';
 export enum ServerCode {
   base = 'base',
   open = 'open',
-};
+}
 
 export interface RequestOptions {
   /** 接口地址对应的后台服务 */
-  server?:  keyof typeof ServerCode;
+  server?: keyof typeof ServerCode;
   /** 接口地址 */
   url: string;
   /** 请求方法 */
   method?: Method;
   /** 请求的参数 */
-  data?: {[key: string]: any;};
+  data?: {[key: string]: any};
   /** 请求头 */
-  headers?: {[key: string]: string;};
+  headers?: {[key: string]: string};
   /** 是否显示 loading */
   loading?: boolean;
   /** loading 提示语 */

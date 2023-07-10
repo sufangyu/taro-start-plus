@@ -1,6 +1,6 @@
-import Taro from "@tarojs/taro";
-import { ReportEventNameEnum } from "@/common/enums";
-import { ITouchEvent } from "@tarojs/components";
+import Taro from '@tarojs/taro';
+import { ITouchEvent } from '@tarojs/components';
+import { ReportEventNameEnum } from '@/common/enums';
 
 /** 行为追踪工具类 */
 const trackUtil = {
@@ -53,12 +53,12 @@ const trackUtil = {
    * ```
    */
   catchElementTracker(ev: ITouchEvent) {
-    const { dataset: {code, params} } = ev.target;
+    const { dataset: { code, params } } = ev.target;
     
     if (code) {
       Taro.umeng?.trackEvent(code, params ?? {});
     }
   },
-}
+};
 
-export {trackUtil}
+export { trackUtil };

@@ -1,4 +1,4 @@
-import {pages, subPackages, tabBarList} from "@/common/router";
+import { pages, subPackages, tabBarList } from '@/common/router';
 
 
 export default defineAppConfig({
@@ -10,7 +10,7 @@ export default defineAppConfig({
     backgroundTextStyle: 'dark',
     navigationBarBackgroundColor: '#fff',
     navigationBarTitleText: 'Taro start plus',
-    navigationBarTextStyle: 'black'
+    navigationBarTextStyle: 'black',
   },
   tabBar: {
     custom: false,
@@ -25,8 +25,8 @@ export default defineAppConfig({
       desc: '你的位置信息将用于小程序位置接口的效果展示',
     },
     'scope.userFuzzyLocation': {
-			desc: '你的位置信息将用于小程序位置接口的效果展示'
-		},
+      desc: '你的位置信息将用于小程序位置接口的效果展示',
+    },
   },
-  requiredPrivateInfos: ['getLocation', 'onLocationChange', 'chooseLocation']
-})
+  requiredPrivateInfos: ['getLocation', 'onLocationChange', 'chooseLocation'],
+});

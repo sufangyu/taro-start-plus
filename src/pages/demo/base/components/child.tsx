@@ -13,11 +13,12 @@ const Index = (props: Props) => {
       <View>
         <Text>Props: {count}</Text>
         <Button
-          size='mini'
+          size="mini"
           onClick={() => {
             onMinus && onMinus();
           }}
-        >累减</Button>
+        >累减
+        </Button>
         
       </View>
     </View>

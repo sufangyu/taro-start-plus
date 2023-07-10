@@ -27,7 +27,9 @@ interface Props {
 }
 
 const Index = (props: Props) => {
-  const { images = [], limit = 1, tipsText = 'left', showmenu = true, size, space } = props;
+  const {
+    images = [], limit = 1, tipsText = 'left', showmenu = true, size, space, 
+  } = props;
 
   /**
    * 预览图片
@@ -37,7 +39,7 @@ const Index = (props: Props) => {
     Taro.previewImage({
       urls: images,
       current: images[index],
-      showmenu: showmenu,
+      showmenu,
     });
   };
 
@@ -74,7 +76,7 @@ const Index = (props: Props) => {
 
       return (
         <View
-          className='image-list-item'
+          className="image-list-item"
           key={key}
           onClick={() => {
             previewImages(index);
@@ -85,9 +87,9 @@ const Index = (props: Props) => {
             margin: space && Taro.pxTransform(space),
           }}
         >
-          <Image mode='aspectFill' src={url} />
+          <Image mode="aspectFill" src={url} />
           {/* 有提示内容 && 当前序号是单行最后一张 */}
-          {tipsTextContent && (index === limit - 1) && <View className='tips'>{tipsTextContent}</View>}
+          {tipsTextContent && (index === limit - 1) && <View className="tips">{tipsTextContent}</View>}
         </View>
       );
     });
@@ -98,7 +100,7 @@ const Index = (props: Props) => {
   };
 
   return (
-    <View className='image-list'>
+    <View className="image-list">
       {renderImageList()}
     </View>
   );

@@ -1,10 +1,10 @@
-import { Button, View } from '@tarojs/components'
+import { Button, View } from '@tarojs/components';
 import { useState } from 'react';
 import { useList } from '@/core/hooks';
 import { ListStatus } from '@/common/components';
 import { List } from '@/common/models';
 import { getList } from '@/common/api/test';
-import './index.scss'
+import './index.scss';
 
 
 export default function Index() {
@@ -26,12 +26,12 @@ export default function Index() {
 
 
   return (
-    <View className='container'>
-      <View className='header'>
+    <View className="container">
+      <View className="header">
         <Button
-          type='primary'
-          size='mini'
-          style={{width: '100%'}}
+          type="primary"
+          size="mini"
+          style={{ width: '100%' }}
           onClick={() => {
             // fix: search 的查询条件值为前一次
             const nextQuery = {
@@ -51,9 +51,9 @@ export default function Index() {
         </Button>
 
         <Button
-          type='primary'
-          size='mini'
-          style={{width: '100%'}}
+          type="primary"
+          size="mini"
+          style={{ width: '100%' }}
           onClick={() => {
             getListNext();
           }}
@@ -63,12 +63,12 @@ export default function Index() {
       </View>
 
 
-      <View className='content'>
+      <View className="content">
         {
           list.map((item, index) => {
             const key = `item - ${index}`;
             return (
-              <View className='list-item' key={key}>
+              <View className="list-item" key={key}>
                 {item.title}
               </View>
             );

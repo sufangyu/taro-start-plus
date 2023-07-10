@@ -1,5 +1,5 @@
-import { CSSProperties } from "react";
-import { type PosterItemConfig, PosterRenderCore } from "@poster-render/taro/src";
+import { CSSProperties } from 'react';
+import { type PosterItemConfig, PosterRenderCore } from '@poster-render/taro/src';
 
 export interface PosterRenderBaseProps {
   /** canvasId，当有多个canvas时，需要指定canvasId，否则默认为第一个canvas */
@@ -22,7 +22,7 @@ export interface PosterRenderBaseProps {
    */
   dpr?: number;
   /** 导出图片格式 */
-  fileType?: "png" | "jpg";
+  fileType?: 'png' | 'jpg';
   /** 图片质量 0-1，只对jpg生效 */
   quality?: number;
   /** 是否开启debug */
@@ -43,7 +43,7 @@ export interface PosterRenderBaseProps {
 
 export interface PosterRenderImageProps extends PosterRenderBaseProps {
   /** 渲染类型，默认canvas */
-  renderType: "image";
+  renderType: 'image';
   /** image classname */
   className?: string;
   /** image style */
@@ -62,7 +62,7 @@ export interface PosterRenderImageProps extends PosterRenderBaseProps {
 
 export interface PosterRenderCanvasProps extends PosterRenderBaseProps {
   /** 渲染类型，默认canvas */
-  renderType: "canvas";
+  renderType: 'canvas';
   /** canvas classname */
   className?: string;
   /** canvas style */

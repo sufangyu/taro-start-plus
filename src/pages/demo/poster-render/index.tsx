@@ -1,16 +1,15 @@
-import { View, Button, Text } from '@tarojs/components'
-import Taro from "@tarojs/taro";
+import { View, Button, Text } from '@tarojs/components';
+import Taro from '@tarojs/taro';
 import { useRef, useState } from 'react';
-import { PosterItemConfig } from "@poster-render/taro-react";
-import { QRCode } from 'taro-code'
+import { PosterItemConfig } from '@poster-render/taro-react';
+import { QRCode } from 'taro-code';
 import { ImageShare } from '@/common/components';
 import { routeUtil } from '@/core/utils';
 
-import './index.scss'
+import './index.scss';
 
 
 export default function Index() {
-  
   const [renderList, setRenderList] = useState<PosterItemConfig[]>([]);
   const [visible, setVisible] = useState(false);
 
@@ -19,7 +18,7 @@ export default function Index() {
   const [qrCodeText, setQrCodeText] = useState('');
 
   const handleRenderShare = () => {
-    Taro.showLoading({title: '图片生成中', mask: true,});
+    Taro.showLoading({ title: '图片生成中', mask: true });
 
     const data = {
       cover: 'https://images.unsplash.com/photo-1624993590528-4ee743c9896e?w=1150&q=80',
@@ -36,7 +35,7 @@ export default function Index() {
       
       setRenderList([
         {
-          type: "rect",
+          type: 'rect',
           x: 0,
           y: 0,
           width: 600,
@@ -44,20 +43,20 @@ export default function Index() {
           radius: 24,
           // borderColor: '#ccc',
           // borderWidth: 2,
-          backgroundColor: "#fff",
+          backgroundColor: '#fff',
         },
         {
-          type: "image",
+          type: 'image',
           x: 0,
           y: 0,
           width: 600,
           height: 300,
-          mode: "cover",
+          mode: 'cover',
           src: data.cover,
           radius: [16, 16, 0, 0],
         },
         {
-          type: "text",
+          type: 'text',
           x: 30,
           y: 320,
           width: 520,
@@ -65,13 +64,13 @@ export default function Index() {
           text: data.title,
           lineNum: 3,
           lineHeight: 34,
-          color: "#000",
+          color: '#000',
           fontSize: 30,
-          textAlign: "left",
-          baseLine: "top",
+          textAlign: 'left',
+          baseLine: 'top',
         },
         {
-          type: "rect",
+          type: 'rect',
           x: 30,
           y: 440,
           width: 280,
@@ -79,61 +78,61 @@ export default function Index() {
           radius: 8,
           borderColor: '#e5e5e5',
           borderWidth: 1,
-          backgroundColor: "#f5f5f5",
+          backgroundColor: '#f5f5f5',
         },
         {
-          type: "text",
+          type: 'text',
           x: 34,
           y: 444,
           width: 280,
           height: 30,
           text: `发布于 ${data.createAt}`,
-          color: "#999",
+          color: '#999',
           fontSize: 22,
-          textAlign: "left",
-          baseLine: "top",
+          textAlign: 'left',
+          baseLine: 'top',
         },
         {
-          type: "line",
+          type: 'line',
           x: 30,
           y: 520,
           destX: 570,
           destY: 520,
-          color: "#eee",
+          color: '#eee',
           lineWidth: 2,
         },
         {
-          type: "text",
+          type: 'text',
           x: 30,
           y: 590,
           width: 540,
           height: 30,
-          text: "保存图片，扫码查看详情",
-          color: "#666",
+          text: '保存图片，扫码查看详情',
+          color: '#666',
           fontSize: 24,
-          textAlign: "left",
-          baseLine: "top",
+          textAlign: 'left',
+          baseLine: 'top',
         },
         {
-          type: "text",
+          type: 'text',
           x: 30,
           y: 630,
           width: 540,
           height: 30,
-          text: "分享来自「 Taro 」",
-          color: "#666",
+          text: '分享来自「 Taro 」',
+          color: '#666',
           fontSize: 24,
-          textAlign: "left",
-          baseLine: "top",
+          textAlign: 'left',
+          baseLine: 'top',
         },
 
         {
-          type: "image",
+          type: 'image',
           x: 410,
           y: 550,
           width: 160,
           height: 160,
-          mode: "cover",
+          mode: 'cover',
           src: qrCode,
           radius: 0,
           cacheKey: 'qr-code',
@@ -145,12 +144,16 @@ export default function Index() {
   };
 
   return (
-    <View className='container'>
-      <Button className='button-demo' type='primary' onClick={handleRenderShare}>生成分享图（弹窗）</Button>
-      <Button className='button-demo' type='primary' onClick={() => {
-        routeUtil.toWebviewPage('http://10.25.5.151:5173/#/share?id=20', '生成分享图');
-      }}
-      >生成分享图（页面-长按触发）</Button>
+    <View className="container">
+      <Button className="button-demo" type="primary" onClick={handleRenderShare}>生成分享图（弹窗）</Button>
+      <Button
+        className="button-demo"
+        type="primary"
+        onClick={() => {
+          routeUtil.toWebviewPage('http://10.25.5.151:5173/#/share?id=20', '生成分享图');
+        }}
+      >生成分享图（页面-长按触发）
+      </Button>
 
       <Text>目前只支持微信小程序</Text>
 
@@ -163,12 +166,12 @@ export default function Index() {
         onRender={() => {
           Taro.hideLoading();
         }}
-        onRenderFail={(err) => console.error("onRenderFail", err?.message)}
+        onRenderFail={(err) => console.error('onRenderFail', err?.message)}
         onCancel={() => {
           setVisible(false);
           setRenderList([]);
         }}
-      ></ImageShare>
+      />
 
       {/* 二维码 */}
       <QRCode
@@ -182,7 +185,7 @@ export default function Index() {
         text={qrCodeText}
         size={180}
         scale={4}
-        errorCorrectLevel='M'
+        errorCorrectLevel="M"
         typeNumber={2}
       />
     </View>

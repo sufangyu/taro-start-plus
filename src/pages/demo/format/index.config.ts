@@ -1,3 +1,3 @@
 export default definePageConfig({
-  navigationBarTitleText: '数据格式化'
+  navigationBarTitleText: '数据格式化',
 });

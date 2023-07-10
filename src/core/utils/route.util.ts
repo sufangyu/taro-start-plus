@@ -1,5 +1,32 @@
-import { appRouterConfig, tabBarList } from "@/common/router";
-import Taro from "@tarojs/taro";
+import Taro from '@tarojs/taro';
+import { appRouterConfig, tabBarList } from '@/common/router';
+
+
+interface PageOptions {
+  /** 页面路径 */
+  url: string;
+  /** 查询参数  RootQuery */
+  query? : { [key: string]: any };
+  /** 页面跳转方式 */
+  mode? : 'push' | 'replace';
+}
+
+// eslint-disable-next-line no-use-before-define
+type RouteUtil = OmitThisParameter<typeof routeUtil>
+
+
+/**
+ * 显示 错误信息
+ *
+ * @param {string} [error={ errMsg: '' }] 错误信息
+ */
+const routeErrorToast = (error = { errMsg: '' }): void => {
+  const { errMsg } = error;
+  Taro.showToast({
+    title: errMsg,
+    icon: 'none',
+  });
+};
 
 
 // tabbar 的路径
@@ -8,11 +35,10 @@ const TAB_BAR_ROUTER_PATH = (tabbarList => {
 })(tabBarList);
 
 // 跳转的方式
-const MODE_MAP: {push: string, replace: string} = {
+const MODE_MAP: {push: string; replace: string} = {
   push: 'navigateTo',
   replace: 'redirectTo',
 };
-
 
 
 export const routeUtil = {
@@ -21,7 +47,7 @@ export const routeUtil = {
    *
    * @param {PageOptions} options
    */
-  toPage(options:PageOptions):void {
+  toPage(options: PageOptions):void {
     const { url, mode = 'push', query } = options;
     const fullPath = (this as RouteUtil).getFullPath(url, query);
 
@@ -37,8 +63,8 @@ export const routeUtil = {
 
 
     Taro[toAction]({
-      url: fullPath
-    }).catch((error: { errMsg: string; } | undefined) => {
+      url: fullPath,
+    }).catch((error: { errMsg: string } | undefined) => {
       routeErrorToast(error);
     });
   },
@@ -111,7 +137,7 @@ export const routeUtil = {
   
     Taro.reLaunch({
       url,
-    }).catch((error: { errMsg: string; } | undefined) => {
+    }).catch((error: { errMsg: string } | undefined) => {
       routeErrorToast(error);
     });
   },
@@ -143,7 +169,7 @@ export const routeUtil = {
    * @param {{ [key: string]: any; }} [query] 页面参数
    * @return {*}  {string}
    */
-  getFullPath(url: string , query?: { [key: string]: any; }): string {
+  getFullPath(url: string, query?: { [key: string]: any }): string {
     if (!url) {
       return '';
     }
@@ -154,38 +180,12 @@ export const routeUtil = {
 
     const hasSearch = url.includes('?');
     const queries: string[] = [];
-    Object.keys(query??{}).forEach((key) => {
+    Object.keys(query ?? {}).forEach((key) => {
       const value = query[key];
       value && queries.push(`${key}=${value}`);
     });
 
-    const separator: "?" | "&" = hasSearch ? '&' : '?';
-    return`${url}${separator}${queries.join('&')}`;
+    const separator: '?' | '&' = hasSearch ? '&' : '?';
+    return `${url}${separator}${queries.join('&')}`;
   },
 };
-
-/**
- * 显示 错误信息
- *
- * @param {string} [error={ errMsg: '' }] 错误信息
- */
-const routeErrorToast = (error = { errMsg: '' }): void=> {
-  const { errMsg } = error;
-  Taro.showToast({
-    title: errMsg,
-    icon: 'none',
-  });
-}
-
-
-
-interface PageOptions {
-  /** 页面路径 */
-  url: string;
-  /** 查询参数  RootQuery */
-  query? : { [key: string]: any; };
-  /** 页面跳转方式 */
-  mode? : 'push' | 'replace';
-}
-
-type RouteUtil = OmitThisParameter<typeof routeUtil>

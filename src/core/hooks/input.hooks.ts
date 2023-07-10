@@ -1,5 +1,5 @@
-import { TaroEvent } from "@tarojs/components";
-import { useState } from "react";
+import { TaroEvent } from '@tarojs/components';
+import { useState } from 'react';
 
 /**
  * 处理表单的输入赋值
@@ -70,7 +70,7 @@ export default function useInput<T>(initialState: T): [
       setVal(value);
     }
     return value as T;
-  };
+  }
 
   return [val, handleInput];
 }

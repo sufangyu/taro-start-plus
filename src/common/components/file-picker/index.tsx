@@ -6,7 +6,9 @@ import ButtonRemove from './components/remove';
 import Uploader from './components/uploader';
 
 import './index.scss';
-import { Camera, MediaItem, MediaType, SizeType, Sources } from './types';
+import {
+  Camera, MediaItem, MediaType, SizeType, Sources, 
+} from './types';
 
 
 interface Props {
@@ -64,14 +66,14 @@ const Index = (props: Props) => {
       current: urls[index],
       urls,
     });
-  }
+  };
 
   /**
    * 预览视频
    * @param index 
    */
   const handlePreviewVideo = (index: number) => {
-    const sources: Sources[] = files.map((file)=>({
+    const sources: Sources[] = files.map((file) => ({
       url: file.url,
       poster: file.thumbTemp!,
       type: 'video',
@@ -84,7 +86,7 @@ const Index = (props: Props) => {
         Taro.showToast({ title: '预览视频失败', icon: 'none' });
       },
     });
-  }
+  };
 
   /**
    * 删除图片
@@ -109,7 +111,7 @@ const Index = (props: Props) => {
     const newImages = files.filter((_item, idx) => idx !== index);
     setFiles(() => newImages);
     onChange(newImages);
-  }
+  };
 
   /**
    * 上传成功回调
@@ -132,12 +134,12 @@ const Index = (props: Props) => {
 
       return (
         <View
-          className='file-item'
+          className="file-item"
           key={key}
           onClick={() => {
             file.fileType === 'video'
               ? handlePreviewVideo(idx)
-              : handlePreviewImage(idx)
+              : handlePreviewImage(idx);
           }}
           style={{
             width: size && Taro.pxTransform(size),
@@ -145,7 +147,7 @@ const Index = (props: Props) => {
             margin: space && Taro.pxTransform(space),
           }}
         >
-          <Image mode='aspectFill' src={file.fileType === 'video' ? file.thumbTemp! : file.url} />
+          <Image mode="aspectFill" src={file.fileType === 'video' ? file.thumbTemp! : file.url} />
           <ButtonRemove
             onClick={(e) => {
               e.stopPropagation();
@@ -158,7 +160,7 @@ const Index = (props: Props) => {
   };
 
   return (
-    <View className='file-picker'>
+    <View className="file-picker">
       {renderList()}
 
       {

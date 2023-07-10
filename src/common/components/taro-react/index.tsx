@@ -6,12 +6,12 @@ import {
   useRef,
   useState,
   memo,
-} from "react";
-import { nextTick, previewImage } from "@tarojs/taro";
-import { PosterRenderCore, PosterItemConfig } from "@poster-render/taro/src";
-import type { PosterRenderProps, PosterRenderRef } from "./types";
-import { PosterRenerCanvas } from "./canvas";
-import { Image, View } from "@tarojs/components";
+} from 'react';
+import { nextTick, previewImage } from '@tarojs/taro';
+import { PosterRenderCore, PosterItemConfig } from '@poster-render/taro/src';
+import { Image, View } from '@tarojs/components';
+import type { PosterRenderProps, PosterRenderRef } from './types';
+import { PosterRenerCanvas } from './canvas';
 
 const PosterRenderReact: ForwardRefRenderFunction<
   PosterRenderRef,
@@ -20,108 +20,117 @@ const PosterRenderReact: ForwardRefRenderFunction<
   const posterRenderCore = useRef<PosterRenderCore>();
   const [url, setUrl] = useState<string>();
 
+  const {
+    canvasId, canvasWidth, canvasHeight, destWidth, destHeight,
+    quality, fileType, dpr, debug, list, renderType, style, className,
+    onRenderFail, onSave, onSaveFail, onLongTap,
+  } = props;
+
   useEffect(() => {
     nextTick(async () => {
       setTimeout(async () => {
         const poster = new PosterRenderCore({
-          id: props.canvasId || "taro-poster-render",
-          width: props.canvasWidth,
-          height: props.canvasHeight,
-          destWidth: props.destWidth,
-          destHeight: props.destHeight,
-          quality: props.quality || 1,
-          fileType: props.fileType || "png",
-          dpr: props.dpr,
-          debug: props.debug,
-          onRender: (url) => {
-            props?.onRender?.(url!);
-            setUrl(url || "");
+          id: canvasId || 'taro-poster-render',
+          width: canvasWidth,
+          height: canvasHeight,
+          destWidth,
+          destHeight,
+          quality: quality || 1,
+          fileType: fileType || 'png',
+          dpr,
+          debug,
+          onRender: (urlRes) => {
+            props?.onRender?.(urlRes!);
+            setUrl(urlRes || '');
           },
-          onRenderFail: props.onRenderFail,
-          onSave: props.onSave,
-          onSaveFail: props.onSaveFail,
+          onRenderFail,
+          onSave,
+          onSaveFail,
         });
   
         await poster.init();
-        await poster.preloadImage(props.list);
+        await poster.preloadImage(list);
         poster.clearCanvas();
-        await poster.render(props.list, props.renderType);
+        await poster.render(list, renderType);
   
         posterRenderCore.current = poster;
-      }, 50)
+      }, 50);
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
+    // const { list, renderType } = props;
     posterRenderCore.current?.clearCanvas();
-    posterRenderCore.current?.render(props.list, props.renderType);
+    posterRenderCore.current?.render(list, renderType);
+  // eslint-disable-next-line react-hooks/exhaustive-deps, react/destructuring-assignment
   }, [props.list]);
 
   useImperativeHandle(ref, () => ({
-    savePosterToPhoto: async () =>
-      await posterRenderCore.current?.savePosterToPhoto?.(),
+    savePosterToPhoto: async () => posterRenderCore.current?.savePosterToPhoto?.(),
     preview: async () => {
       try {
         if (posterRenderCore.current) {
           const res = await posterRenderCore.current?.canvasToTempFilePath();
           await previewImage({ urls: [res], current: res });
         }
-      } catch (e) {}
+      } catch (_) {}
     },
     render: async (
       config?:
         | PosterItemConfig[]
-        | ((instance: PosterRenderCore) => PosterItemConfig[])
+        | ((instance: PosterRenderCore) => PosterItemConfig[]),
     ) => {
       posterRenderCore.current?.clearCanvas();
-      return await posterRenderCore.current?.render(
-        config || props.list,
-        props.renderType
+      return posterRenderCore.current?.render(
+        config || list,
+        renderType,
       );
     },
   }));
 
-  if (props.renderType === "canvas") {
+  if (renderType === 'canvas') {
     return (
       <PosterRenerCanvas
-        className={props.className}
-        style={props.style}
-        id={props.canvasId}
-        width={props.canvasWidth}
-        height={props.canvasHeight}
-        onLongTap={props.onLongTap}
+        className={className}
+        style={style}
+        id={canvasId}
+        width={canvasWidth}
+        height={canvasHeight}
+        onLongTap={onLongTap}
       />
     );
   }
 
   return (
     <View
-      className={props.className}
-      style={{ position: "relative", overflow: "hidden", ...props.style }}
+      className={className}
+      style={{ position: 'relative', overflow: 'hidden', ...style }}
     >
       <PosterRenerCanvas
         style={{
-          width: "100%",
-          height: "100%",
-          position: "absolute",
+          width: '100%',
+          height: '100%',
+          position: 'absolute',
           left: 0,
           top: 0,
           zIndex: 1,
         }}
-        id={props.canvasId}
-        width={props.canvasWidth}
-        height={props.canvasHeight}
+        id={canvasId}
+        width={canvasWidth}
+        height={canvasHeight}
       />
       {url && (
         <Image
           src={url}
           style={{
-            width: "100%",
-            height: "100%",
-            position: "relative",
+            width: '100%',
+            height: '100%',
+            position: 'relative',
             zIndex: 2,
           }}
           onLongPress={() => props?.onLongTap?.(url)}
+          // eslint-disable-next-line react/destructuring-assignment
           showMenuByLongpress={props.showMenuByLongpress}
         />
       )}
@@ -135,9 +144,11 @@ function isEqual(prevList: PosterItemConfig[], nextList: PosterItemConfig[]) {
   }
 
   // @ts-ignore
-  for (let [i, item] of prevList.entries()) {
-    for (let [k, v] of Object.entries(item)) {
-      if (typeof v === "function" || v !== nextList[i][k]) {
+  // eslint-disable-next-line no-restricted-syntax
+  for (const [i, item] of prevList.entries()) {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const [k, v] of Object.entries(item)) {
+      if (typeof v === 'function' || v !== nextList[i][k]) {
         return false;
       }
     }
@@ -154,12 +165,12 @@ export const PosterRender = memo(
       return true;
     }
 
-    if (typeof prev.list === "function" || typeof next.list === "function") {
+    if (typeof prev.list === 'function' || typeof next.list === 'function') {
       return false;
     }
 
     return isEqual(prev.list, next.list);
-  }
+  },
 );
 
 export type { PosterRenderProps, PosterRenderRef, PosterItemConfig };

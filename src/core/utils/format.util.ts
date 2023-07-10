@@ -72,4 +72,4 @@ export const formatUtil = {
 
     return this.date(target, fmt);
   },
-}
+};

@@ -1,13 +1,14 @@
-import {StorageKey} from '@/common/constants'
+/* eslint-disable no-use-before-define, import/extensions */
+import { StorageKey } from '@/common/constants';
 import { appUtil, storageUtil } from '@/core/utils';
-import {ENV_MAP} from './api.config'
+import { ENV_MAP } from './api.config';
 
 
 // 默认环境标识
 export const ENV_CODE_DEFAULT = getDefaultEnvCode();
 
 
-let isReadStore = ['develop', 'trial'].includes(appUtil.getConfig().envVersion);
+const isReadStore = ['develop', 'trial'].includes(appUtil.getConfig().envVersion);
 
 // 当前环境标识
 export const ENV_CODE = isReadStore

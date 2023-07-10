@@ -1,11 +1,11 @@
-import rule from "./rule";
+import rule from './rule';
 
 export type Name = keyof typeof rule;
 export type Value = string | boolean | any[];
 
 
 export interface RuleItem {
-  /** 校验类型*/
+  /** 校验类型 */
   type: Name;
   /** 错误提示内容 */
   msg: string;

@@ -2,7 +2,9 @@ import { View } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 
 import '../index.scss';
-import { Camera, MediaItem, MediaType, SizeType } from '../types';
+import {
+  Camera, MediaItem, MediaType, SizeType, 
+} from '../types';
 
 interface Props {
   /** 媒体类型. 'image', 'video', 'mix' */
@@ -25,8 +27,8 @@ const Uploader = (props: Props) => {
   const {
     limit = 9, onSuccess = () => {}, 
     mediaType = ['image'],
-    sizeType= ['compressed'],
-    camera=Camera.back,
+    sizeType = ['compressed'],
+    camera = Camera.back,
     maxDuration = 30,
     size,
     space,
@@ -36,15 +38,15 @@ const Uploader = (props: Props) => {
     try {
       const result = await Taro.chooseMedia({
         count: limit,
-        mediaType: mediaType,
-        maxDuration: maxDuration,
+        mediaType,
+        maxDuration,
         camera: camera as unknown as string,
-        sizeType: sizeType,
+        sizeType,
       });
       console.log('chooseMedia result=>>', result);
   
       if (result.errMsg.includes('fail')) {
-        Taro.showToast({title:'文件选择失败, 请重试'});
+        Taro.showToast({ title: '文件选择失败, 请重试' });
         return;
       }
   
@@ -69,7 +71,7 @@ const Uploader = (props: Props) => {
 
   return (
     <View
-      className='file-uploader'
+      className="file-uploader"
       onClick={() => {
         handleChooseImage();
       }}

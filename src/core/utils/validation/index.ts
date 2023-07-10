@@ -1,5 +1,7 @@
-import rule from "./rule";
-import { RuleItem, Item, Name, Value } from "./types";
+import rule from './rule';
+import {
+  RuleItem, Item, Name, Value, 
+} from './types';
 
 
 /**
@@ -56,7 +58,7 @@ class Validation {
    */
   add(value: Value, rules: RuleItem[]): void;
 
-  public add(value: Value, rules: Name | RuleItem[], msg?: string ) {
+  public add(value: Value, rules: Name | RuleItem[], msg?: string) {
     if (Array.isArray(rules)) {
       // 多个校验规则
       const validatorList = rules.map((item) => {
@@ -67,7 +69,7 @@ class Validation {
           minLen: item.minLen,
           maxLen: item.maxLen,
           validator: item.validator,
-        }
+        };
       });
 
       this.list.push(...validatorList);
@@ -81,6 +83,7 @@ class Validation {
     }
     // console.log('list=>>', this.list);
   }
+
   /**
    * 开始校验
    *
@@ -88,7 +91,7 @@ class Validation {
    * @memberof Validation
    */
   public run(): string {
-    for(let i = 0; i < this.list.length; i++) {
+    for (let i = 0; i < this.list.length; i += 1) {
       const {
         value, type, msg, minLen, maxLen, validator,
       } = this.list[i];
@@ -110,4 +113,4 @@ class Validation {
   }
 }
 
-export {Validation};
+export { Validation };

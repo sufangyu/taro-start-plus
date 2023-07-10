@@ -1,7 +1,9 @@
-import { BaseEventOrig, View, WebView, WebViewProps } from '@tarojs/components'
+import {
+  BaseEventOrig, View, WebView, WebViewProps, 
+} from '@tarojs/components';
 import Taro, { useLoad, useRouter } from '@tarojs/taro';
 
-import './index.scss'
+import './index.scss';
 
 interface ErrorDetail {
   errMsg: string;
@@ -25,16 +27,16 @@ export default function Index() {
 
   const onError = (ev: BaseEventOrig<WebViewProps.onErrorEventDetail>) => {
     console.log('onError=>>', ev.detail);
-    let errMsg = (ev.detail as unknown as ErrorDetail).errMsg;
+    let { errMsg } = (ev.detail as unknown as ErrorDetail);
 
-    if (errMsg.includes('not in domain list')){
-      errMsg = `加载失败, ${(ev.detail as unknown as ErrorDetail).url}不在业务域名配置列表中`
+    if (errMsg.includes('not in domain list')) {
+      errMsg = `加载失败, ${(ev.detail as unknown as ErrorDetail).url}不在业务域名配置列表中`;
     }
 
     Taro.showToast({
       title: errMsg,
       icon: 'none',
-    })
+    });
   };
 
   const onMessage = (ev: BaseEventOrig<WebViewProps.onMessageEventDetail>) => {
@@ -43,7 +45,7 @@ export default function Index() {
 
 
   return (
-    <View className='container-webview'>
+    <View className="container-webview">
       <WebView
         src={url}
         onLoad={onLoad}
@@ -51,5 +53,5 @@ export default function Index() {
         onMessage={onMessage}
       />
     </View>
-  )
+  );
 }

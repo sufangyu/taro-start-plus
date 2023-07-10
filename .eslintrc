@@ -1,7 +1,92 @@
 {
-  "extends": ["taro/react"],
+  "extends": [
+    "taro/react",
+    "taro",
+    "eslint-config-airbnb",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "useJSXTextNode": true,
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["@typescript-eslint"],
   "rules": {
+    "no-console": "off",
+    "no-trailing-spaces": "off", // 允许在空行、在注释块中使用空白符
+    // "no-unused-vars": ["error", { "varsIgnorePattern": "Taro" }],
+    "no-unused-vars": "off",
+    "no-shadow": "off",
+    "no-param-reassign": ["error", { "props": false }],
+    "no-nested-ternary": "off", // 嵌套三目条件
+    "jsx-quotes": ["error", "prefer-double"],
+    // "comma-dangle": "off",
+    "no-async-promise-executor": "off",
+    "class-methods-use-this": "off",
+    "linebreak-style": "off", // 回车换行风格
+    "arrow-parens": "off",
+    "arrow-body-style": "off", // 箭头函数不强制以用块体（用花括号表示）
+    "prefer-object-spread": "off",
+    "import/no-unresolved": "off",
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": "off",
+    "no-multiple-empty-lines": ["error", { "max": 2, "maxEOF": 2 }],
+    "no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true }],
+    "no-empty": ["error", { "allowEmptyCatch": true }],
+    "default-param-last": "off",
+    "function-paren-newline": "off",
+    // "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
+    "import/extensions": [
+      "error",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never",
+        "png": "always",
+        "jpg": "always",
+        "jpeg": "always",
+        "webp": "always",
+        "svg": "always"
+     }
+    ],
+
     "react/jsx-uses-react": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/jsx-wrap-multilines": ["error", { "declaration": false, "assignment": false }],
+    "react/jsx-one-expression-per-line": "off",
+    "react/no-deprecated": "off",
+    "react/static-property-placement": "off",
+    "react/require-default-props": "off",
+    "react/prop-types": ["error", { "ignore": ["children"] }],
+    "react/function-component-definition": "off",
+    "react/no-unused-class-component-methods": "off",
+
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-unused-vars": ["error", { "varsIgnorePattern": "Taro" }],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-inferrable-types": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/member-delimiter-style": ["error", {
+      "multiline": {
+        "delimiter": "semi",
+        "requireLast": true
+      },
+      "singleline": {
+        "delimiter": "semi",
+        "requireLast": false
+      }
+    }]
   }
 }

@@ -1,3 +1,3 @@
 export default definePageConfig({
-  navigationBarTitleText: '切换环境'
+  navigationBarTitleText: '切换环境',
 });

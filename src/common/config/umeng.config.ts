@@ -9,4 +9,4 @@ const umengConfig = {
   mpLarkAppKey: '64a3cb2fa1a164591b4216da',
 };
 
-export {umengConfig};
+export { umengConfig };

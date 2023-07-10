@@ -1,11 +1,11 @@
-import { View, Text, Button } from '@tarojs/components'
-import Taro, { useRouter } from '@tarojs/taro'
+import { View, Button } from '@tarojs/components';
+import Taro, { useRouter } from '@tarojs/taro';
+import { useRef } from 'react';
 import { useAccountStore } from '@/common/store';
 import { routeUtil } from '@/core/utils';
 import { appRouterConfig } from '@/common/router';
-import { useRef } from 'react';
 
-import './index.scss'
+import './index.scss';
 
 
 export default function Index() {
@@ -18,9 +18,9 @@ export default function Index() {
     console.log('Taro.login=>>', result);
 
     const account = {
-      token:'token-xxx-?-yy-asd-zs',
+      token: 'token-xxx-?-yy-asd-zs',
       name: '张三疯',
-      age: 18
+      age: 18,
     };
     accountStore.login(account);
 
@@ -41,18 +41,20 @@ export default function Index() {
   };
 
   return (
-    <View className='container'>
+    <View className="container">
       <Button
-        type='primary'
+        type="primary"
         onClick={handleLogin}
-      >登录（模拟）</Button>
+      >登录（模拟）
+      </Button>
 
       <View
-        style={{marginTop: 125, textAlign: 'center', color: '#007fff'}}
+        style={{ marginTop: 125, textAlign: 'center', color: '#007fff' }}
         onClick={() => routeUtil.toPage({
           url: appRouterConfig.register.path,
         })}
-      >没有账号？现在注册</View>
+      >没有账号？现在注册
+      </View>
     </View>
-  )
+  );
 }

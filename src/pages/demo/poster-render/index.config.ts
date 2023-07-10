@@ -1,3 +1,3 @@
 export default definePageConfig({
-  navigationBarTitleText: '海报分享图'
+  navigationBarTitleText: '海报分享图',
 });

@@ -1,6 +1,6 @@
 // import { ButtonProps } from "@tarojs/components";
 
-type 	OpenType = 'contact'
+type OpenType = 'contact'
   | 'share'
   | 'getPhoneNumber'
   // | 'getRealtimePhoneNumber'

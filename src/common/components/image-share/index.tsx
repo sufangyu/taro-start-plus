@@ -1,8 +1,8 @@
-import Taro, { pxTransform } from "@tarojs/taro";
-import { useRef , FC } from 'react';
+import Taro, { pxTransform } from '@tarojs/taro';
+import { useRef, FC } from 'react';
 import classNames from 'classnames';
-import { PosterRender, PosterRenderRef, PosterItemConfig } from "@poster-render/taro-react";
-import { View, ScrollView, Text} from "@tarojs/components";
+import { PosterRender, PosterRenderRef, PosterItemConfig } from '@poster-render/taro-react';
+import { View, ScrollView, Text } from '@tarojs/components';
 
 import './index.scss';
 
@@ -15,8 +15,8 @@ interface Props {
   height: number;
   /** 配置列表 */
   list: PosterItemConfig[];
-  /** 二维码的文本内容 */
-  qrCodeText?: string;
+  // /** 二维码的文本内容 */
+  // qrCodeText?: string;
 
   /** 渲染成功回调 */
   onRender?: () => void;
@@ -55,7 +55,7 @@ const Index:FC<Props> = (props: Props) => {
       title: '正在保存...',
     });
     await posterRender.current?.savePosterToPhoto();
-  }
+  };
 
   const rootClass = classNames({
     'image-share__wrapper': true,
@@ -65,32 +65,32 @@ const Index:FC<Props> = (props: Props) => {
 
   return (
     <View className={rootClass}>
-      <View className='image-share__overlay'></View>
+      <View className="image-share__overlay" />
       <PosterRender
         ref={posterRender}
-        canvasId='taro-poster-render'
-        renderType='canvas'
+        canvasId="taro-poster-render"
+        renderType="canvas"
         canvasWidth={width}
         canvasHeight={height}
         debug
         style={{
-            width: pxTransform(width),
-            height: pxTransform(height),
-            marginTop: 40,
-          }}
+          width: pxTransform(width),
+          height: pxTransform(height),
+          marginTop: 40,
+        }}
         list={list ?? []}
         onRender={onRender}
         onRenderFail={onRenderFail}
         onLongTap={onLongTap}
         onSave={(url) => {
-            Taro.showToast({
-              title: '保存成功',
-              icon: 'success',
-            });
+          Taro.showToast({
+            title: '保存成功',
+            icon: 'success',
+          });
             onSave!(url);
-          }}
+        }}
         onSaveFail={(err) => {
-            console.warn('', err);
+          console.warn('', err);
             onSaveFail!(err);
 
             if ((err?.errMsg as string).includes('cancel')) {
@@ -102,44 +102,41 @@ const Index:FC<Props> = (props: Props) => {
               title: '保存失败',
               icon: 'error',
             });
-            
-          }}
+        }}
       />
 
-      <View className='image-share__footer'>
+      <View className="image-share__footer">
         <ScrollView 
           scrollX
-          className='image-share__actions__wrapper'
+          className="image-share__actions__wrapper"
         >
-          <View className='image-share__actions'>
-            <View className='action-item'>
-              <View className='ic-action'></View>
+          <View className="image-share__actions">
+            <View className="action-item">
+              <View className="ic-action" />
               <Text>微信</Text>
             </View>
-            <View className='action-item'>
-              <View className='ic-action'></View>
+            <View className="action-item">
+              <View className="ic-action" />
               <Text>朋友圈</Text>
             </View>
-            <View className='action-item' onClick={handleSave}>
-              <View className='ic-action'></View>
+            <View className="action-item" onClick={handleSave}>
+              <View className="ic-action" />
               <Text>保存图片</Text>
             </View>
           </View>
         </ScrollView>
-        <View className='image-share__cancel' onClick={onCancel}>取消</View>
+        <View className="image-share__cancel" onClick={onCancel}>取消</View>
       </View>
     </View>
   );
 };
 
 Index.defaultProps = {
-  visible: false,
   onRender: () => {},
   onRenderFail: () => {},
   onLongTap: () => {},
   onSave: () => {},
   onSaveFail: () => {},
-  onCancel: () => {},
 };
 
 export default Index;

@@ -8,6 +8,7 @@ import { appUtil } from '@/core/utils';
 const isDebug = false;
 
 if (isDebug || appUtil.getConfig().envVersion === 'release') {
+  // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
   const umeng = require('@/core/analysis/umeng').default;
   Taro.umeng = umeng;
 }

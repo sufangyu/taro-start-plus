@@ -35,7 +35,7 @@ const interceptors = {
     console.log('%c---------------------------------------------------------------', 'color: magenta');
     console.log('[HTTP REQUEST]', `${options.method?.toUpperCase()} ${options.url}`);
     console.log('[HTTP REQUEST] headers:', options.headers);
-    console.log('[HTTP REQUEST] data:',options.data);
+    console.log('[HTTP REQUEST] data:', options.data);
     console.log('%c---------------------------------------------------------------', 'color: magenta');
 
     return options;

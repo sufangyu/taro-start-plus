@@ -1,4 +1,4 @@
-import Taro from "@tarojs/taro";
+import Taro from '@tarojs/taro';
 
 export const storageUtil = {
   /**
@@ -7,7 +7,7 @@ export const storageUtil = {
    * @param data
    */
   set(key: string, data:any):void {
-    Taro.setStorage({key, data});
+    Taro.setStorage({ key, data });
   },
 
   /**
@@ -43,29 +43,29 @@ export const storageUtil = {
    * 删除指定缓存
    * @param key
    */
-  remove(key:string):void  {
-    Taro.removeStorage({key});
+  remove(key:string):void {
+    Taro.removeStorage({ key });
   },
 
   /**
    * 删除指定缓存（同步版）
    * @param key
    */
-  removeAsync(key):void  {
+  removeAsync(key):void {
     Taro.removeStorageSync(key);
   },
 
   /**
    * 清除全部缓存
    */
-  clear(){
+  clear() {
     Taro.clearStorage();
   },
 
   /**
    * 清除全部缓存（同步版）
    */
-  clearSync(){
+  clearSync() {
     Taro.clearStorageSync();
   },
 

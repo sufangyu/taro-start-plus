@@ -1,8 +1,10 @@
-import { Button, View, ButtonProps, CommonEventFunction } from "@tarojs/components"
-import classNames from "classnames";
+import {
+  Button, View, ButtonProps, CommonEventFunction, 
+} from '@tarojs/components';
+import classNames from 'classnames';
 
-import './index.scss'
-import { Action } from "./types";
+import './index.scss';
+import { Action } from './types';
 
 interface Props extends Action {
   /** 子元素 */
@@ -10,19 +12,19 @@ interface Props extends Action {
   /** 点击触发时间 */
   onClick?: Function;
   /** 用户点击该按钮时，会返回获取到的用户信息 */
-  onGetUserInfo?: CommonEventFunction<ButtonProps.onGetUserInfoEventDetail>,
+  onGetUserInfo?: CommonEventFunction<ButtonProps.onGetUserInfoEventDetail>;
   /** 获取用户手机号回调 */
-  onGetPhoneNumber?: CommonEventFunction<ButtonProps.onGetPhoneNumberEventDetail>,
+  onGetPhoneNumber?: CommonEventFunction<ButtonProps.onGetPhoneNumberEventDetail>;
   /** 在打开授权设置页后回调 */
-  onOpenSetting?: CommonEventFunction<ButtonProps.onOpenSettingEventDetail>,
+  onOpenSetting?: CommonEventFunction<ButtonProps.onOpenSettingEventDetail>;
   /** 客服消息回调 */
-  onContact?: CommonEventFunction<ButtonProps.onContactEventDetail>,
+  onContact?: CommonEventFunction<ButtonProps.onContactEventDetail>;
   /** 打开 APP 成功的回调 */
-  onLaunchApp?: CommonEventFunction,
+  onLaunchApp?: CommonEventFunction;
   /** 获取用户头像回调 */
-  onChooseAvatar?: CommonEventFunction,
+  onChooseAvatar?: CommonEventFunction;
   /** 当使用开放能力时，发生错误的回调 */
-  onError?: CommonEventFunction,
+  onError?: CommonEventFunction;
 }
 
 const Index = (props: Props) => {
@@ -48,8 +50,9 @@ const Index = (props: Props) => {
     }
   };
 
+  const { children } = props;
   const rootClass = classNames({
-    'actionsheet__item': true,
+    actionsheet__item: true,
     'actionsheet__item--disabled': disabled,
     'actionsheet__item--open': openType,
   });
@@ -61,7 +64,8 @@ const Index = (props: Props) => {
     >
       {
         openType
-          ? <Button
+          ? (
+            <Button
               openType={openType}
               onGetUserInfo={onGetUserInfo}
               onGetPhoneNumber={onGetPhoneNumber}
@@ -70,13 +74,16 @@ const Index = (props: Props) => {
               onLaunchApp={onLaunchApp}
               onChooseAvatar={onChooseAvatar}
               onError={onError}
-          >{ props.children}</Button>
+            >
+              { children}
+            </Button>
+          )
           : (
             <>
-              <View style={{ color: color }}>
-                { props.children}
+              <View style={{ color }}>
+                { children}
               </View>
-              {subname && <View className='subname'>{subname}</View>}
+              {subname && <View className="subname">{subname}</View>}
             </>
           )
       }

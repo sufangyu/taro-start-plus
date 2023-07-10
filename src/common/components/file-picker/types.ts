@@ -6,7 +6,7 @@ export interface MediaItem {
   /** 封面图. 视频类型才有 */
   thumbTemp?: string;
   /** 文件类型. image、video  */
-  fileType?: 'image' | 'video',
+  fileType?: 'image' | 'video';
 }
 
 export enum MediaType {
@@ -32,9 +32,9 @@ export enum Camera {
 
 export interface Sources {
   /** 图片或视频的地址 */
-  url: string
+  url: string;
   /** 资源的类型（图片或视频），默认值：image */
-  type?: 'image' | 'video'
+  type?: 'image' | 'video';
   /** 视频的封面图片 */
-  poster?: string
+  poster?: string;
 }

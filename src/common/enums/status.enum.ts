@@ -9,14 +9,14 @@ export enum StatusEnum {
 /** 状态描述 */
 export const StatusMessage = {
   0: '禁用',
-  1: '正常'
-}
+  1: '正常',
+};
 
 /** 状态下一个动作描述 */
 export const StatusNextMessage = {
   0: '启用',
-  1: '停用'
-}
+  1: '停用',
+};
 
 /** 状态描述类型 */
 export type StatusType = keyof typeof StatusMessage

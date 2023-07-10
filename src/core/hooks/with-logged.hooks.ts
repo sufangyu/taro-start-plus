@@ -1,7 +1,7 @@
-import { useCallback } from "react";
-import { useAccountStore } from "@/common/store";
-import Taro from "@tarojs/taro";
-import { routeUtil } from "../utils";
+import { useCallback } from 'react';
+import Taro from '@tarojs/taro';
+import { useAccountStore } from '@/common/store';
+import { routeUtil } from '../utils';
 
 
 /**
@@ -25,7 +25,6 @@ export default function useWithLogged(fn: Function) {
       if (confirm) {
         routeUtil.toLoginPage('push');
       }
-      return;
     }
   }, [fn, accountStore.isLogged]);
 }

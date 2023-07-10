@@ -1,10 +1,9 @@
-import { View } from '@tarojs/components'
+import { View } from '@tarojs/components';
 import { ImagePreview } from '@/common/components';
 
-import './index.scss'
+import './index.scss';
 
 export default function Index() {
-
   const images: string[] = [
     'https://images.unsplash.com/photo-1620476214170-1d8080f65cdb?w=1150&q=80',
     'https://images.unsplash.com/photo-1601128533718-374ffcca299b?w=1150&q=80',
@@ -15,57 +14,57 @@ export default function Index() {
   ];
 
   return (
-    <View className='container'>
-      <View className='demo'>
-        <View className='demo-title'>剩余张数</View>
-        <View className='demo-content'>
+    <View className="container">
+      <View className="demo">
+        <View className="demo-title">剩余张数</View>
+        <View className="demo-content">
           <ImagePreview
             images={images}
-            tipsText='left'
+            tipsText="left"
           />
-          <View className='space' />
+          <View className="space" />
           <ImagePreview
             images={images}
             limit={2}
-            tipsText='left'
+            tipsText="left"
           />
         </View>
       </View>
 
-      <View className='divider' />
+      <View className="divider" />
 
-      <View className='demo'>
-        <View className='demo-title'>全部张数</View>
-        <View className='demo-content'>
+      <View className="demo">
+        <View className="demo-title">全部张数</View>
+        <View className="demo-content">
           <ImagePreview
             images={images}
-            tipsText='count'
+            tipsText="count"
           />
-          <View className='space' />
+          <View className="space" />
           <ImagePreview
             images={images}
             limit={2}
-            tipsText='count'
+            tipsText="count"
           />
         </View>
       </View>
 
-      <View className='divider' />
+      <View className="divider" />
 
-      <View className='demo'>
-        <View className='demo-title'>没提示信息</View>
-        <View className='demo-content'>
+      <View className="demo">
+        <View className="demo-title">没提示信息</View>
+        <View className="demo-content">
           <ImagePreview
             images={images}
             tipsText={false}
           />
-          <View className='space' />
+          <View className="space" />
           <ImagePreview
             images={images}
             limit={2}
             tipsText={false}
           />
-          <View className='space' />
+          <View className="space" />
           <ImagePreview
             images={images}
             limit={images.length}
@@ -74,15 +73,15 @@ export default function Index() {
         </View>
       </View>
 
-      <View className='divider' />
+      <View className="divider" />
 
-      <View className='demo'>
-        <View className='demo-title'>自定义尺寸</View>
-        <View className='demo-content'>
+      <View className="demo">
+        <View className="demo-title">自定义尺寸</View>
+        <View className="demo-content">
           <ImagePreview
             images={images}
             limit={3}
-            tipsText='left'
+            tipsText="left"
             size={220}
             space={8}
           />
@@ -90,5 +89,5 @@ export default function Index() {
       </View>
 
     </View>
-  )
+  );
 }

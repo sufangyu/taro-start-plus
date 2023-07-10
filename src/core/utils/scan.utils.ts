@@ -1,4 +1,4 @@
-import Taro from "@tarojs/taro";
+import Taro from '@tarojs/taro';
 
 const scanUtil = {
   /**
@@ -8,6 +8,7 @@ const scanUtil = {
    * @return {*}  {Promise<Taro.scanCode.SuccessCallbackResult>}
    */
   scan(onlyFromCamera?: boolean): Promise<Taro.scanCode.SuccessCallbackResult> {
+    // eslint-disable-next-line no-async-promise-executor
     return new Promise(async (resolve, reject) => {
       try {
         const result = await Taro.scanCode({
@@ -38,4 +39,4 @@ const scanUtil = {
   },
 };
 
-export { scanUtil};
+export { scanUtil };

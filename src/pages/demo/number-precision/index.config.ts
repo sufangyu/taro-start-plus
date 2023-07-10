@@ -1,3 +1,3 @@
 export default definePageConfig({
-  navigationBarTitleText: '小数精度'
+  navigationBarTitleText: '小数精度',
 });

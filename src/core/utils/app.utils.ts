@@ -1,4 +1,6 @@
-import Taro from "@tarojs/taro";
+import { isFunction } from '@tarojs/shared';
+import Taro from '@tarojs/taro';
+
 
 export const appUtil = {
   /**
@@ -33,11 +35,11 @@ export const appUtil = {
     }
 
     const systemInfo: typeof Taro.globalSystemInfo = Taro.getSystemInfoSync() || {
-      model: "",
-      system: ""
+      model: '',
+      system: '',
     };
 
-    let ios = !!(systemInfo.system.toLowerCase().search("ios") + 1);
+    const ios = !!(systemInfo.system.toLowerCase().search('ios') + 1);
     // 胶囊数据
     let rect: Taro.getMenuButtonBoundingClientRect.Rect | null;
 
@@ -47,14 +49,13 @@ export const appUtil = {
         : null;
       
       if (rect === null) {
-        throw "getMenuButtonBoundingClientRect error";
+        throw new Error('getMenuButtonBoundingClientRect error');
       }
 
       // 取值为0的情况（有可能width不为0 top为0的情况）
       if (!rect.width || !rect.top || !rect.left || !rect.height) {
-        throw "getMenuButtonBoundingClientRect error";
+        throw new Error('getMenuButtonBoundingClientRect error');
       }
-
     } catch (error) {
       // 胶囊按钮上下间距 使导航内容居中
       let gap = 0;
@@ -62,12 +63,14 @@ export const appUtil = {
       let width = 96;
 
       switch (systemInfo.platform) {
-        case "android":
+        case 'android':
           gap = 8;
           width = 96;
-        case "devtools":
+          break;
+        case 'devtools':
           // 开发工具: ios(5.5)、android和其他手机（7.5）
           gap = ios ? 5.5 : 7.5;
+          break;
         default:
           gap = 4;
           width = 88;
@@ -75,8 +78,7 @@ export const appUtil = {
 
       if (!systemInfo.statusBarHeight) {
         // 开启wifi的情况下修复statusBarHeight值获取不到
-        systemInfo.statusBarHeight =
-          systemInfo.screenHeight - systemInfo.windowHeight - 20;
+        systemInfo.statusBarHeight = systemInfo.screenHeight - systemInfo.windowHeight - 20;
       }
 
       rect = {
@@ -86,7 +88,7 @@ export const appUtil = {
         left: systemInfo.windowWidth - width - 10,
         right: systemInfo.windowWidth - 10,
         top: systemInfo.statusBarHeight + gap,
-        width: width
+        width,
       };
       // console.warn("error", error);
       // console.info("rect", rect);
@@ -97,18 +99,18 @@ export const appUtil = {
       // 开启wifi和打电话下
       systemInfo.statusBarHeight = systemInfo.screenHeight - systemInfo.windowHeight - 20;
 
-      navBarHeight = (function () {
-        let gap = rect.top - systemInfo.statusBarHeight;
+      navBarHeight = (function _getHeight() {
+        const gap = rect.top - systemInfo.statusBarHeight;
         return 2 * gap + rect.height;
-      })();
+      }());
 
       systemInfo.statusBarHeight = 0;
       systemInfo.navBarExtendHeight = 0;
     } else {
-      navBarHeight = (function () {
-        let gap = rect.top - systemInfo.statusBarHeight;
+      navBarHeight = (function _getHeight() {
+        const gap = rect.top - systemInfo.statusBarHeight;
         return systemInfo.statusBarHeight + 2 * gap + rect.height;
-      })();
+      }());
 
       if (ios) {
         // 下方扩展4像素高度 防止下方边距太小
@@ -125,9 +127,5 @@ export const appUtil = {
     // 将信息保存到全局变量中,后边再用就不用重新异步获取了
     Taro.globalSystemInfo = systemInfo;
     return systemInfo;
-  }
-}
-
-function isFunction(fn: any) {
-  return Object.prototype.toString.call(fn) === '[object Function]';
-}
+  },
+};

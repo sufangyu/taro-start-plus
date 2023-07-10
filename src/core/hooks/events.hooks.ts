@@ -1,5 +1,5 @@
-import Taro from "@tarojs/taro";
-import { useEffect } from "react";
+import Taro from '@tarojs/taro';
+import { useEffect } from 'react';
 
 // const events = new Events();
 
@@ -27,7 +27,7 @@ import { useEffect } from "react";
  * });
  * ```
  */
-export default function useEvents<T>(eventName: string, listener: (...args: T[]) => void): void{
+export default function useEvents<T>(eventName: string, listener: (...args: T[]) => void): void {
   useEffect(() => {
     Taro.eventCenter.on(eventName, (...args: T[]) => {
       listener(...args);

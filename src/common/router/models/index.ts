@@ -1,8 +1,9 @@
-import frameworkRouterConfig from "./framework.config";
-import debugRouterConfig from "./debug.config";
-import homeRouterConfig from "./home.config";
-import accountRouterConfig from "./account.config";
-import demoRouterConfig from "./demo.config";
+/* eslint-disable import/extensions */
+import frameworkRouterConfig from './framework.config';
+import debugRouterConfig from './debug.config';
+import homeRouterConfig from './home.config';
+import accountRouterConfig from './account.config';
+import demoRouterConfig from './demo.config';
 
 // 整个 app 的配置
 const appRouterConfig = {
@@ -13,13 +14,13 @@ const appRouterConfig = {
   ...debugRouterConfig,
 };
 
-interface TabbarItem  {
+interface TabbarItem {
   text: string;
   pagePath: string;
   iconPath: string;
   selectedIconPath: string;
-  type?: 'dot' | 'badge',
-  badgeText?: string,
+  type?: 'dot' | 'badge';
+  badgeText?: string;
 }
 
 
@@ -48,5 +49,5 @@ const tabBarList: TabbarItem[] = [
   },
 ];
 
-export {appRouterConfig, tabBarList, TabbarItem};
+export { appRouterConfig, tabBarList, TabbarItem };
 

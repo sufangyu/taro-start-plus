@@ -1,4 +1,4 @@
-import { create } from 'zustand'
+import { create } from 'zustand';
 
 interface AppStore {
   tabbarSelected: number;
@@ -8,15 +8,13 @@ interface AppStore {
 export const useAppStore = create<AppStore>()(
   (set) => ({
     tabbarSelected: 0,
-    setTabbarSelected(index){
-      set(()=>({
+    setTabbarSelected(index) {
+      set(() => ({
         tabbarSelected: index,
       }));
     },
     
   }),
 );
-
-
 
 

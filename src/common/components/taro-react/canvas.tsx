@@ -1,7 +1,7 @@
 // @ts-nocheck
-import { Canvas } from "@tarojs/components";
-import { getEnv } from "@tarojs/taro";
-import { FC, CSSProperties } from "react";
+import { Canvas } from '@tarojs/components';
+import { getEnv } from '@tarojs/taro';
+import { FC, CSSProperties } from 'react';
 
 interface Props {
   id?: string;
@@ -17,19 +17,20 @@ interface Props {
 }
 
 export const PosterRenerCanvas: FC<Props> = (props) => {
-  return getEnv() === "WEB" ? (
-    <canvas id={props.id} className={props.className} style={props.style} />
+  const {
+    id, className, style, width, height, onLongTap,
+  } = props;
+  return getEnv() === 'WEB' ? (
+    <canvas id={id} className={className} style={style} />
   ) : (
     <Canvas
       type="2d"
-      id={props.id}
-      // @ts-ignore
-      width={props.width}
-      // @ts-ignore
-      height={props.height}
-      className={props.className}
-      style={props.style}
-      onLongTap={props.onLongTap}
+      id={id}
+      width={width}
+      height={height}
+      className={className}
+      style={style}
+      onLongTap={onLongTap}
     />
   );
 };

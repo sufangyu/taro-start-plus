@@ -12,9 +12,11 @@ interface Props {
  * @returns 
  */
 const Index = (props: Props) => {
+  const { text } = props;
+  
   return (
-    <View className='list-status'>
-      {props.text}
+    <View className="list-status">
+      {text}
     </View>
   );
 };

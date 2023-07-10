@@ -1,6 +1,6 @@
+import { create } from 'zustand';
 import { storageUtil } from '@/core/utils';
 import { StorageKey } from '@/common/constants';
-import { create } from 'zustand'
 
 
 export interface Account {
@@ -27,14 +27,14 @@ export const useAccountStore = create<AccountStore>()(
     login: (account) => {
       const isLogged = true;
       set(() => ({
-        account: account,
-        isLogged: isLogged,
+        account,
+        isLogged,
       }));
 
       storageUtil.set(StorageKey.ACCOUNT_KEY, account);
       storageUtil.set(StorageKey.LOGGED_KEY, isLogged);
     },
-    logout:()=> {
+    logout: () => {
       set(() => ({
         account: null,
         isLogged: false,
@@ -45,7 +45,5 @@ export const useAccountStore = create<AccountStore>()(
     },
   }),
 );
-
-
 
 

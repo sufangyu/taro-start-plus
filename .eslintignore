@@ -1,0 +1,9 @@
+dist/
+deploy_versions/
+.temp/
+.rn_temp/
+.config/
+.key/
+node_modules/
+.DS_Store
+*.zip

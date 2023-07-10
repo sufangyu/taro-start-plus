@@ -1,3 +1,3 @@
 export default definePageConfig({
-  navigationBarTitleText: '表单校验'
+  navigationBarTitleText: '表单校验',
 });

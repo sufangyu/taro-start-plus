@@ -22,12 +22,12 @@ export interface Props {
   /**
    * 导航字体颜色. 默认 #000000
    */
-  color?:	string;
+  color?: string;
   
   /**
    * 主题图标和字体颜色,当背景色为深色时,可以设置'white'
    */
-  iconTheme?:	'black' | 'white',
+  iconTheme?: 'black' | 'white';
 
   /** 
    * 是否显示返回按钮，默认点击按钮会执行 navigateBack，如果为 false，则名为 renderLeft 的 slot 有效
@@ -83,9 +83,9 @@ export interface Props {
 }
 
 export interface ConfigStyle {
-  navigationbarinnerStyle: string,
-  navBarLeft: string,
-  navBarHeight?: number,
+  navigationbarinnerStyle: string;
+  navBarLeft: string;
+  navBarHeight?: number;
   capsulePosition?: {
     width: number;
     height: number;
@@ -95,6 +95,6 @@ export interface ConfigStyle {
     bottom: number;
   };
   navBarExtendHeight?: number;
-  ios?: boolean,
-  rightDistance: number,
+  ios?: boolean;
+  rightDistance: number;
 }
