@@ -1,5 +1,6 @@
-/* eslint-disable import/no-commonjs */
+/* eslint-disable */
 const path = require("path");
+const CIPluginFn = require("./ci.config");
 
 const config = {
   projectName: 'taro-start-plus',
@@ -13,7 +14,9 @@ const config = {
   sourceRoot: 'src',
   outputRoot: 'dist',
   plugins: [
-    '@tarojs/plugin-platform-lark'
+    '@tarojs/plugin-platform-lark',
+    ['@tarojs/plugin-mini-ci', CIPluginFn],
+    require('path').join(__dirname, './ci.hooks'),
   ],
   alias: {
     '@': path.resolve(__dirname, '..', 'src'),

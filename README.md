@@ -435,6 +435,36 @@ useDidShow(() => {
 > - tabbar list 配置以最大权限的用户去配置
 
 
+## CI 部署
+使用 Taro 提供的 CI（持续集成）的插件 @tarojs/plugin-mini-ci。 目前已支持（企业）微信、京东、字节、支付宝、钉钉、百度小程序。
+
+**功能包括：**
+- 构建完毕后自动唤起小程序开发者工具并打开项目
+- 上传代码作为开发版并生成预览二维码
+- 上传代码作为体验版并生成体验二维码
+- 支持 上传、预览 hooks 回调
+
+**使用**
+- 在 `config/ci.config.js` 文件配置appid、token、privateKeyPath 等所需的信息, privateKey 文件统一放在 key 目录下。
+- 配置响应的 script 脚步
+```bash
+{
+  "scripts": {
+    "build:weapp": "taro build --type weapp",
+    "build:weapp:preview": "taro build --type weapp --preview",
+    "build:weapp:upload": "taro build --type weapp --upload",
+  },
+}
+```
+
+**扩展**
+- 指定构建用户：`npm run build:weapp:upload -- --user={zsf}`
+- 触发钩子事件, 接入 IM 通知结果：在 `config/ci.hooks.js` 文件中具体实现逻辑
+
+
+
+
+
 
 ## 问题
 ###  编译时报错缺少必要CPU feature？

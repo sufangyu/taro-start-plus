@@ -8,8 +8,14 @@
     "typescript": true,
     "css": "sass"
   },
+  "taroConfig": {
+    "version": "1.0.1",
+    "desc": "接入CI"
+  },
   "scripts": {
     "build:weapp": "taro build --type weapp",
+    "build:weapp:preview": "taro build --type weapp --preview",
+    "build:weapp:upload": "taro build --type weapp --upload",
     "build:swan": "taro build --type swan",
     "build:alipay": "taro build --type alipay",
     "build:tt": "taro build --type tt",
@@ -47,6 +53,7 @@
     "@tarojs/components": "3.6.8",
     "@tarojs/helper": "3.6.8",
     "@tarojs/plugin-framework-react": "3.6.8",
+    "@tarojs/plugin-mini-ci": "^3.6.8",
     "@tarojs/plugin-platform-alipay": "3.6.8",
     "@tarojs/plugin-platform-h5": "3.6.8",
     "@tarojs/plugin-platform-jd": "3.6.8",
@@ -69,6 +76,7 @@
     "umtrack-alipay": "^2.8.0",
     "umtrack-tt": "^2.8.0",
     "umtrack-wx": "^2.8.0",
+    "yargs": "^17.7.2",
     "zustand": "^4.3.8"
   },
   "devDependencies": {
