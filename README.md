@@ -418,6 +418,22 @@ return (
 
 
 
+## 自定义 tabbar
+在 `src/app.config.ts` 设置 tabbar 的 custom 属性为 true, 然后具体的实现逻辑在 `src/custom-tab-bar`.
+设置 tabbar 的选中效果可使用以下代码实现
+```ts
+const curPage = Taro.getCurrentInstance() .page;
+
+useDidShow(() => {
+  const tabbar = Taro.getTabBar<CustomTabBar>(curPage)
+  tabbar?.setSelected(0)
+})
+```
+有了自定义 tabbar 后, 即可实现工具不同的用户角色/权限, 显示不同的 tabbar 了
+> **注意**
+> - tabbar 切换页面后, 第一次加载会出现闪烁问题, 待官方解决
+> - tabbar list 配置以最大权限的用户去配置
+
 
 
 ## 问题

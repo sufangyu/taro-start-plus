@@ -1,7 +1,5 @@
 import {pages, subPackages, tabBarList} from "@/common/router";
 
-// console.log('pages::', pages);
-// console.log('subPackages::', subPackages);
 
 export default defineAppConfig({
   style: 'v2',

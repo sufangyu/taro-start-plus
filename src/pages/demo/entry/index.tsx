@@ -1,8 +1,11 @@
 import {ScrollView, View} from '@tarojs/components'
 import {routeUtil} from "@/core/utils";
 import { appRouterConfig } from '@/common/router';
+import Taro, { useDidShow } from '@tarojs/taro';
+import CustomTabBar from '@/custom-tab-bar/index';
 
 import './index.scss';
+
 
 interface Entry {
   label: string;
@@ -10,6 +13,7 @@ interface Entry {
 }
 
 export default function Index() {
+  const curPage = Taro.getCurrentInstance().page;
 
   const entries: Entry[] = [
     {label: 'state、props、事件', path: appRouterConfig.base.path},
@@ -36,6 +40,11 @@ export default function Index() {
     { label: '分包示例', path: appRouterConfig.switchEnv.path },
   ];
 
+  useDidShow(() => {
+    const tabbar = Taro.getTabBar<CustomTabBar>(curPage)
+    tabbar?.setSelected(1)
+  })
+
 
   return (
     <ScrollView className='container'>
@@ -55,6 +64,9 @@ export default function Index() {
           })
         }
       </View>
+
+      {/* 自定义 tabbar 的占位 */}
+      <View className='tabbar__placeholdr'></View>
     </ScrollView>
   )
 }

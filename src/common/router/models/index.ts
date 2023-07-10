@@ -13,10 +13,18 @@ const appRouterConfig = {
   ...debugRouterConfig,
 };
 
+interface TabbarItem  {
+  text: string;
+  pagePath: string;
+  iconPath: string;
+  selectedIconPath: string;
+  type?: 'dot' | 'badge',
+  badgeText?: string,
+}
 
 
-// tabbar list 配置
-const tabBarList = [
+// tabbar list 配置 （常规）
+const tabBarList: TabbarItem[] = [
   {
     text: '首页',
     pagePath: 'pages/home/index',
@@ -28,14 +36,17 @@ const tabBarList = [
     pagePath: 'pages/demo/entry/index',
     iconPath: 'assets/images/tabbar/started.png',
     selectedIconPath: 'assets/images/tabbar/started-selected.png',
+    type: 'badge',
+    badgeText: '99+',
   },
   {
     text: '我的',
     pagePath: 'pages/mine/index',
     iconPath: 'assets/images/tabbar/mine.png',
     selectedIconPath: 'assets/images/tabbar/mine-selected.png',
+    type: 'dot',
   },
 ];
 
-export {appRouterConfig, tabBarList};
+export {appRouterConfig, tabBarList, TabbarItem};
 

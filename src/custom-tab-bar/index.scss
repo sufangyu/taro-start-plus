@@ -1,0 +1,75 @@
+$tabbar-height: 96px;
+
+
+.tabbar {
+  box-sizing: content-box;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: $tabbar-height;
+  background: white;
+  display: flex;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+
+  &__border {
+    background-color: rgba(0, 0, 0, 0.33);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1PX;
+    transform: scaleY(0.5);
+  }
+
+  &__item {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+
+    &__icon {
+      display: block;
+      width: 48px;
+      height: 48px;
+    }
+
+    &__text {
+      font-size: 20px;
+    }
+
+
+    // --------- 徽标 ---------
+    .dot, .badge {
+      box-sizing: border-box ;
+      position: absolute;
+      top: 5px;
+      left: 55%;
+      background-color: #f30;
+      color: #fff;
+    }
+    .dot {
+      display: block;
+      font-size: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 100%;
+      overflow: hidden;
+      background-color: #f30;
+    }
+    .badge {
+      box-sizing: border-box ;
+      padding: 0 9px;
+      min-width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      border-radius: 30px;
+      font-size: 22px;
+    }
+  }
+}

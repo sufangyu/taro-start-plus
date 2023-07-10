@@ -1,18 +1,23 @@
 import {View, Text, Button, MovableArea, MovableView} from '@tarojs/components'
-import { useLoad } from '@tarojs/taro'
+import Taro, { useDidShow, useLoad } from '@tarojs/taro'
 import {useAccountStore} from "@/common/store";
 import { DebugEnv } from '@/common/components';
+import { routeUtil } from '@/core/utils';
+import type CustomTabBar from '@/custom-tab-bar/index'
 
 import './index.scss'
-import { routeUtil } from '@/core/utils';
 
 export default function Index() {
-
+  const curPage = Taro.getCurrentInstance().page;
   const accountStore = useAccountStore();
-
 
   useLoad(() => {
     console.log('Page loaded.')
+  })
+
+  useDidShow(() => {
+    const tabbar = Taro.getTabBar<CustomTabBar>(curPage)
+    tabbar?.setSelected(2)
   })
 
   return (
