@@ -23,28 +23,27 @@ if (isExist) {
 
 
 // view 模板
-const viewTep = `import { View, Text } from '@tarojs/components'
-import { useLoad } from '@tarojs/taro'
+const viewTep = `import { View, Text } from '@tarojs/components';
+import { useLoad } from '@tarojs/taro';
 
-import './index.scss'
+import './index.scss';
 
 export default function Index() {
-
   useLoad(() => {
-    console.log('Page loaded.')
-  })
+    console.log('Page loaded.');
+  });
 
   return (
-    <View className='container'>
+    <View className="container">
       <Text>Hello world!</Text>
     </View>
-  )
+  );
 }
 `;
 
 // config 模板
 const configTep = `export default definePageConfig({
-  navigationBarTitleText: ''
+  navigationBarTitleText: '',
 });
 `;
 
