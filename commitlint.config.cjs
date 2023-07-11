@@ -53,7 +53,7 @@ module.exports = {
       { value: "revert",   name: "回退(revert):    ⏪️  回滚 commit",emoji: ":rewind:"},
       { value: "chore",    name: "其他(chore):     🔨  对构建过程或辅助工具和库的更改（不影响源文件、测试用例）", emoji: ":hammer:"},
     ],
-    useEmoji: true,
+    useEmoji: false,
     emojiAlign: 'center',
     useAI: false,
     aiNumber: 1,
