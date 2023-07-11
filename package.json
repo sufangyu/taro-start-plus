@@ -39,11 +39,17 @@
     "lint": "./node_modules/.bin/eslint --ext .ts,.tsx src",
     "lint:fix": "./node_modules/.bin/eslint --ext .ts,.tsx src/ --fix",
     "lint:watch": "nodemon --watch src --ext .ts,.tsx --exec npm run lint",
-    "lint:all": "run-p lint:watch",
-    "precommit": "lint-staged",
+    "lintstyle": "stylelint src/**/*.{css,scss}",
+    "lintstyle:fix": "stylelint src/**/*.{css,scss} --fix",
+    "lintstyle:watch": "nodemon --watch src --ext .css,.scss --exec npm run lintstyle",
+    "ls-lint": "ls-lint",
+    "ls-lint:watch": "nodemon --watch src --exec npm run ls-lint",
+    "lint:all": "run-p lint:watch lintstyle:watch ls-lint:watch",
     "create:page": "node scripts/page",
     "create:comp": "node scripts/component",
-    "mock": "mocker ./mock"
+    "mock": "mocker ./mock",
+    "precommit": "lint-staged",
+    "commit": "git-cz"
   },
   "browserslist": [
     "last 3 versions",
@@ -59,7 +65,6 @@
     "@tarojs/components": "3.6.8",
     "@tarojs/helper": "3.6.8",
     "@tarojs/plugin-framework-react": "3.6.8",
-    "@tarojs/plugin-mini-ci": "^3.6.8",
     "@tarojs/plugin-platform-alipay": "3.6.8",
     "@tarojs/plugin-platform-h5": "3.6.8",
     "@tarojs/plugin-platform-jd": "3.6.8",
@@ -76,8 +81,6 @@
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "lodash-es": "^4.17.21",
-    "nodemon": "^3.0.1",
-    "npm-run-all": "^4.1.5",
     "number-precision": "^1.6.0",
     "process": "^0.11.10",
     "react": "^18.0.0",
@@ -86,13 +89,16 @@
     "umtrack-alipay": "^2.8.0",
     "umtrack-tt": "^2.8.0",
     "umtrack-wx": "^2.8.0",
-    "yargs": "^17.7.2",
     "zustand": "^4.3.8"
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
+    "@ls-lint/ls-lint": "^2.0.1",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.5",
     "@tarojs/cli": "3.6.8",
+    "@tarojs/plugin-mini-ci": "^3.6.8",
     "@tarojs/taro-loader": "3.6.8",
     "@tarojs/webpack5-runner": "3.6.8",
     "@types/node": "^18.15.11",
@@ -101,6 +107,8 @@
     "@typescript-eslint/eslint-plugin": "^5.61.0",
     "@typescript-eslint/parser": "^5.61.0",
     "babel-preset-taro": "3.6.8",
+    "commitizen": "^4.3.0",
+    "cz-git": "^1.7.0",
     "eslint": "^8.44.0",
     "eslint-config-taro": "^3.6.8",
     "eslint-plugin-import": "^2.27.5",
@@ -110,18 +118,37 @@
     "lint-staged": "^13.2.3",
     "mocker-api": "^2.9.8",
     "mockjs": "^1.1.0",
+    "nodemon": "^3.0.1",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.4.18",
+    "postcss-scss": "^4.0.6",
     "react-refresh": "^0.11.0",
-    "stylelint": "^14.4.0",
+    "stylelint": "^15.10.1",
+    "stylelint-config-recommended-scss": "^12.0.0",
+    "stylelint-config-standard": "^34.0.0",
     "ts-node": "^10.9.1",
     "typescript": "^4.1.0",
-    "webpack": "5.78.0"
+    "webpack": "5.78.0",
+    "yargs": "^17.7.2"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
       "npm run lint:fix",
       "git add"
+    ],
+    "src/**/*.{css,scss}": [
+      "npm run lintstyle:fix",
+      "git add"
+    ],
+    "src/**/*": [
+      "npm run ls-lint",
+      "git add"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
   },
   "engines": {
     "node": ">=16.1.2"
