@@ -96,7 +96,7 @@ const Index: FC<Props> = (props: Props) => {
             onClick={handleGoHome}
             className={`navigation-bar__button navigation-bar__btn_gohome ${iconTheme}`}
           />
-        )}·
+        )}
 
         {back && home && (
           <View

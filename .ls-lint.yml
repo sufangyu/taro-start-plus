@@ -24,4 +24,5 @@ ignore:
   - node_modules
   - .git
   - .cz-config.js
+  - .release-it.js
   - _webview
