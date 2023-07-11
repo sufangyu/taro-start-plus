@@ -19,6 +19,7 @@ module.exports = {
     },
   ],
   "rules": {
+    "selector-class-pattern": null,
     // 允许 global 、export 、v-deep等伪类
     "selector-pseudo-class-no-unknown": [
       true,

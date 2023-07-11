@@ -1,9 +1,10 @@
 import {
-  View, Text, Button, MovableArea, MovableView, 
+  View, Text, Button,
 } from '@tarojs/components';
-import Taro, { useDidShow, useLoad } from '@tarojs/taro';
+import Taro, { useDidShow, useLoad, usePageScroll } from '@tarojs/taro';
+import { useState } from 'react';
 import { useAccountStore } from '@/common/store';
-import { DebugEnv } from '@/common/components';
+import { DebugEnv, NavigationBar } from '@/common/components';
 import { routeUtil } from '@/core/utils';
 import type CustomTabBar from '@/custom-tab-bar/index';
 
@@ -12,6 +13,7 @@ import './index.scss';
 export default function Index() {
   const curPage = Taro.getCurrentInstance().page;
   const accountStore = useAccountStore();
+  const [opacity, setOpacity] = useState(0);
 
   useLoad(() => {
     console.log('Page loaded.');
@@ -22,42 +24,58 @@ export default function Index() {
     tabbar?.setSelected(2);
   });
 
+  usePageScroll((payload) => {
+    const curOpacity = Math.min(payload.scrollTop / 60, 1);
+    setOpacity(curOpacity);
+  });
+  
+
   return (
-    <MovableArea style={{ minWidth: '100vw', minHeight: '100vh' }}>
+    <>
+      <View style={{ opacity }}>
+        <NavigationBar
+          title="我的"
+          background="#fff"
+          extClass="navbar--fixed"
+        />
+      </View>
+
       <View className="container">
-        <View>
-          <Text>我的页面</Text>
+        <View className="header">
+          <View>
+            <Text>我的页面</Text>
+          </View>
+
+          {
+            accountStore.isLogged
+            && (
+              <View>
+                <View>name: {accountStore.account?.name}</View>
+                <View>token: {accountStore.account?.token}</View>
+
+                <Button onClick={() => accountStore.logout()}>退出登录</Button>
+              </View>
+            )
+          }
+
+          {
+            !accountStore.isLogged
+            && (
+              <View>
+                <Button
+                  type="primary"
+                  onClick={() => routeUtil.toLoginPage()}
+                >登录
+                </Button>
+              </View>
+            )
+          }
         </View>
 
-        {
-        accountStore.isLogged
-        && (
-          <View>
-            <View>name: {accountStore.account?.name}</View>
-            <View>token: {accountStore.account?.token}</View>
-
-            <Button onClick={() => accountStore.logout()}>退出登录</Button>
-          </View>
-        )
-      }
-
-        {
-        !accountStore.isLogged
-        && (
-          <View>
-            <Button
-              type="primary"
-              onClick={() => routeUtil.toLoginPage()}
-            >登录
-            </Button>
-          </View>
-        )
-      }
+        <View style={{ height: 1200 }} />
       </View>
       
-      <MovableView style={{ height: '32px', width: '32px' }} direction="all" x={320} y={0}>
-        <DebugEnv />
-      </MovableView>
-    </MovableArea>
+      <DebugEnv />
+    </>
   );
 }

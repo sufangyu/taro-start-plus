@@ -4,9 +4,10 @@
 }
 
 .debug-env-entry {
-  // position: absolute;
-  // top: 30px;
-  // right: 30px;
+  position: absolute;
+  top: 250px;
+  right: 30px;
+  z-index: 101;
   display: block;
   width: 64px;
   height: 64px;
