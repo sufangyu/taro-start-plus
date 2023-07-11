@@ -2,6 +2,14 @@ view {
   box-sizing: border-box;
 }
 
+// 隐藏滚动条
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
 .tabbar__placeholdr {
   height: 96px;
 }

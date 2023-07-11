@@ -22,4 +22,5 @@ export default {
   posterRender: { path: '/pages/demo/poster-render/index', title: '海报分享图' } as RouterConfig,
   code: { path: '/pages/demo/code/index', title: '条形码、二维码生成' } as RouterConfig,
   navigationBar: { path: '/pages/demo/navigation-bar/index', title: '自定义导航栏' } as RouterConfig,
+  scrollAnchor: { path: '/pages/demo/scroll-anchor/index', title: '滚动锚点' } as RouterConfig,
 };
