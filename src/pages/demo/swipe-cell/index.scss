@@ -1,0 +1,37 @@
+.demo-title {
+  padding: 16px 32px;
+  color: #808080;
+}
+
+.demo-content {
+  margin-bottom: 32px;
+}
+
+.demo-controller {
+  // text-align: center;
+  padding: 0 32px;
+  margin-bottom: 8px;
+
+  button {
+    margin: 0 8px;
+    font-size: 28px;
+    font-weight: normal;
+  }
+}
+
+.container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+
+.swipe-cell-demo {
+  margin-bottom: 4px;
+  background-color: #fff;
+
+  &__detail {
+    padding: 0 32px;
+    height: 120px;
+    line-height: 120px;
+  }
+}

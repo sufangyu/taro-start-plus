@@ -38,6 +38,7 @@ export default function Index() {
     { label: '海报分享图生成', path: appRouterConfig.posterRender.path },
     { label: '自定义导航栏', path: appRouterConfig.navigationBar.path },
     { label: '滚动锚点', path: appRouterConfig.scrollAnchor.path },
+    { label: '滑动操作', path: appRouterConfig.swipeCell.path },
     { label: '分包示例', path: appRouterConfig.switchEnv.path },
   ];
 

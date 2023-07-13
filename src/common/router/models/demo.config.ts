@@ -23,4 +23,5 @@ export default {
   code: { path: '/pages/demo/code/index', title: '条形码、二维码生成' } as RouterConfig,
   navigationBar: { path: '/pages/demo/navigation-bar/index', title: '自定义导航栏' } as RouterConfig,
   scrollAnchor: { path: '/pages/demo/scroll-anchor/index', title: '滚动锚点' } as RouterConfig,
+  swipeCell: { path: '/pages/demo/swipe-cell/index', title: '滑动操作' } as RouterConfig,
 };
