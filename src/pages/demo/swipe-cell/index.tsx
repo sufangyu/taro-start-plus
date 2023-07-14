@@ -6,6 +6,7 @@ import Taro from '@tarojs/taro';
 import { OpenedPosition, SwipeActionOption, SwipeCell } from '@/common/components';
 import icDel from '@/assets/images/icons/ic-del-w.png';
 import icCollect from '@/assets/images/icons/ic-collect-w.png';
+
 import './index.scss';
 
 
@@ -85,55 +86,55 @@ export default function Index() {
       <View className="demo-title">基本用法</View>
       <View className="demo-content">
         <SwipeCell
-          extraClass="swipe-cell-demo"
+          extraClass="swipe-cell__demo"
           leftOptions={OPTIONS_LEFT}
           rightOptions={OPTIONS_RIGHT}
-          onClick={handleClick}
+          onClickAction={handleClick}
           autoClose={false}
         >
-          <View className="swipe-cell-demo__detail">一般用法场景</View>
+          <View className="swipe-cell__demo__detail">一般用法场景</View>
         </SwipeCell>
       </View>
 
       <View className="demo-title">禁止滑动</View>
       <View className="demo-content">
         <SwipeCell
-          extraClass="swipe-cell-demo"
+          extraClass="swipe-cell__demo"
           leftOptions={OPTIONS_LEFT}
           rightOptions={OPTIONS_RIGHT}
-          onClick={handleClick}
+          onClickAction={handleClick}
           autoClose={false}
           disabled
         >
-          <View className="swipe-cell-demo__detail">禁止滑动场景</View>
+          <View className="swipe-cell__demo__detail">禁止滑动场景</View>
         </SwipeCell>
       </View>
 
       <View className="demo-title">自动关闭</View>
       <View className="demo-content">
         <SwipeCell
-          extraClass="swipe-cell-demo"
+          extraClass="swipe-cell__demo"
           leftOptions={OPTIONS_LEFT}
           rightOptions={OPTIONS_RIGHT}
-          onClick={handleClick}
+          onClickAction={handleClick}
           autoClose
         >
-          <View className="swipe-cell-demo__detail">点击按钮自动关闭</View>
+          <View className="swipe-cell__demo__detail">点击按钮自动关闭</View>
         </SwipeCell>
       </View>
 
       <View className="demo-title">开启和关闭事件</View>
       <View className="demo-content">
         <SwipeCell
-          extraClass="swipe-cell-demo"
+          extraClass="swipe-cell__demo"
           leftOptions={OPTIONS_LEFT}
           rightOptions={OPTIONS_RIGHT}
-          onClick={handleClick}
+          onClickAction={handleClick}
           onOpened={handleOpened}
           onClosed={handleClosed}
           autoClose
         >
-          <View className="swipe-cell-demo__detail">开启和关闭时触发事件</View>
+          <View className="swipe-cell__demo__detail">开启和关闭时触发事件</View>
         </SwipeCell>
       </View>
 
@@ -146,14 +147,15 @@ export default function Index() {
         </View>
         
         <SwipeCell
-          extraClass="swipe-cell-demo"
+          extraClass="swipe-cell__demo"
           leftOptions={OPTIONS_LEFT}
           rightOptions={OPTIONS_RIGHT}
-          onClick={handleClick}
+          onClickAction={handleClick}
           openedPosition={openedPosition}
+          onClosed={() => setOpenedPosition('')}
           autoClose
         >
-          <View className="swipe-cell-demo__detail">点击按钮自动关闭</View>
+          <View className="swipe-cell__demo__detail">点击按钮自动关闭</View>
         </SwipeCell>
       </View>
 
@@ -163,12 +165,12 @@ export default function Index() {
           listSingle.map((item) => {
             return (
               <SwipeCell
-                extraClass="swipe-cell-demo"
+                extraClass="swipe-cell__demo"
                 leftOptions={item.optionsLeft}
                 rightOptions={item.optionsRight}
-                onClick={handleClick}
+                onClickAction={handleClick}
               >
-                <View className="swipe-cell-demo__detail">{item.title}</View>
+                <View className="swipe-cell__demo__detail">{item.title}</View>
               </SwipeCell>
             );
           })
@@ -181,16 +183,16 @@ export default function Index() {
           listSingle.map((item, idx) => {
             return (
               <SwipeCell
-                extraClass="swipe-cell-demo"
+                extraClass="swipe-cell__demo"
                 leftOptions={item.optionsLeft}
                 rightOptions={item.optionsRight}
                 openedPosition={item.openedPosition as any}
                 onOpened={(position) => {
                   handleSingleOpen(idx, position);
                 }}
-                onClick={handleClick}
+                onClickAction={handleClick}
               >
-                <View className="swipe-cell-demo__detail">{item.title}</View>
+                <View className="swipe-cell__demo__detail">{item.title}</View>
               </SwipeCell>
             );
           })

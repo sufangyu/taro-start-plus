@@ -27,7 +27,7 @@ export interface PropsCell {
   /** 点击选项时,是否自动关闭 */
   autoClose?: boolean;
   /** 点击触发事件(action item 触发) */
-  onClick?: (item: SwipeActionOption, index: number) => void;
+  onClickAction?: (item: SwipeActionOption, index: number) => void;
   /** 完全打开时触发 */
   onOpened?: (position: OpenedPosition) => void;
   /** 完全关闭时触发 */
@@ -55,7 +55,7 @@ let curOpenPosition: OpenedPosition = '';
 const Index: FC<PropsCell> = (props: PropsCell) => {
   const {
     children, extraClass, disabled, openedPosition, actionItemWidth = 70,
-    leftOptions = [], rightOptions = [], autoClose = true, onClick, onOpened, onClosed,
+    leftOptions = [], rightOptions = [], autoClose = true, onClickAction, onOpened, onClosed,
   } = props;
   // 左侧、右侧打开的距离（item 个数 * item 宽度）
   const leftWidth = actionItemWidth * leftOptions.length;
@@ -124,8 +124,17 @@ const Index: FC<PropsCell> = (props: PropsCell) => {
     if (!isInit && ['left', 'right'].includes(curOpenPosition) && typeof onClosed === 'function') {
       onClosed();
     }
-
     curOpenPosition = '';
+  };
+
+
+  // 点击关闭
+  const handleClick = () => {
+    if (!offset) {
+      return;
+    }
+
+    autoClose && close();
   };
 
 
@@ -136,7 +145,8 @@ const Index: FC<PropsCell> = (props: PropsCell) => {
    * @param {number} index 序号
    */
   const handleActionClick = (item: SwipeActionOption, index: number) => {
-    onClick && onClick(item, index);
+    close();
+    typeof onClickAction === 'function' && onClickAction(item, index);
   };
 
 
@@ -147,7 +157,7 @@ const Index: FC<PropsCell> = (props: PropsCell) => {
     const transition = dragging
       ? 'none'
       : 'transform 0.6s cubic-bezier(0.18, 0.89, 0.32, 1)';
-    
+
     setOffset(moveOffset);
     setWrapperStyle([
       `-webkit-transform: ${transform};`,
@@ -208,16 +218,11 @@ const Index: FC<PropsCell> = (props: PropsCell) => {
     }
 
     dragging = false;
-    swipeLeaveTransition();
-  };
 
-  // 点击关闭
-  const handleClick = () => {
-    if (!offset) {
-      return;
+    // 滑动绝对距离超过 20 才触发是否做 open / close 处理
+    if (distance.x >= 20) {
+      swipeLeaveTransition();
     }
-
-    autoClose && close();
   };
 
 

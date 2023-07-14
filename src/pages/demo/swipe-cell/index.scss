@@ -25,13 +25,13 @@
 }
 
 
-.swipe-cell-demo {
-  margin-bottom: 4px;
-  background-color: #fff;
-
+.swipe-cell__demo {
   &__detail {
     padding: 0 32px;
     height: 120px;
     line-height: 120px;
+    font-size: 32px;
+    margin-bottom: 4px;
+    background-color: #fff;
   }
 }
