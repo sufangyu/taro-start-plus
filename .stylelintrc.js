@@ -29,5 +29,6 @@ module.exports = {
     ],
     "color-function-notation": null,
     "alpha-value-notation": null,
+    "no-descending-specificity": null,
   }
 }

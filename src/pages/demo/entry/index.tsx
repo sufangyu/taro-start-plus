@@ -39,6 +39,7 @@ export default function Index() {
     { label: '自定义导航栏', path: appRouterConfig.navigationBar.path },
     { label: '滚动锚点', path: appRouterConfig.scrollAnchor.path },
     { label: '滑动操作', path: appRouterConfig.swipeCell.path },
+    { label: '弹出层', path: appRouterConfig.popup.path },
     { label: '分包示例', path: appRouterConfig.switchEnv.path },
   ];
 

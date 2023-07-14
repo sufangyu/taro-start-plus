@@ -10,6 +10,8 @@ export { Action } from './actionsheet/types';
 export { default as SwipeCell } from './swipe-cell';
 export { SwipeActionOption, OpenedPosition } from './swipe-cell/types';
 
+export { default as Popup } from './popup';
+
 // fix: canvas id "taro-poster-render" not found
 export * from './taro-react';
 export { default as ImageShare } from './image-share';

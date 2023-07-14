@@ -1,0 +1,210 @@
+@import url('@/common/styles/mixins/index');
+
+$popup-duration : 250ms;
+$timing-func    : cubic-bezier(.36,.66,.04,1);
+$radius         : 16px;
+
+.popup {
+  visibility: hidden;
+  transition: visibility $popup-duration $timing-func;
+
+  &__overlay {
+    @include overlay();
+
+    opacity: 0;
+    transition: opacity $popup-duration ease-in;
+  }
+
+  &__wrapper {
+    position: fixed;
+    max-height: 100%;
+    overflow-y: auto;
+    background-color: #fff; 
+  }
+
+  &__header {
+    text-align: center;
+    padding: 0 16px;
+    color: #333;
+    font-size: 28px;
+    min-height: 72px;
+    line-height: 72px;
+  }
+
+  &__body {
+    padding: 32px;
+  }
+
+  // 关闭按钮
+  .icon-close {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+  
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 28px;
+      position: absolute;
+      top: 45%;
+      left: 20%;
+      background-color: #808080;
+    }
+  
+    &::before{
+      transform: rotate(45deg);
+    }
+  
+    &::after{
+      transform: rotate(-45deg);
+    }
+
+    // 自定义
+    &--custom {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      overflow: hidden;
+
+      image {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    // 关闭图标位置
+    &--top-left {
+      top: 16px;
+      left: 16px;
+    }
+
+    &--top-right {
+      top: 16px;
+      right: 16px;
+    }
+
+    &--bottom-left {
+      bottom: 16px;
+      left: 16px;
+    }
+
+    &--bottom-right {
+      bottom: 16px;
+      right: 16px;
+    }
+  }
+
+  //------------- 显示位置 -------------
+  &--center {
+    .popup__wrapper {
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      opacity: 0;
+      transition: opacity $popup-duration ease-in;
+    }
+  }
+
+  &--top {
+    .popup__wrapper {
+      top: 0;
+      left: 0;
+      right: 0;
+      transform: translate3d(0, -100%, 0);
+      transition: transform $popup-duration $timing-func;
+    }
+
+    &.popup--safe-top .popup__wrapper {
+      @include safeAreaPaddingTop();
+    }
+  }
+
+  &--bottom {
+    .popup__wrapper {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      transform: translate3d(0, 100%, 0);
+      transition: transform $popup-duration $timing-func;
+    }
+
+    &.popup--safe-bottom .popup__wrapper {
+      @include safeAreaPaddingBottom();
+    }
+  }
+
+  &--left {
+    .popup__wrapper {
+      left: 0;
+      top: 0;
+      bottom: 0;
+      transform: translate3d(-100%, 0, 0);
+      transition: transform $popup-duration $timing-func;
+    }
+
+    &.popup--safe-top .popup__wrapper {
+      @include safeAreaPaddingTop();
+    }
+
+    &.popup--safe-bottom .popup__wrapper {
+      @include safeAreaPaddingBottom();
+    }
+  }
+
+  &--right {
+    .popup__wrapper {
+      right: 0;
+      top: 0;
+      bottom: 0;
+      transform: translate3d(100%, 0, 0);
+      transition: transform $popup-duration $timing-func;
+    }
+
+    &.popup--safe-top .popup__wrapper {
+      @include safeAreaPaddingTop();
+    }
+
+    &.popup--safe-bottom .popup__wrapper {
+      @include safeAreaPaddingBottom();
+    }
+  }
+
+  //------------- 圆角 -------------
+  &--round {
+    &.popup--center .popup__wrapper {
+      border-radius: $radius;
+    }
+
+    &.popup--bottom .popup__wrapper {
+      border-radius: $radius $radius 0 0;
+    }
+
+    &.popup--top .popup__wrapper {
+      border-radius: 0 0 $radius $radius;
+    }
+  }
+
+  //------------- 显示 -------------
+  &--active {
+    visibility: visible;
+
+    .popup__overlay {
+      opacity: 1;
+    }
+
+    &.popup--center .popup__wrapper{
+        opacity: 1;
+    }
+
+    &.popup--top .popup__wrapper,
+    &.popup--bottom .popup__wrapper,
+    &.popup--left .popup__wrapper,
+    &.popup--right .popup__wrapper {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}

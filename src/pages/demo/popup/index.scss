@@ -1,0 +1,40 @@
+@import url('@/common/styles/mixins/index');
+
+.demo-title {
+  padding: 16px 32px;
+  color: #808080;
+  font-size: 32px;
+}
+
+.demo-content {
+  margin-bottom: 32px;
+
+  button {
+    margin: 8px auto;
+    font-size: 28px;
+    font-weight: normal;
+  }
+}
+
+.demo-controller {
+  padding: 0 32px;
+  margin-bottom: 8px;
+
+  button {
+    margin: 0 8px;
+    font-size: 28px;
+    font-weight: normal;
+  }
+}
+
+.container {
+  padding: 30px;
+  min-height: 100vh;
+  
+  @include safeAreaPaddingBottom();
+}
+
+
+.popup-custom .popup__body {
+  padding: 0;
+}

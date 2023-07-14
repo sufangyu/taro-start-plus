@@ -37,15 +37,15 @@ const tabBarList: TabbarItem[] = [
     pagePath: 'pages/demo/entry/index',
     iconPath: 'assets/images/tabbar/started.png',
     selectedIconPath: 'assets/images/tabbar/started-selected.png',
-    type: 'badge',
-    badgeText: '99+',
+    // type: 'badge',
+    // badgeText: '99+',
   },
   {
     text: '我的',
     pagePath: 'pages/mine/index',
     iconPath: 'assets/images/tabbar/mine.png',
     selectedIconPath: 'assets/images/tabbar/mine-selected.png',
-    type: 'dot',
+    // type: 'dot',
   },
 ];
 
