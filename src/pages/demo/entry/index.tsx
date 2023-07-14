@@ -43,8 +43,10 @@ export default function Index() {
   ];
 
   useDidShow(() => {
-    const tabbar = Taro.getTabBar<CustomTabBar>(curPage);
-    tabbar?.setSelected(1);
+    try {
+      const tabbar = Taro.getTabBar<CustomTabBar>(curPage);
+      tabbar?.setSelected(1);  
+    } catch (_) {}
   });
 
 
