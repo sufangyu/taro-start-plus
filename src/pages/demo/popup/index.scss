@@ -1,4 +1,4 @@
-@import url('@/common/styles/mixins/index');
+@use '@/common/styles/mixins/index' as mixins;
 
 .demo-title {
   padding: 16px 32px;
@@ -31,7 +31,7 @@
   padding: 30px;
   min-height: 100vh;
   
-  @include safeAreaPaddingBottom();
+  @include mixins.safeAreaPaddingBottom();
 }
 
 
