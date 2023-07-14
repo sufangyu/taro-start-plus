@@ -20,16 +20,20 @@ export default function Index() {
     { label: '全局状态', path: appRouterConfig.store.path },
     { label: '页面跳转', path: appRouterConfig.navigation.path },
     { label: '网络请求', path: appRouterConfig.request.path },
+    
     { label: '图片查看 ImagePreview', path: appRouterConfig.imagePreview.path },
     { label: '文件选择&上传 FilePicker', path: appRouterConfig.filePicker.path },
     { label: '动作面板 SheetAction', path: appRouterConfig.actionsheet.path },
     { label: '自定义导航栏 NavigationBar', path: appRouterConfig.navigationBar.path },
     { label: '滑动操作 SwiperCell', path: appRouterConfig.swipeCell.path },
     { label: '弹出层 Popup', path: appRouterConfig.popup.path },
+    { label: '徽标 Badge', path: appRouterConfig.badge.path },
+
     { label: '下拉刷新 useList', path: appRouterConfig.pullDownRefresh.path },
     { label: '列表 useList', path: appRouterConfig.list.path },
     { label: '事件总线 useEvents', path: appRouterConfig.eventsList.path },
     { label: '权限&未登录拦截 useWithLogged', path: appRouterConfig.auth.path },
+
     { label: '表单校验', path: appRouterConfig.formValidate.path },
     { label: '数据格式化', path: appRouterConfig.format.path },
     { label: '小数精度', path: appRouterConfig.numberPrecision.path },

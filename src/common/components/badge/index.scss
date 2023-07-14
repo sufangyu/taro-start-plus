@@ -1,0 +1,51 @@
+.badge__wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.badge__content {
+  // 非独立使用
+  &--fixed {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(50%,-50%);  
+  }
+
+
+  // 文本徽标
+  &--content {
+    color: #fff;
+    box-sizing: border-box;
+    min-width: 16px;
+    padding: 2px 10px;
+    font-size: 22px;
+    line-height: 24px;
+    white-space: nowrap;
+    font-weight: 400;
+    text-align: center;
+    background-color: #eb5232;
+  }
+
+  // 红点徽标
+  &--dot {
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background-color: #eb5232;
+  }
+
+  // 形状
+  &--circle {
+    border-radius: 80px;
+  }
+
+  &--square {
+    border-radius: 4px;
+  }
+
+  &--bubble {
+    border-radius: 80px 80px 80px 0;
+  }
+}
