@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { useDidShow, useLaunch } from '@tarojs/taro';
+import Taro, { useDidShow, useLaunch } from '@tarojs/taro';
 import { updateUtil } from '@/core/utils';
 import '@/core/analysis';
 
@@ -11,7 +11,9 @@ function App({ children }: PropsWithChildren) {
   });
 
   useDidShow(() => {
-    updateUtil.checkUpdate();
+    if (Taro.ENV_TYPE.WEB !== Taro.getEnv()) {
+      updateUtil.checkUpdate();
+    }
   });
 
   // children 是将要会渲染的页面
