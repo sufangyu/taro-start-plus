@@ -162,9 +162,10 @@ export default function Index() {
       <View className="demo-title">列表</View>
       <View className="demo-content">
         {
-          listSingle.map((item) => {
+          listSingle.map((item, idx) => {
             return (
               <SwipeCell
+                key={`cell-${idx}`}
                 extraClass="swipe-cell__demo"
                 leftOptions={item.optionsLeft}
                 rightOptions={item.optionsRight}
@@ -183,6 +184,7 @@ export default function Index() {
           listSingle.map((item, idx) => {
             return (
               <SwipeCell
+                key={`cell-${idx}`}
                 extraClass="swipe-cell__demo"
                 leftOptions={item.optionsLeft}
                 rightOptions={item.optionsRight}

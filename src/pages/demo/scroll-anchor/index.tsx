@@ -127,9 +127,10 @@ export default function Index() {
         scroll-y
       >
         {
-          category.map((item) => {
+          category.map((item, idx) => {
             return (
               <View
+                key={`navigation-${idx}`}
                 className={item.id === active ? 'actived' : ''}
                 onClick={() => { handleAnchor(item); }}
               >
@@ -145,7 +146,7 @@ export default function Index() {
   const renderContentDetail = (list: string[]) => {
     return (
       <View className="content__detail">
-        {list.map((item) => (<View className="content__detail__item">{item}</View>))}
+        {list.map((item, idx) => (<View key={`content-detail-${idx}`} className="content__detail__item">{item}</View>))}
       </View>
     );
   };
@@ -160,9 +161,9 @@ export default function Index() {
         onScroll={handleScroll}
       >
         {
-          category.map((item) => {
+          category.map((item, idx) => {
             return (
-              <View className="content__item" id={`content-chunk-${item.id}`}>
+              <View key={`category-content-${idx}`} className="content__item" id={`content-chunk-${item.id}`}>
                 <Text>{item.name}-{item.id}</Text>
                 {renderContentDetail(item.list)}
               </View>

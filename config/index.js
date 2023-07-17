@@ -83,6 +83,12 @@ const config = {
           generateScopedName: '[name]__[local]___[hash:base64:5]'
         }
       }
+    },
+    // fix: ReferenceError: process is not defined
+    webpackChain(chain, webpack) {
+      chain.plugin('record').use(webpack.ProvidePlugin, [{
+        process: 'process/browser',
+      }]);
     }
   },
   rn: {

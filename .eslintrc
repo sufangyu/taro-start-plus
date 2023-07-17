@@ -65,6 +65,8 @@
     "react/prop-types": ["error", { "ignore": ["children"] }],
     "react/function-component-definition": "off",
     "react/no-unused-class-component-methods": "off",
+    "react/no-array-index-key": "off",
+    "react/jsx-key": "error",
 
     "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/ban-ts-comment": "off",

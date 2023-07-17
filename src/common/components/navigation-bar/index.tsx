@@ -1,4 +1,4 @@
-import { View } from '@tarojs/components';
+import { View, Text } from '@tarojs/components';
 import { FC } from 'react';
 import Taro from '@tarojs/taro';
 import { isFunction } from '@tarojs/shared';
@@ -75,7 +75,7 @@ const Index: FC<Props> = (props: Props) => {
     return (
       <View
         className={`navigation-bar__placeholder ${ios ? 'ios' : 'android'}`}
-        style={{ paddingTop: `${navBarHeight! + navBarExtendHeight!}px;` }}
+        style={{ paddingTop: `${navBarHeight! + navBarExtendHeight!}px` }}
       />
     );
   };
@@ -123,12 +123,12 @@ const Index: FC<Props> = (props: Props) => {
     let navbarCenter: JSX.Element | null | undefined;
 
     if (title) {
-      navbarCenter = <text>{title}</text>;
+      navbarCenter = <Text>{title}</Text>;
     } else if (searchBar) {
       navbarCenter = (
         <View
           className="navigation-bar-search"
-          style={`height:${styleInfo.capsulePosition!.height}px;`}
+          style={{ height: `${styleInfo.capsulePosition!.height}px` }}
           onClick={handleSearchClick}
         >
           <View className="navigation-bar-search__icon" />
@@ -162,7 +162,7 @@ const Index: FC<Props> = (props: Props) => {
       
       <View
         className={`navigation-bar__inner ${ios ? 'ios' : 'android'}`}
-        style={{ background: `${background};${navigationbarinnerStyle};` }}
+        style={`background: ${background};${navigationbarinnerStyle}`}
       >
         {renderBarLeft()}
         {renderBarCenter()}

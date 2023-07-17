@@ -229,7 +229,7 @@ const Index: FC<PropsCell> = (props: PropsCell) => {
   // 渲染操作内容
   const renderActions = (options: SwipeActionOption[] = []) => {
     return options.map((option, idx) => {
-      return <SwipeAction option={option} onClick={() => handleActionClick(option, idx)} />;
+      return <SwipeAction key={`swipe-action-${idx}`} option={option} onClick={() => handleActionClick(option, idx)} />;
     });
   };
 
