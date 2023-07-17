@@ -1,4 +1,5 @@
 /* eslint-disable */
+import childProcess from 'child_process';
 const yargs = require('yargs')
 const pkg = require('../package.json')
 
@@ -9,10 +10,11 @@ const CIPluginFn = async () => {
    * @type {CIOptions}
    */
   const { user } = yargs.argv;
+  const commitID = childProcess.execSync('git rev-parse --short HEAD', { encoding: 'utf-8' });
   const version = pkg.taroConfig.version;
   let desc = pkg.taroConfig.desc;
-  desc = user ? `${desc}(由${user}发布)` : desc;
-
+  desc = user ? `${desc} ${commitID} (由${user}发布)` : `${desc} ${commitID}`;
+  
   return {
     weapp: {
       appid: 'wx71816a8ee509f483',
