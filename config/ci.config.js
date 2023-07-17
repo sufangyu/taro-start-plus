@@ -13,7 +13,7 @@ const CIPluginFn = async () => {
   const commitID = childProcess.execSync('git rev-parse --short HEAD', { encoding: 'utf-8' });
   const version = pkg.taroConfig.version;
   let desc = pkg.taroConfig.desc;
-  desc = user ? `${desc} ${commitID} (由${user}发布)` : `${desc} ${commitID}`;
+  desc = user ? `${desc}-${commitID} (由${user}发布)` : `${desc}-${commitID}`;
   
   return {
     weapp: {
