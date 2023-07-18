@@ -1,0 +1,22 @@
+.container {
+  min-height: 100vh;
+  background-color: #f7f8fa;
+}
+
+.hot-city {
+  background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 16px;
+
+  &__item {
+    border: 1PX solid #eee;
+    font-size: 28px;
+    width: 162px;
+    border-radius: 4px;
+    text-align: center;
+    height: 64px;
+    line-height: 64px;
+    margin: 8px;
+  }
+}

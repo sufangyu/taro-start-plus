@@ -1,0 +1,92 @@
+$toast-size : 120px;
+
+.index-bar {
+  &__sidebar {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transform: translateY(-50%);
+    user-select: none;
+    // 小程序下会有背景色出现表示触发
+    // cursor: pointer;
+    
+  }
+
+  &__index {
+    padding: 4px 16px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 26px;
+    color: #333;
+  }
+
+
+  // 当前 index 提示
+  &__index-toast {
+    display: block;
+    width: $toast-size;
+    height: $toast-size;
+    line-height: $toast-size;
+    text-align: center;
+    color: #fff;
+    // border-radius: ($toast-size / 2);
+    border-radius: 16px;
+    background-color: rgba(0,0,0,0.65);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    right: 120px;
+    font-size: 48px;
+  }
+
+
+  &__body {
+    height: 100vh;
+  }
+  
+  &__anchor {
+    z-index: 1;
+    box-sizing: border-box;
+    padding: 0 32px;
+    color: #323233;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 64px;
+    background-color: transparent;
+  }
+
+  &__cell {
+    position: relative;
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px 32px;
+    overflow: hidden;
+    color: #323233;
+    font-size: 28px;
+    line-height: 48px;
+    background-color: #fff;
+
+    &::after {
+      content: ' ';
+      position: absolute;
+      box-sizing: border-box;
+      pointer-events: none;
+      right: 32px;
+      bottom: 0;
+      left: 32px;
+      border-bottom: 1PX solid #ebedf0;
+      transform: scaleY(0.5);
+    }
+  }
+  
+}
+
+.selector {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
