@@ -48,7 +48,7 @@ interface Props {
   indexItems?: IndexItem[];
 }
 
-const Index: FC<Props> = (props: Props) => {
+const IndexBar: FC<Props> = (props: Props) => {
   const {
     children, customArea, animation, isVibrate, isShowToast, indexItems,
   } = props;
@@ -115,7 +115,7 @@ const Index: FC<Props> = (props: Props) => {
   );
 };
 
-Index.defaultProps = {
+IndexBar.defaultProps = {
   children: [],
   animation: false,
   isVibrate: true,
@@ -123,4 +123,4 @@ Index.defaultProps = {
   indexItems: getIndexList(),
 };
 
-export default Index;
+export default IndexBar;

@@ -1,0 +1,81 @@
+.tabs {
+  // 类型（常规切换）
+  &--normal {
+    .tabs__content {
+      position: relative;
+    }
+
+    .tab__pane {
+      position: absolute;
+      left: 0;
+      right: 0;
+      visibility: hidden;
+
+      &.active {
+        visibility: visible;
+      }
+    }
+  }
+
+  &__line {
+    background-color: #007fff;
+    height: 4px;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+  }
+
+}
+
+.tabs__wrap {
+
+  // 标签栏可滚动
+  &--scrollable {
+    box-sizing: initial;
+    height: 64px;
+
+    .tabs__nav {
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .tab {
+      flex: 0 0 22% !important;
+      padding: 0 12px;
+    }
+  }
+}
+
+
+.tabs__nav {
+  position: relative;
+  display: flex;
+  user-select: none;
+  height: 64px;
+  width: 100%;
+}
+
+
+.tab {
+  position: relative;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0 8px;
+  color: #646566;
+  font-size: 28px;
+  line-height: 64px;
+  // cursor: pointer;
+
+  &.active {
+    color: #007fff;
+  }
+}
+
+.tab__pane {
+  height: 100%;
+}

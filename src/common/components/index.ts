@@ -13,8 +13,9 @@ export { SwipeActionOption, OpenedPosition } from './swipe-cell/types';
 export { default as Popup } from './popup';
 export { default as Badge } from './badge';
 
-export { default as IndexBar } from './index-bar';
-export { default as IndexBarPanel } from './index-bar/panel';
+export { IndexBar, IndexBarPanel } from './index-bar/index';
+
+export { Tabs, Tab } from './tabs';
 
 // fix: canvas id "taro-poster-render" not found
 export * from './taro-react';

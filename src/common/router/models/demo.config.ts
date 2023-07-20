@@ -27,4 +27,5 @@ export default {
   popup: { path: '/pages/demo/popup/index', title: '弹出层' } as RouterConfig,
   badge: { path: '/pages/demo/badge/index', title: '徽标' } as RouterConfig,
   indexBar: { path: '/pages/demo/index-bar/index', title: '索引列表' } as RouterConfig,
+  tabs: { path: '/pages/demo/tabs/index', title: '标签页' } as RouterConfig,
 };

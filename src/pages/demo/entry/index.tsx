@@ -29,6 +29,7 @@ export default function Index() {
     { label: '弹出层 Popup', path: appRouterConfig.popup.path },
     { label: '徽标 Badge', path: appRouterConfig.badge.path },
     { label: '索引列表 IndexBar', path: appRouterConfig.indexBar.path },
+    { label: '标签页 Tabs', path: appRouterConfig.tabs.path },
 
     { label: '下拉刷新 useList', path: appRouterConfig.pullDownRefresh.path },
     { label: '列表 useList', path: appRouterConfig.list.path },

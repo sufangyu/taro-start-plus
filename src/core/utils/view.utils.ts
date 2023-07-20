@@ -32,7 +32,26 @@ const viewUtil = {
       });
     });
   },
-  
+  /**
+   * 延迟获取选择器集合
+   *
+   * @param {string} selectorStr
+   * @param {number} [delayTime=500]
+   * @return {*}  {Promise<any[]>}
+   */
+  delayQuerySelectorAll(selectorStr: string, delayTime: number = 500): Promise<any[]> {
+    return new Promise(resolve => {
+      const selector: SelectorQuery = Taro.createSelectorQuery();
+      delay(delayTime).then(() => {
+        selector
+          .selectAll(selectorStr)
+          .boundingClientRect()
+          .exec((res: any[]) => {
+            resolve(res);
+          });
+      });
+    });
+  },
 };
 
 export { viewUtil };

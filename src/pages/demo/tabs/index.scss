@@ -1,0 +1,26 @@
+.container {
+  background-color: #fafbfc;
+  min-height: 100vh;
+}
+
+.demo-title {
+  padding: 32px;
+  color: #808080;
+  font-size: 28px;
+}
+
+.demo-content {
+  margin-bottom: 32px;
+}
+
+
+.demo-text-1,
+.demo-text-2,
+.demo-text-3,
+.demo-text-4 {
+  background-color: #fff;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
