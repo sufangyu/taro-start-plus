@@ -1,37 +1,88 @@
 .tabs {
-  // 类型（常规切换）
-  &--normal {
-    .tabs__content {
-      position: relative;
-    }
+  display: flex;
+  flex-direction: column;
 
-    .tab__pane {
-      position: absolute;
-      left: 0;
-      right: 0;
-      visibility: hidden;
+  // 底部
+  &--bottom {
+    flex-direction: column-reverse;
+  }
 
-      &.active {
-        visibility: visible;
+  // 左侧
+  &--left {
+    flex-direction: row;
+
+    .tabs__wrap {
+      width: auto;
+      
+      &--scrollable {
+        height: 100%;
       }
     }
+
+    .tabs__nav {
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .tab {
+      padding: 0 0 0 2px;
+      width: 200px;
+    }
+
+    .tabs__line {
+      bottom: auto;
+      top: 0;
+      left: 0;
+    }
+
+    .tabs__content {
+      flex: 1;
+    }
   }
 
-  &__line {
-    background-color: #007fff;
-    height: 4px;
-    border-radius: 4px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-    opacity: 0;
-  }
+  // 左侧
+  &--right {
+    flex-direction: row-reverse;
 
+    .tabs__wrap {
+      width: auto;
+    }
+
+    .tabs__nav {
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .tab {
+      padding: 0 2px 0 0;
+      width: 200px;
+    }
+
+    .tabs__line {
+      left: auto;
+      top: 0;
+      right: 0;
+    }
+
+    .tabs__content {
+      flex: 1;
+    }
+  }
+}
+
+// 高亮 item 线条 -----------------
+.tabs__line {
+  background-color: #007fff;
+  // height: 4px;
+  border-radius: 4px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0;
 }
 
 .tabs__wrap {
-
   // 标签栏可滚动
   &--scrollable {
     box-sizing: initial;
@@ -42,13 +93,14 @@
     }
 
     .tab {
-      flex: 0 0 22% !important;
+      flex: 0 0 20%;
       padding: 0 12px;
     }
   }
 }
 
 
+// 选项卡 -----------------
 .tabs__nav {
   position: relative;
   display: flex;
@@ -56,7 +108,6 @@
   height: 64px;
   width: 100%;
 }
-
 
 .tab {
   position: relative;
@@ -69,13 +120,33 @@
   color: #646566;
   font-size: 28px;
   line-height: 64px;
+  text-align: center;
   // cursor: pointer;
 
   &.active {
     color: #007fff;
   }
+
+  &.disabled {
+    color: rgba(0, 0, 0, 0.25);
+    cursor: not-allowed;
+  }
+}
+
+
+// 选项卡内容 -----------------
+.tabs__content {
+  position: relative;
 }
 
 .tab__pane {
   height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+
+  &.active {
+    visibility: visible;
+  }
 }

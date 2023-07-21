@@ -16,18 +16,20 @@ interface Props {
   children: ReactNode;
   /** 组件的内联样式, 可以动态设置的内联样式. 通常用于设置高度 */
   style?: string | CSSProperties;
+  /** 选项卡的位置. 默认 top */
+  placement?: 'left'|'right'|'top'|'bottom';
   /** 当前选中标签序号 */
   active?: number;
   /**
-   *  滚动阈值，默认 5
+   *  滚动阈值. 默认 5
    * 
    * 标签数量超过阈值且总宽度超过标签栏宽度时开始横向滚动
    */
   swipeThreshold?: number;
   /** 开启滑动切换标签页。默认 false */
   swipeable?: boolean;
-  /** active 线的宽度. 默认 40 */
-  lineWidth?: number;
+  /** active 线的宽度/高. 默认 40 */
+  lineSize?: number;
   /** 切换回调函数. 
    * 
    * 注意：swipeable时, 滑动会触发2次回调
@@ -44,23 +46,37 @@ interface Props {
  */
 const Tabs = (props: Props): ReactNode => {
   const {
-    children, style = { height: Taro.pxTransform(400) },
-    active = 0, swipeThreshold = 5, lineWidth = 40, swipeable, onChange, 
+    children, style = { height: Taro.pxTransform(400) }, placement = 'top',
+    active = 0, swipeThreshold = 5, lineSize = 40, swipeable, onChange, 
   } = props;
 
+  // 垂直布局
+  const isVertical = ['top', 'bottom'].includes(placement);
+  // 水平布局
+  const isHorizontal = ['left', 'right'].includes(placement);
 
   const random = Math.random().toString(36).slice(-6);
   // tab id, 用于获取 tab 时候指定获取范围. 代替原生 .in(this)
   const id = useRef(`tabs-wrap-${random}`);
-  const tabsWrapWidth = useRef(0);
+  const tabsWrapSize = useRef({
+    width: 0,
+    height: 0,
+  });
   const [current, setCurrent] = useState(active);
-  const [itemWidth, setItemWidth] = useState(0);
+  const [itemSize, setItemSize] = useState({
+    width: 0,
+    height: 0,
+  });
   const [scrollLeft, setScrollLeft] = useState(0);
+  const [scrollTop, setScrollTop] = useState(0);
 
   useReady(async () => {
     getTabsWrapInfo();
     const itemRect = await getTabItemInfo(current);
-    setItemWidth(itemRect.width);
+    setItemSize({
+      width: itemRect.width,
+      height: itemRect.height,
+    });
   });
 
 
@@ -71,7 +87,10 @@ const Tabs = (props: Props): ReactNode => {
       if (rect == null) {
         return;
       }
-      tabsWrapWidth.current = rect.width;
+      tabsWrapSize.current = {
+        width: rect.width,
+        height: rect.height,
+      };
     });
   };
   
@@ -83,6 +102,7 @@ const Tabs = (props: Props): ReactNode => {
     if (rect == null) {
       return {
         width: 0,
+        height: 0,
         left: 0,
       };
     }
@@ -99,14 +119,25 @@ const Tabs = (props: Props): ReactNode => {
   const handleSwitchTab = async (index: number): Promise<void> => {
     setCurrent(index);
 
+
     // tab 滚动处理 -----------
     const itemRect = await getTabItemInfo(index);
-    const tabsHalfWidth = tabsWrapWidth.current / 2;
-    const itemHalfWidth = itemRect.width / 2;
-    // 滚动条滚动到的位置
-    const offsetLeft = itemRect.width * current - tabsHalfWidth + itemHalfWidth;
-    // console.log('需要滚动到的位置 =>>', offsetLeft);
-    setScrollLeft(Math.max(0, offsetLeft));
+
+    if (isVertical) {
+      const tabsHalfWidth = tabsWrapSize.current.width / 2;
+      const itemHalfWidth = itemRect.width / 2;
+      // 滚动条滚动到的位置
+      const offsetLeft = itemRect.width * index - tabsHalfWidth + itemHalfWidth;
+      setScrollLeft(Math.max(0, offsetLeft));
+    }
+
+    if (isHorizontal) {
+      const tabsHalfHeight = tabsWrapSize.current.height / 2;
+      const itemHalfHeight = itemRect.height / 2;
+      // 滚动条滚动到的位置 
+      const offsetTop = itemRect.height * index - tabsHalfHeight + itemHalfHeight * 2;
+      setScrollTop(Math.max(0, offsetTop));
+    }
 
 
     if (index !== current) {
@@ -117,32 +148,43 @@ const Tabs = (props: Props): ReactNode => {
 
   // 渲染切换 tab 栏
   const renderTabNav = (): ReactNode => {
-    const offsetLeft = (itemWidth * current) + (itemWidth / 2) - (lineWidth / 2);
+    const offset = isVertical
+      ? (itemSize.width * current) + (itemSize.width / 2) - (lineSize / 2)
+      : (itemSize.height * current) + (itemSize.height / 2) - (lineSize / 2);
+
     const styles = {
-      width: Taro.pxTransform(lineWidth * 2),
-      transform: `translateX(${offsetLeft}px)`,
-      opacity: itemWidth !== 0 ? 1 : 0,
-      transitionDuration: itemWidth !== 0 ? '0.3s' : '0s',
+      width: isVertical ? Taro.pxTransform(lineSize * 2) : '2px',
+      height: isHorizontal ? Taro.pxTransform(lineSize * 2) : '2px',
+      transform: isVertical ? `translateX(${offset}px)` : `translateY(${offset}px)`,
+      opacity: itemSize.width !== 0 ? 1 : 0,
+      transitionDuration: itemSize.width !== 0 ? '0.3s' : '0s',
     };
 
     return (
       <ScrollView
         id={id.current}
         className={`tabs__wrap ${(children as []).length > swipeThreshold ? 'tabs__wrap--scrollable' : ''}`}
-        scrollX
+        scrollX={isVertical}
+        scrollY={isHorizontal}
         enableFlex
         scrollWithAnimation
         scrollLeft={scrollLeft}
+        scrollTop={scrollTop}
+        style={{
+          height: isHorizontal ? (style as any)?.height : null,
+        }}
       >
         <View className="tabs__nav">
           <View className="tabs__line" style={styles} />
           {
             (children as []).map((tab: any, idx) => {
+              const { title, disabled } = tab.props;
               return (
                 <Tab
-                  className={`tab tab-${idx} ${current === idx ? 'active' : ''}`}
+                  className={`tab tab-${idx} ${current === idx ? 'active' : ''} ${disabled ? 'disabled' : ''}`}
                   key={`tab-nav-${idx}`}
-                  title={tab.props.title}
+                  title={title}
+                  disabled={disabled}
                   onClick={() => handleSwitchTab(idx)}
                 />
               );
@@ -204,7 +246,7 @@ const Tabs = (props: Props): ReactNode => {
   };
 
   return (
-    <View className={`tabs tabs--${swipeable ? 'swipeable' : 'normal'}`}>
+    <View className={`tabs tabs--${placement}`}>
       {renderTabNav()}
       {swipeable ? renderSwiper() : renderNormal()}
     </View>

@@ -1,3 +1,5 @@
+@use '@/common/styles/mixins/index' as mixins;
+
 view {
   box-sizing: border-box;
 }
@@ -8,6 +10,10 @@ view {
   width: 0;
   height: 0;
   color: transparent;
+}
+
+.safe-area-bottom {
+  @include mixins.safeAreaPaddingBottom();
 }
 
 .tabbar__placeholdr {
