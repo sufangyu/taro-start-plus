@@ -1,5 +1,6 @@
 import { View, Text } from '@tarojs/components';
 import Taro, { useDidShow, useLoad } from '@tarojs/taro';
+
 import type CustomTabBar from '@/custom-tab-bar/index';
 
 import './index.scss';

@@ -1,11 +1,13 @@
 import {
   View, Image, Button,
 } from '@tarojs/components';
-import { useState } from 'react';
 import Taro from '@tarojs/taro';
-import { OpenedPosition, SwipeActionOption, SwipeCell } from '@/common/components';
-import icDel from '@/assets/images/icons/ic-del-w.png';
+
+import { useState } from 'react';
+
 import icCollect from '@/assets/images/icons/ic-collect-w.png';
+import icDel from '@/assets/images/icons/ic-del-w.png';
+import { OpenedPosition, SwipeActionOption, SwipeCell } from '@/common/components';
 
 import './index.scss';
 

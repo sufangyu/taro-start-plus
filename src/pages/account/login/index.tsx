@@ -1,9 +1,11 @@
 import { View, Button } from '@tarojs/components';
 import Taro, { useRouter } from '@tarojs/taro';
+
 import { useRef } from 'react';
+
+import { appRouterConfig } from '@/common/router';
 import { useAccountStore } from '@/common/store';
 import { routeUtil } from '@/core/utils';
-import { appRouterConfig } from '@/common/router';
 
 import './index.scss';
 

@@ -1,4 +1,5 @@
 import Taro from '@tarojs/taro';
+
 import { appRouterConfig, tabBarList } from '@/common/router';
 
 

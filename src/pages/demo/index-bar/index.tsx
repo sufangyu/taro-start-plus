@@ -1,6 +1,7 @@
 import { Image, View } from '@tarojs/components';
-import { IndexBar, IndexBarPanel } from '@/common/components';
+
 import icHot from '@/assets/images/icons/ic-hot.png';
+import { IndexBar, IndexBarPanel } from '@/common/components';
 
 import mockData from './mock-data';
 import './index.scss';

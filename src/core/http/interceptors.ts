@@ -1,5 +1,7 @@
 import Taro from '@tarojs/taro';
+
 import { API_BASE_MAP } from '@/common/config';
+
 import {
   RequestOptions, ResponsePromise, Response, ErrorData, ProxyResponse,
 } from './type';

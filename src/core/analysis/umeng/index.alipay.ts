@@ -1,4 +1,5 @@
 import um from 'umtrack-alipay';
+
 import { umengConfig } from '@/common/config';
 
 um.init({

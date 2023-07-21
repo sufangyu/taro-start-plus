@@ -1,6 +1,7 @@
 import { View, Image } from '@tarojs/components';
-import { appUtil, routeUtil } from '@/core/utils';
+
 import { appRouterConfig } from '@/common/router';
+import { appUtil, routeUtil } from '@/core/utils';
 
 import iconDebug from './icon-debug.png';
 import './index.scss';

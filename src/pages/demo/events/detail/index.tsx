@@ -1,7 +1,8 @@
 import { View, Button } from '@tarojs/components';
 import Taro from '@tarojs/taro';
-import { routeUtil } from '@/core/utils';
+
 import { EventNameEnum } from '@/common/enums';
+import { routeUtil } from '@/core/utils';
 
 import './index.scss';
 

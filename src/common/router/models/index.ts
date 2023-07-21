@@ -1,9 +1,9 @@
 /* eslint-disable import/extensions */
-import frameworkRouterConfig from './framework.config';
-import debugRouterConfig from './debug.config';
-import homeRouterConfig from './home.config';
 import accountRouterConfig from './account.config';
+import debugRouterConfig from './debug.config';
 import demoRouterConfig from './demo.config';
+import frameworkRouterConfig from './framework.config';
+import homeRouterConfig from './home.config';
 
 // 整个 app 的配置
 const appRouterConfig = {

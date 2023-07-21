@@ -1,4 +1,5 @@
 import { View, Image } from '@tarojs/components';
+
 import { SwipeActionOption } from './types';
 
 import './index.scss';

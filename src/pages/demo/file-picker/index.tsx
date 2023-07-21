@@ -1,6 +1,8 @@
 import { View, Button } from '@tarojs/components';
 import { useLoad } from '@tarojs/taro';
+
 import { useState } from 'react';
+
 import { FilePicker } from '@/common/components';
 
 import './index.scss';

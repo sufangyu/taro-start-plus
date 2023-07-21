@@ -1,4 +1,5 @@
 import { View } from '@tarojs/components';
+
 import { ReactNode } from 'react';
 
 import './index.scss';

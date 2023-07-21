@@ -1,5 +1,7 @@
 import Taro from '@tarojs/taro';
+
 import mergeWith from 'lodash-es/mergeWith';
+
 import interceptors from './interceptors';
 import { RequestOptions, ResponsePromise } from './type';
 

@@ -1,7 +1,8 @@
 import { ScrollView, View } from '@tarojs/components';
 import Taro, { useDidShow } from '@tarojs/taro';
-import { routeUtil } from '@/core/utils';
+
 import { appRouterConfig } from '@/common/router';
+import { routeUtil } from '@/core/utils';
 import CustomTabBar from '@/custom-tab-bar/index';
 
 import './index.scss';

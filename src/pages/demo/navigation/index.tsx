@@ -1,7 +1,8 @@
 import { View, Text, Button } from '@tarojs/components';
 import { useRouter } from '@tarojs/taro';
-import { routeUtil } from '@/core/utils';
+
 import { appRouterConfig } from '@/common/router';
+import { routeUtil } from '@/core/utils';
 
 import './index.scss';
 

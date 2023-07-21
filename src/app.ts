@@ -1,9 +1,12 @@
-import { PropsWithChildren } from 'react';
 import Taro, { useDidShow, useLaunch } from '@tarojs/taro';
+
+import { PropsWithChildren } from 'react';
+
 import { updateUtil } from '@/core/utils';
 import '@/core/analysis';
 
 import './app.scss';
+
 
 function App({ children }: PropsWithChildren) {
   useLaunch(() => {

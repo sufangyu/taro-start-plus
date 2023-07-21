@@ -1,4 +1,5 @@
 import { View } from '@tarojs/components';
+
 import { ImagePreview } from '@/common/components';
 
 import './index.scss';

@@ -1,6 +1,8 @@
 import { Image, View } from '@tarojs/components';
-import { ReactNode, useEffect } from 'react';
+
 import classNames from 'classnames';
+import { ReactNode, useEffect } from 'react';
+
 import { appUtil } from '@/core/utils';
 
 import './index.scss';

@@ -1,5 +1,7 @@
 import { Block, ITouchEvent, View } from '@tarojs/components';
+
 import { useEffect, useRef, useState } from 'react';
+
 import { viewUtil } from '@/core/utils';
 
 import { IndexItem } from './types';

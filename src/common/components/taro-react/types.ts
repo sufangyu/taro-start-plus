@@ -1,5 +1,5 @@
-import { CSSProperties } from 'react';
 import { type PosterItemConfig, PosterRenderCore } from '@poster-render/taro/src';
+import { CSSProperties } from 'react';
 
 export interface PosterRenderBaseProps {
   /** canvasId，当有多个canvas时，需要指定canvasId，否则默认为第一个canvas */

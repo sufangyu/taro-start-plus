@@ -1,7 +1,9 @@
 import Taro from '@tarojs/taro';
+
 import { useState } from 'react';
-import { permissionUtil } from '@/core/utils';
+
 import { mapConfig } from '@/common/config';
+import { permissionUtil } from '@/core/utils';
 
 type Location = {
   longitude: number;

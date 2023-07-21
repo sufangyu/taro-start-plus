@@ -1,4 +1,5 @@
 import { SubPackage } from '@tarojs/taro';
+
 import { appRouterConfig } from './models';
 import { RouterConfig } from './types';
 

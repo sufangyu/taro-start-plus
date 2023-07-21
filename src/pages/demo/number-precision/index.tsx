@@ -1,5 +1,6 @@
 /* eslint-disable import/no-named-as-default-member */
 import { View } from '@tarojs/components';
+
 import NP from 'number-precision';
 import './index.scss';
 

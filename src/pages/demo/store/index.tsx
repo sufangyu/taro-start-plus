@@ -1,4 +1,5 @@
 import { View, Text } from '@tarojs/components';
+
 import { useAccountStore } from '@/common/store';
 
 import './index.scss';

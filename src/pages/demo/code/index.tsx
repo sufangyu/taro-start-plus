@@ -1,4 +1,5 @@
 import { View } from '@tarojs/components';
+
 import { Barcode, QRCode } from 'taro-code';
 
 import './index.scss';

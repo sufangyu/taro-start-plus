@@ -2,10 +2,12 @@
 import {
   ScrollView, Swiper, SwiperItem, View, 
 } from '@tarojs/components';
-import {
-  CSSProperties, ReactNode, useRef, useState, 
-} from 'react';
 import Taro, { useReady } from '@tarojs/taro';
+
+import {
+  useRef, useState, CSSProperties, ReactNode,
+} from 'react';
+
 import { viewUtil } from '@/core/utils';
 
 import Tab from './tab';

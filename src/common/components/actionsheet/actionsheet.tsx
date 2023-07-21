@@ -1,8 +1,9 @@
 import {
   ButtonProps, CommonEventFunction, ITouchEvent, View, 
 } from '@tarojs/components';
-import { FC } from 'react';
+
 import classNames from 'classnames';
+import { FC } from 'react';
 
 import Item from './item';
 import './index.scss';

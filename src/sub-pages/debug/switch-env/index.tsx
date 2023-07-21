@@ -1,11 +1,13 @@
 import { View } from '@tarojs/components';
 import Taro, { useLoad } from '@tarojs/taro';
-import { useState } from 'react';
+
 import classNames from 'classnames';
-import { useAccountStore, useDebugStore } from '@/common/store';
+import { useState } from 'react';
+
 import {
   ENV_CODE_DEFAULT, ENV_CURRENT, ENV_MAP, EnvConfig, 
 } from '@/common/config/';
+import { useAccountStore, useDebugStore } from '@/common/store';
 
 import './index.scss';
 

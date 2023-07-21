@@ -1,6 +1,9 @@
-import { useCallback } from 'react';
 import Taro from '@tarojs/taro';
+
+import { useCallback } from 'react';
+
 import { useAccountStore } from '@/common/store';
+
 import { routeUtil } from '../utils';
 
 

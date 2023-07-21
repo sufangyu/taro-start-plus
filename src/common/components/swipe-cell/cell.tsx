@@ -1,10 +1,12 @@
 /* eslint-disable no-use-before-define */
 import { View } from '@tarojs/components';
+
 import {
   FC, ReactNode, useEffect, useState, 
 } from 'react';
-import { OpenedPosition, SwipeActionOption } from './types';
+
 import SwipeAction from './action';
+import { OpenedPosition, SwipeActionOption } from './types';
 import { range, getDirection } from './utils';
 
 import './index.scss';

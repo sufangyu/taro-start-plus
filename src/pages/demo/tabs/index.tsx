@@ -1,5 +1,6 @@
 import { View } from '@tarojs/components';
 import Taro from '@tarojs/taro';
+
 import { Tabs, Tab } from '@/common/components';
 
 import './index.scss';

@@ -1,6 +1,7 @@
 import {
   View, Image, Text, Button, 
 } from '@tarojs/components';
+
 import icScan from '@/assets/images/icons/ic-scan.svg';
 import { routeUtil, scanUtil } from '@/core/utils';
 

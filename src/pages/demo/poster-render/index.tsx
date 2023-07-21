@@ -1,8 +1,10 @@
 import { View, Button, Text } from '@tarojs/components';
 import Taro from '@tarojs/taro';
-import { useRef, useState } from 'react';
+
 import { PosterItemConfig } from '@poster-render/taro-react';
+import { useRef, useState } from 'react';
 import { QRCode } from 'taro-code';
+
 import { ImageShare } from '@/common/components';
 import { routeUtil } from '@/core/utils';
 

@@ -1,5 +1,6 @@
-import Taro from '@tarojs/taro';
 import { ITouchEvent } from '@tarojs/components';
+import Taro from '@tarojs/taro';
+
 import { ReportEventNameEnum } from '@/common/enums';
 
 /** 行为追踪工具类 */

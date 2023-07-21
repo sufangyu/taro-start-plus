@@ -1,4 +1,5 @@
 import { Image, Text, View } from '@tarojs/components';
+
 import { NavigationBar } from '@/common/components';
 
 import './index.scss';

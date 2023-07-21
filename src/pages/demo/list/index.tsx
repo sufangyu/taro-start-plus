@@ -1,9 +1,11 @@
 import { Button, View } from '@tarojs/components';
+
 import { useState } from 'react';
-import { useList } from '@/core/hooks';
+
+import { getList } from '@/common/api/test';
 import { ListStatus } from '@/common/components';
 import { List } from '@/common/models';
-import { getList } from '@/common/api/test';
+import { useList } from '@/core/hooks';
 import './index.scss';
 
 

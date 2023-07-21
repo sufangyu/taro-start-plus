@@ -1,9 +1,11 @@
 import { View, Button } from '@tarojs/components';
+
 import { useState } from 'react';
-import { routeUtil } from '@/core/utils';
+
+import { EventNameEnum } from '@/common/enums';
 import { appRouterConfig } from '@/common/router';
 import { useEvents } from '@/core/hooks';
-import { EventNameEnum } from '@/common/enums';
+import { routeUtil } from '@/core/utils';
 
 import './index.scss';
 

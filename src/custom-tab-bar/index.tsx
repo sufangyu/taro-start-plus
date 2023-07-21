@@ -1,6 +1,8 @@
 import { View, Image } from '@tarojs/components';
 import Taro from '@tarojs/taro';
+
 import { Component, ReactNode } from 'react';
+
 import { TabbarItem, tabBarList } from '@/common/router';
 import { routeUtil } from '@/core/utils';
 

@@ -1,5 +1,6 @@
-import { isFunction } from '@tarojs/shared';
 import Taro from '@tarojs/taro';
+
+import { isFunction } from '@tarojs/shared';
 
 
 export const appUtil = {

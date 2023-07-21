@@ -1,8 +1,10 @@
 import { ScrollView, View } from '@tarojs/components';
+import Taro from '@tarojs/taro';
+
 import {
   FC, ReactNode, useEffect, useRef, useState, 
 } from 'react';
-import Taro from '@tarojs/taro';
+
 import { viewUtil } from '@/core/utils';
 
 import { Sidebar } from './sidebar';

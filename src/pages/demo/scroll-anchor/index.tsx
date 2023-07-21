@@ -1,6 +1,7 @@
 import { View, Text, ScrollView } from '@tarojs/components';
-import { useState } from 'react';
 import Taro from '@tarojs/taro';
+
+import { useState } from 'react';
 
 import './index.scss';
 

@@ -1,4 +1,5 @@
 import um from 'umtrack-tt';
+
 import { umengConfig } from '@/common/config';
 
 um.init({

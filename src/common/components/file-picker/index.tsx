@@ -1,14 +1,14 @@
 import { View, Image } from '@tarojs/components';
-import { useEffect, useState } from 'react';
 import Taro from '@tarojs/taro';
+
+import { useEffect, useState } from 'react';
 
 import ButtonRemove from './components/remove';
 import Uploader from './components/uploader';
-
-import './index.scss';
 import {
   Camera, MediaItem, MediaType, SizeType, Sources, 
 } from './types';
+import './index.scss';
 
 
 interface Props {

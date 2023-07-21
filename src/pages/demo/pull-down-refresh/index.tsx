@@ -1,8 +1,9 @@
 import { View, Text } from '@tarojs/components';
-import { useList } from '@/core/hooks';
-import { List } from '@/common/models';
+
 import { getList } from '@/common/api/test';
 import { ListStatus } from '@/common/components';
+import { List } from '@/common/models';
+import { useList } from '@/core/hooks';
 
 import './index.scss';
 

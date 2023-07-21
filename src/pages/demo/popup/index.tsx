@@ -1,10 +1,12 @@
 import {
   View, Button, ScrollView, 
 } from '@tarojs/components';
-import { useState } from 'react';
 import Taro from '@tarojs/taro';
-import { Popup } from '@/common/components';
+
+import { useState } from 'react';
+
 import icClose from '@/assets/images/icons/ic-close.png';
+import { Popup } from '@/common/components';
 
 import './index.scss';
 

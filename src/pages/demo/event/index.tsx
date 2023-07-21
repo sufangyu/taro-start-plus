@@ -1,7 +1,8 @@
 import { View, Button } from '@tarojs/components';
 import { useLoad } from '@tarojs/taro';
-import { trackUtil } from '@/core/utils';
+
 import { ReportEventNameEnum } from '@/common/enums';
+import { trackUtil } from '@/core/utils';
 
 import './index.scss';
 

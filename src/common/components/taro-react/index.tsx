@@ -1,3 +1,7 @@
+import { Image, View } from '@tarojs/components';
+import { nextTick, previewImage } from '@tarojs/taro';
+
+import { PosterRenderCore, PosterItemConfig } from '@poster-render/taro/src';
 import {
   forwardRef,
   ForwardRefRenderFunction,
@@ -7,11 +11,10 @@ import {
   useState,
   memo,
 } from 'react';
-import { nextTick, previewImage } from '@tarojs/taro';
-import { PosterRenderCore, PosterItemConfig } from '@poster-render/taro/src';
-import { Image, View } from '@tarojs/components';
-import type { PosterRenderProps, PosterRenderRef } from './types';
+
 import { PosterRenerCanvas } from './canvas';
+
+import type { PosterRenderProps, PosterRenderRef } from './types';
 
 const PosterRenderReact: ForwardRefRenderFunction<
   PosterRenderRef,

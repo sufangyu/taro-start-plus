@@ -1,4 +1,5 @@
 import { View } from '@tarojs/components';
+
 import { StatusMessage } from '@/common/enums';
 import { formatUtil } from '@/core/utils';
 

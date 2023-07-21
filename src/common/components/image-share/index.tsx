@@ -1,8 +1,9 @@
-import Taro, { pxTransform } from '@tarojs/taro';
-import { useRef, FC } from 'react';
-import classNames from 'classnames';
-import { PosterRender, PosterRenderRef, PosterItemConfig } from '@poster-render/taro-react';
 import { View, ScrollView, Text } from '@tarojs/components';
+import Taro, { pxTransform } from '@tarojs/taro';
+
+import { PosterRender, PosterRenderRef, PosterItemConfig } from '@poster-render/taro-react';
+import classNames from 'classnames';
+import { useRef, FC } from 'react';
 
 import './index.scss';
 

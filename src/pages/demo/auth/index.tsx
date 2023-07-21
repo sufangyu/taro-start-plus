@@ -1,6 +1,7 @@
 import { View, Button } from '@tarojs/components';
-import { useWithLogged } from '@/core/hooks';
+
 import { useAccountStore } from '@/common/store';
+import { useWithLogged } from '@/core/hooks';
 import { routeUtil } from '@/core/utils';
 
 import './index.scss';

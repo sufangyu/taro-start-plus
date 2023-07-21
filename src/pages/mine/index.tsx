@@ -2,9 +2,11 @@ import {
   View, Text, Button,
 } from '@tarojs/components';
 import Taro, { useDidShow, useLoad, usePageScroll } from '@tarojs/taro';
+
 import { useState } from 'react';
-import { useAccountStore } from '@/common/store';
+
 import { DebugEnv, NavigationBar } from '@/common/components';
+import { useAccountStore } from '@/common/store';
 import { routeUtil } from '@/core/utils';
 import type CustomTabBar from '@/custom-tab-bar/index';
 

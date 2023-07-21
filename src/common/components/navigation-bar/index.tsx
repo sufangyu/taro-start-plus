@@ -1,7 +1,9 @@
 import { View, Text } from '@tarojs/components';
-import { FC } from 'react';
 import Taro from '@tarojs/taro';
+
 import { isFunction } from '@tarojs/shared';
+import { FC } from 'react';
+
 import { appUtil } from '@/core/utils';
 
 import './index.scss';

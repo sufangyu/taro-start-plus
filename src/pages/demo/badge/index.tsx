@@ -1,8 +1,9 @@
 import {
   View, Text, Button, Image, 
 } from '@tarojs/components';
-import { Badge } from '@/common/components';
+
 import icMessage from '@/assets/images/icons/ic-message.png';
+import { Badge } from '@/common/components';
 
 import './index.scss';
 

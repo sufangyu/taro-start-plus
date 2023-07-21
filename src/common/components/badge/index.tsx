@@ -1,7 +1,8 @@
 import { View } from '@tarojs/components';
-import { ReactNode } from 'react';
 import Taro from '@tarojs/taro';
+
 import classNames from 'classnames';
+import { ReactNode } from 'react';
 
 import './index.scss';
 
