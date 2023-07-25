@@ -1,0 +1,33 @@
+.pull-refresh {
+  overflow: hidden;
+
+  &__track {
+    position: relative;
+    height: 100%;
+  }
+
+  &__head {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    // background-color: rgba($color: #007fff, $alpha: 0.1);
+    font-size: 28px;
+    color: #999;
+    transform: translateY(-100%);
+  }
+}
+
+
+.infinite-list {
+  height: 100%;
+
+  &__status {
+    text-align: center;
+    font-size: 28px;
+    padding: 16px;
+    color: #808080;
+  }
+}

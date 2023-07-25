@@ -1,0 +1,29 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-placeholder {
+  height: 100px;
+  line-height: 100px;
+  background-color: #ccc;
+  text-align: center;
+}
+
+.pull-refresh {
+  flex: 1;
+}
+
+
+.list {
+  // height: calc(100vh - 100px - 10px);
+  height: 100%;
+}
+
+.list-placeholder {
+  height: 125px;
+  line-height: 125px;
+  background-color: #eee;
+  text-align: center;
+}

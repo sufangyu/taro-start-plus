@@ -11,6 +11,9 @@ export { default as Popup } from './popup';
 export { default as Badge } from './badge';
 export { IndexBar, IndexBarPanel } from './index-bar/index';
 export { Tabs, Tab } from './tabs';
+export {
+  PullRefresh, PullStatusEnum, PullStatusMessage, InfiniteList, LoadStatusEnum, LoadStatusMessage,
+} from './list';
 
 // fix: canvas id "taro-poster-render" not found
 export * from './taro-react';

@@ -31,9 +31,10 @@ export default function Index() {
     { label: '徽标 Badge', path: appRouterConfig.badge.path },
     { label: '索引列表 IndexBar', path: appRouterConfig.indexBar.path },
     { label: '标签页 Tabs', path: appRouterConfig.tabs.path },
+    { label: '列表组件 List', path: appRouterConfig.listView.path },
 
     { label: '下拉刷新 useList', path: appRouterConfig.pullDownRefresh.path },
-    { label: '列表 useList', path: appRouterConfig.list.path },
+    { label: '列表 hooks useList', path: appRouterConfig.list.path },
     { label: '事件总线 useEvents', path: appRouterConfig.eventsList.path },
     { label: '权限&未登录拦截 useWithLogged', path: appRouterConfig.auth.path },
 
