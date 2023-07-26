@@ -8,7 +8,7 @@ import {
   useRef, useState, CSSProperties, ReactNode,
 } from 'react';
 
-import { viewUtil } from '@/core/utils';
+import { baseUtil, viewUtil } from '@/core/utils';
 
 import Tab from './tab';
 import './index.scss';
@@ -57,9 +57,9 @@ const Tabs = (props: Props): ReactNode => {
   // 水平布局
   const isHorizontal = ['left', 'right'].includes(placement);
 
-  const random = Math.random().toString(36).slice(-6);
+  const uuid = baseUtil.uuid();
   // tab id, 用于获取 tab 时候指定获取范围. 代替原生 .in(this)
-  const id = useRef(`tabs-wrap-${random}`);
+  const id = useRef(`tabs-wrap-${uuid}`);
   const tabsWrapSize = useRef({
     width: 0,
     height: 0,
