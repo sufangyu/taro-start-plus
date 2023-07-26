@@ -29,4 +29,5 @@ export default {
   indexBar: { path: '/pages/demo/index-bar/index', title: '索引列表' } as RouterConfig,
   tabs: { path: '/pages/demo/tabs/index', title: '标签页' } as RouterConfig,
   listView: { path: '/pages/demo/list-view/index', title: '标签页' } as RouterConfig,
+  popover: { path: '/pages/demo/popover/index', title: '弹出气泡' } as RouterConfig,
 };

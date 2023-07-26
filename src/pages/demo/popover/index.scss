@@ -1,0 +1,33 @@
+.container {
+  padding: 30px;
+
+  .popover__wrapper {
+    margin-right: 16px;
+  }
+  
+}
+
+.demo-title {
+  padding: 16px 0;
+  color: #808080;
+  font-size: 32px;
+}
+
+.demo-content {
+  margin-bottom: 32px;
+
+  button {
+    margin: 8px auto;
+    font-size: 28px;
+    font-weight: normal;
+  }
+}
+
+.demo-popover-refer {
+  width: 120px;
+  height: 120px;
+  background-color: #1989fa;
+  border-radius: 16px;
+  margin: 0 auto;
+  text-align: center;
+}

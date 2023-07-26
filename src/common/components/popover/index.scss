@@ -1,0 +1,285 @@
+@use '@/common/styles/mixins/index' as mixins;
+
+$popover-duration : 150ms;
+$timing-func    : cubic-bezier(.36,.66,.04,1);
+
+
+.popover__wrapper {
+  display: inline-block;
+  font-size: 0;
+}
+
+.popover {
+  position: fixed;
+  z-index: 1500;
+  visibility: hidden;
+  // transition: visibility $popover-duration $timing-func;
+
+  // 显示
+  &.visibled {
+    visibility: visible;
+
+    .popover__overlay,
+    .popover__content {
+      opacity: 1;
+    }
+  }
+
+  &__overlay {
+    // 父级加了 transform 会影响到 fixed 的布局不铺满窗口
+    @include mixins.overlay();
+
+    opacity: 0;
+    background-color: transparent;
+    transition: opacity $popover-duration;
+  }
+
+
+  &__content {
+    position: relative;
+    border-radius: 16px;
+    // padding: 12px 24px;
+    max-width: 80vw;
+    font-size: 28px;
+    // line-height: 40px;
+    box-sizing: border-box;
+    box-sizing: border-box;
+    word-break: break-all;
+    box-shadow: 0 4px 24px rgba(50,50,51,.12);
+    opacity: 0;
+    transition: opacity $popover-duration;
+
+    &--custom {
+      padding: 24px;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-color: transparent;
+      border-style: solid;
+      border-width: 16px;
+    }
+  }
+
+
+  // 色系 -----------------
+  &--dark {
+    .popover__content{
+      color: #fff;
+      background: #4a4a4a;
+
+      &::after {
+        color: #4a4a4a;
+      }
+    }
+
+    .popover__action.hairline--bottom::after{
+      border: 0 solid #646566;
+      border-bottom-width: 1PX;
+    }
+
+    .popover__action.disabled {
+      color: #808080;
+    }
+  }
+
+  &--light {
+    .popover__content{
+      color: #333;
+      background: #fff;
+
+      &::after {
+        color: #fff;
+      }
+    }
+
+    .popover__action.hairline--bottom::after{
+      border: 0 solid #ebedf0;
+      border-bottom-width: 1PX;
+    }
+
+    .popover__action.disabled {
+      color: #c8c9cc;
+    }
+  }
+
+
+  // 位置 -----------------
+  &--bottom {
+    .popover__content::after {
+      transform: translate(-50%);
+      top: 0;
+      left: 50%;
+      border-top-width: 0;
+      border-bottom-color: currentcolor;
+      margin-top: -16px;
+    }
+  }
+
+  &--bottom-start {
+    .popover__content::after {
+      top: 0;
+      left: 16px;
+      border-top-width: 0;
+      border-bottom-color: currentcolor;
+      margin-top: -16px;
+    }
+  }
+
+  &--bottom-end {
+    .popover__content::after {
+      top: 0;
+      right: 16px;
+      border-top-width: 0;
+      border-bottom-color: currentcolor;
+      margin-top: -16px;
+    }
+  }
+
+  &--top {
+    .popover__content::after {
+      transform: translate(-50%);
+      bottom: 0;
+      left: 50%;
+      border-top-color: currentcolor;
+      border-bottom-width: 0;
+      margin-bottom: -16px;
+    }
+  }
+
+  &--top-start {
+    .popover__content::after {
+      bottom: 0;
+      left: 16px;
+      border-top-color: currentcolor;
+      border-bottom-width: 0;
+      margin-bottom: -16px;
+    }
+  }
+
+  &--top-end {
+    .popover__content::after {
+      bottom: 0;
+      right: 16px;
+      border-top-color: currentcolor;
+      border-bottom-width: 0;
+      margin-bottom: -16px;
+    }
+  }
+
+  &--right {
+    .popover__content::after {
+      transform: translate(0, -50%);
+      top: 50%;
+      left: 0;
+      border-right-color: currentcolor;
+      border-left-width: 0;
+      margin-left: -16px;
+    }
+  }
+
+  &--right-start {
+    .popover__content::after {
+      top: 16px;
+      left: 0;
+      border-right-color: currentcolor;
+      border-left-width: 0;
+      margin-left: -16px;
+    }
+  }
+
+  &--right-end {
+    .popover__content::after {
+      bottom: 16px;
+      left: 0;
+      border-right-color: currentcolor;
+      border-left-width: 0;
+      margin-left: -16px;
+    }
+  }
+
+  &--left {
+    .popover__content::after {
+      transform: translate(0, -50%);
+      top: 50%;
+      right: 0;
+      border-left-color: currentcolor;
+      border-right-width: 0;
+      margin-right: -16px;
+    }
+  }
+
+  &--left-start {
+    .popover__content::after {
+      top: 16px;
+      right: 0;
+      border-left-color: currentcolor;
+      border-right-width: 0;
+      margin-right: -16px;
+    }
+  }
+
+  &--left-end {
+    .popover__content::after {
+      bottom: 16px;
+      right: 0;
+      border-left-color: currentcolor;
+      border-right-width: 0;
+      margin-right: -16px;
+    }
+  }
+
+}
+
+
+.popover__action {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 250px;
+  height: 80px;
+  padding: 0 32px;
+  font-size: 28px;
+  line-height: 40px;
+  // cursor: pointer;
+
+  &.disabled {
+    cursor: not-allowed;
+
+    .popover__action-icon {
+      opacity: 0.5;
+    }
+  }
+
+  &.hairline--bottom::after {
+    position: absolute;
+    box-sizing: border-box;
+    content: " ";
+    pointer-events: none;
+    inset: -50%;
+    border: 0 solid #ebedf0; // #646566
+    transform: scale(.5);
+    border-bottom-width: 1PX;
+  }
+
+  &-text {
+    text-align: center;
+  }
+
+  &-icon {
+    width: 32px;
+    height: 32px;
+    margin-right: 16px;
+
+    image {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
