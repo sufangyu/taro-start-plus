@@ -21,6 +21,7 @@ module.exports = {
         'ci',       // 修改 CI 配置、脚本
         'revert',   // 回滚 commit
         'chore',    // 对构建过程或辅助工具和库的更改（不影响源文件、测试用例）
+        'release',  // 发布版本
       ],
     ],
   },
