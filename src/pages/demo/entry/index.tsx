@@ -33,6 +33,7 @@ export default function Index() {
     { label: '标签页 Tabs', path: appRouterConfig.tabs.path },
     { label: '列表组件 List', path: appRouterConfig.listView.path },
     { label: '弹出气泡 Popover', path: appRouterConfig.popover.path },
+    { label: '下拉菜单 DropdownMenu', path: appRouterConfig.dropdownMenu.path },
 
     { label: '下拉刷新 useList', path: appRouterConfig.pullDownRefresh.path },
     { label: '列表 hooks useList', path: appRouterConfig.list.path },

@@ -1,0 +1,225 @@
+@use '@/common/styles/mixins/index' as mixins;
+
+$popover-duration : 200ms;
+$timing-func    : cubic-bezier(.36,.66,.04,1);
+$radius         : 16px;
+
+.dropdown-menu {
+  display: flex;
+  height: 96px;
+  background:  #fff;
+  position: relative;
+
+  &__item {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: rgba(0, 0, 0, .9);
+  
+    &.active {
+      color: #007fff;
+
+      .dropdown-menu__title::after {
+        border-top-color: #007fff;
+        transform: rotate(-180deg);
+      }
+    }
+
+    &.disabled {
+      color: #ccc;
+    }
+  }
+
+  &__title {
+    font-size: 28px;
+    position: relative;
+    box-sizing: border-box;
+    max-width: 100%;
+    padding: 0 16px;
+    line-height: 44px;
+
+    .ellipsis {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: -10px;
+      margin-top: -6px;
+      border-top: 12px solid #ccc;
+      border-right: 10px solid transparent;
+      border-left: 10px solid transparent;
+      content: '';
+      transition: transform $popover-duration;
+    }
+  }
+}
+
+.dropdown-popup {
+  position: fixed;
+  overflow: hidden;
+  visibility: hidden;
+  width: 100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 101;
+
+  &__overlay {
+    // 父级加了 transform 会影响到 fixed 的布局不铺满窗口
+    @include mixins.overlay();
+
+    position: absolute;
+    opacity: 0;
+    transition: opacity $popover-duration ease-in;
+  }
+
+  &__body {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+    background-color: #fff;
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+    transition: opacity, transform $popover-duration $timing-func;
+  }
+
+
+  // 显示 ------------------
+  &.active {
+    visibility: visible;
+
+    .dropdown-popup__overlay {
+      opacity: 1;
+    }
+
+    .dropdown-popup__body {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
+
+.dropdown-item {
+  font-size: 28px;
+
+  &__footer {
+    display: flex;
+    background: #fff;
+    padding: 32px 16px;
+    position: relative;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: #eee;
+      height: 1PX;
+    }
+
+    .button--light,
+    .button--primary {
+      flex: 1;
+      margin: 0 16px;
+      font-size: 30px;
+
+      &.disabled {
+        opacity: 0.5;
+      }
+    }
+
+    .button--light {
+      color: #007fff;
+      background-color: #f2f3ff;
+    }
+
+    .button--primary {
+      color: #fff;
+      background-color: #007fff;
+    }
+  }
+
+  &__option {
+    display: flex;
+    align-items: center;
+    padding: 24px 32px;
+
+    &.active {
+      color: #007fff;
+
+      .option-value {
+        visibility: visible;
+      }
+    }
+
+    &.disabled {
+      color: #ccc;
+
+      .option-value {
+        border-right-color: #ccc;
+        border-bottom-color: #ccc;
+      }
+    }
+
+    .option-value {
+      margin-right: 28px;
+      width: 16px;
+      height: 28px;
+      border-right: 4px solid #007fff;
+      border-bottom: 4px solid #007fff;
+      transform: rotate(40deg);
+      margin-top: -6px;
+      visibility: hidden;
+      border-radius: 4px;
+    }
+  }
+}
+
+
+
+// 多选
+.dropdown-item__checkbox-group {
+  display: grid;
+  padding: 32px;
+  grid-gap: 24px;
+
+  &.columns-1 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  &.columns-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &.columns-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.dropdown-item__checkbox {
+  font-size: 28px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  text-align: center;
+  background-color: #f3f3f3;
+  border-radius: 12px;
+
+  &.active {
+    color: #007fff;
+  }
+
+  &.disabled {
+    color: #ccc;
+  }
+}

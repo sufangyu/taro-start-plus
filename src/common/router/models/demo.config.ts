@@ -30,4 +30,5 @@ export default {
   tabs: { path: '/pages/demo/tabs/index', title: '标签页' } as RouterConfig,
   listView: { path: '/pages/demo/list-view/index', title: '标签页' } as RouterConfig,
   popover: { path: '/pages/demo/popover/index', title: '弹出气泡' } as RouterConfig,
+  dropdownMenu: { path: '/pages/demo/dropdown-menu/index', title: '下拉菜单' } as RouterConfig,
 };

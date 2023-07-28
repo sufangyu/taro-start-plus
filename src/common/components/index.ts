@@ -11,6 +11,9 @@ export { default as Popup } from './popup';
 export {
   Popover, PopoverAction, type PopoverPlacement, type PopoverActionItem, 
 } from './popover/index';
+export {
+  DropdownMenu, DropdownMenuItem, type DropdownItem, type DropdownOption, 
+} from './dropdown-menu';
 export { default as Badge } from './badge';
 export { IndexBar, IndexBarPanel } from './index-bar/index';
 export { Tabs, Tab } from './tabs';

@@ -1,0 +1,21 @@
+.container {
+  padding: 30px;  
+  min-height: 100vh;
+  background-color: #f6f6f6;
+}
+
+.demo-title {
+  padding: 16px 0;
+  color: #808080;
+  font-size: 32px;
+}
+
+.demo-content {
+  margin-bottom: 32px;
+
+  button {
+    margin: 8px auto;
+    font-size: 28px;
+    font-weight: normal;
+  }
+}
