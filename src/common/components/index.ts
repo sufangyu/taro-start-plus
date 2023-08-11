@@ -21,8 +21,11 @@ export {
   PullRefresh, PullStatusEnum, PullStatusMessage,
   InfiniteList, LoadStatusEnum, LoadStatusMessage,
 } from './list';
+export * from './steps';
 
 
 // fix: canvas id "taro-poster-render" not found
 export * from './taro-react';
 export { default as ImageShare } from './image-share';
+
+export { default as DemoBlock } from './demo-block';
