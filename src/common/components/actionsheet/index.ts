@@ -1,2 +1,2 @@
 export { default as ActionSheet } from './actionsheet';
-export { Action } from './types';
+export type { Action } from './types';
