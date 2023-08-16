@@ -40,7 +40,16 @@ export const appUtil = {
       system: '',
     };
 
-    const ios = !!(systemInfo.system.toLowerCase().search('ios') + 1);
+    let ios:boolean;
+    if (Taro.ENV_TYPE.WEB === Taro.getEnv()) {
+      ios = !!(
+        (navigator.userAgent.toLowerCase().search('iphone') || navigator.userAgent.toLowerCase().search('ipad'))
+        + 1
+      );
+    } else {
+      ios = !!(systemInfo.system.toLowerCase().search('ios') + 1);
+    }
+    
     // 胶囊数据
     let rect: Taro.getMenuButtonBoundingClientRect.Rect | null;
 
