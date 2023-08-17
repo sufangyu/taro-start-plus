@@ -51,6 +51,7 @@ export default function Index() {
     { label: '条形码、二维码生成', path: appRouterConfig.code.path },
     { label: '海报分享图生成', path: appRouterConfig.posterRender.path },
     { label: '滚动锚点', path: appRouterConfig.scrollAnchor.path },
+    { label: '可视化图表', path: appRouterConfig.charts.path },
     { label: '分包示例', path: appRouterConfig.switchEnv.path },
   ];
 

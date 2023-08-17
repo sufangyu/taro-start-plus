@@ -62,6 +62,7 @@
   ],
   "author": "",
   "dependencies": {
+    "@antv/f2": "^4.0.46",
     "@babel/runtime": "^7.7.7",
     "@poster-render/shared": "^3.5.3",
     "@poster-render/taro": "^3.6.3",

@@ -6,4 +6,5 @@ node_modules/
 .DS_Store
 .swc
 .idea
+*.log
 _webview/.idea
