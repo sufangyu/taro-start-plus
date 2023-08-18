@@ -33,72 +33,69 @@ pnpm run create:comp button
 
 
 ## 目录结构 
-TODO: 更新
 ```bash
 .
 ├─ config                         # 脚手架配置
+│   ├─ ci.config.js               # CI 配置（密钥、账号）
+│   ├─ ci.hooks.js                # CI 钩子函数
 │   ├─ dev.js
 │   ├─ index.js
 │   └─ prod.js
+│
 ├─ dist                           # 项目输出目录
+├─ key                            # 私钥文件
+├─ mock                           # Mock 服务
 ├─ src
-│   ├─ analysis                   # 第三方统计分析
-│   ├─ api                        # 请求接口统一管理
 │   ├─ assets                     # 资源统一管理
 │   │   └─ images                 # 图片资源
-│   │       ├─ tabbar             # tabbar 的图标
-│   │       └─ ...
-│   ├─ components                 # 组件
-│   │   ├─ ...                    # 组件入口文件
-│   │   └─ index.ts
-│   ├─ config                     # 项目开发配置
-│   │   └─ index.ts
-│   ├─ constants                  # 公用常量统一管理
-│   │   ├─ events                 # 自定义时间 CODE 的枚举
-│   │   └─ store-key.ts           # 本地存储 KEY
-│   ├─ hooks                      # 自定义 hooks
-│   │   ├─ check-login.ts         # 操作前校验是否登录
-│   │   ├─ geocoder.ts            # 地理信息获取
-│   │   ├─ index.ts               # 自定义 hooks 入口文件
-│   │   ├─ input.ts               # 监听处理输入值
-│   │   └─ list.ts                # 列表
-│   ├─ models                     # 公用、业务模块接口定义
-│   ├─ pages                      # 页面目录. 尽量按模块划分
+│   │       ├─ icons              # 页面图表
+│   │       ├─ ...                 
+│   │       └─ tabbar             # tabbar 的图标
+│   │
+│   ├─ common                     # 公共代码（业务相关）
+│   │   ├─ api                    # 网络请求
+│   │   ├─ components             # 自定义组件
+│   │   ├─ config                 # 配置文件（API、第三方 key 等）
+│   │   ├─ constants              # 常量配置（本地缓存 key 等）
+│   │   ├─ enums                  # 枚举配置
+│   │   ├─ models                 # 模型、类型（Entity、Req模型、Res模型）
+│   │   ├─ routers                # 路由配置、路由工具函数
+│   │   │   ├─ models             # 模块页面路由配置
+│   │   │   ├─ router.utils.ts    # 路由工具函数
+│   │   │   ├─ models             # 模块页面路由配置
+│   │   │   ├─ types.ts           # 路由类型文件   
+│   │   │   └─ index.ts           # 入口文件（对外暴露的能力）
+│   │   ├─ stores                 # 全局状态管理
+│   │   └─ styles                 # 全局样式、mixins、functions、var 配置等
+│   │
+│   ├─ core                       # 核心代码（非业务相关）
+│   │   ├─ analysis               # 统计
+│   │   ├─ hooks                  # Hooks（监听总线、地理位置、输入赋值、列表、登录操作校验）
+│   │   ├─ http                   # 网络请求
+│   │   └─ utils                  # 工具函数
+│   │
+│   ├─ custom-tab-bar             # 自定义 tabbar
+│   ├─ pages                      # 页面目录（尽量按模块划分）
 │   │   ├─ account
 │   │   │   ├─ login
 │   │   │   └─ welcome
 │   │   ├─ home
 │   │   ├─ mine
 │   │   └─ started
-│   ├─ reducers                  # redux 状态管理的 reducers
-│   │   ├─ account.ts            # 帐号信息
-│   │   └─ debug.ts              # 调试
-│   ├─ request
-│   │   ├─ index.ts              # 网络请求函数封装
-│   │   ├─ interceptors.ts       # 请求、响应拦截
-│   │   └─ type.ts               # 相关类型、接口定义
-│   ├─ router
-│   │   ├─ index.ts              # 路由相关函数 & 页面路径配置
-│   │   └─ path.ts               # 页面路径配置
-│   ├─ store                     # 全局状态
-│   │   └─ index.ts              # 入口文件
-│   ├─ styles
-│   │   ├─ index.scss            # 样式入口文件
-│   │   └─ var.scss              # 全局样式变量
+│   │
 │   ├─ sub-pages                 # 分包
-│   ├─ uma                       # 友盟统计
-│   ├─ utils                     # 工具类
-│   │   ├─ verification          # 表单校验类
-│   │   ├─ index.t               # 常用工具函数
-│   │   └─ qqmap-wx-jssdk.js     # 腾讯地图 SDK
+│   │
+│   ├─ app.config.ts             # 全局配置
 │   ├─ app.scss                  # 全局样式
-│   ├─ app.tsx                   # 项目入口文件
-│   ├─ sitemap.json              # 站点配置. 面向爬虫
-│   └─ index.html                # H5 的开始文件
+│   ├─ app.ts                    # 项目入口文件
+│   ├─ index.html                # H5 的开
+│   └─ sitemap.json              # 站点配置（面向爬虫）始文件
+├─ types                         # 全局类型声明
 ├─ .eslintignore                 # eslint 校验忽略规则配置
 ├─ .eslintrc                     # eslint 校验配置
 ├─ package.json
 ├─ project.config.json           # 项目配置
+├─ project.*.json                # 特定平台的项目配置
 ├─ README.md
 ├─ tsconfig.json
 └─ yarn.lock
@@ -433,6 +430,24 @@ useDidShow(() => {
 > **注意**
 > - tabbar 切换页面后, 第一次加载会出现闪烁问题, 待官方解决
 > - tabbar list 配置以最大权限的用户去配置
+
+
+## 错误捕获
+在 `app.ts` 入口文件使用`useError`、`useUnhandledRejection` 全局捕获异常错误，可以根据实际情况接入日志上报服务的接口。
+
+需要注意的是，页面的代码如果使用 try...catch 包裹的代码片段，如果需要被全局捕获到异常错误，需要在 catch 中使用 throw 抛出异常，否则无法被捕获。
+
+**示例:**
+```ts
+try {
+  const a = {};
+  a.b.c = 'x';
+} catch (error) {
+  throw new Error(error);
+}
+```
+
+
 
 
 ## CI 部署

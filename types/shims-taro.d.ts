@@ -19,7 +19,17 @@ declare module '@tarojs/taro' {
       navBarExtendHeight?: number;
       /** 导航栏高度不包括statusBarHeight */
       navBarHeight?: number;
-      /** 右上角胶囊按钮信息: bottom: 58 height: 32 left: 317 right: 404 top: 26 width: 87 目前发现在大多机型都是固定值 为防止不一样所以会使用动态值来计算nav元素大小 */
+      /** 
+       * 右上角胶囊按钮信息: 
+       * - bottom: 58
+       * - height: 32
+       * - left: 317
+       * - right: 404
+       * - top: 26
+       * - width: 87
+       *
+       * 目前发现在大多机型都是固定值 为防止不一样所以会使用动态值来计算nav元素大小
+       */
       capsulePosition?: {
         width: number;
         height: number;
