@@ -1,6 +1,11 @@
-import { View, Text, Button } from '@tarojs/components';
+import {
+  View, Text, Button,
+} from '@tarojs/components';
 import Taro, { useDidShow, useLoad } from '@tarojs/taro';
 
+import {
+  Close, HomeTwo, VolumeNotice, 
+} from '@/common/components';
 import type CustomTabBar from '@/custom-tab-bar/index';
 
 import './index.scss';
@@ -19,9 +24,15 @@ export default function Index() {
     } catch (_) {}
   });
 
+
   return (
     <View className="index">
       <Text>Hello world!</Text>
+
+      <HomeTwo theme="filled" fill="#007fff" size={16} />
+      <Close size={16} />
+      <VolumeNotice size={16} />
+
       <Button
         onClick={() => {
           try {

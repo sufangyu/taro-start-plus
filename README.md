@@ -432,6 +432,30 @@ useDidShow(() => {
 > - tabbar list 配置以最大权限的用户去配置
 
 
+## 字体图标
+内置支持 [iconPark](https://iconpark.oceanengine.com/official) 字体图标。通过使用 `svg64` 库把 `@icon-park/svg` 的 svg 转成 base64后，使用图片进行显示。
+
+如果增加 `iconPark` 的图标，可以参考一下代码：
+```ts
+// 文件：src/common/components/icon/icons.ts
+
+import {
+  // some code
+  Home as originHome,
+} from '@icon-park/svg';
+
+// some code
+const Home = (props: IconProps) => svg2base64(originHome, props);
+
+export {
+  // some code
+  Home,
+};
+```
+
+
+
+
 ## 错误捕获
 在 `app.ts` 入口文件使用`useError`、`useUnhandledRejection` 全局捕获异常错误，可以根据实际情况接入日志上报服务的接口。
 

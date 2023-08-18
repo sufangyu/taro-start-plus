@@ -1945,6 +1945,11 @@
   resolved "https://registry.yarnpkg.com/@iarna/toml/-/toml-2.2.5.tgz#b32366c89b43c6f8cefbdefac778b9c828e3ba8c"
   integrity sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==
 
+"@icon-park/svg@^1.4.2":
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/@icon-park/svg/-/svg-1.4.2.tgz#12838a2549ec8cfc3389089ad335da632bb6285f"
+  integrity sha512-1X0DA+1e0R0liYvw+Nb2BQmF1oEo/wS3o/JYkQYifPJXCGYij2vN9sJf/NNhbzDsJWTg4W2bbzZjJvC7Q4w4oQ==
+
 "@isaacs/cliui@^8.0.2":
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/@isaacs/cliui/-/cliui-8.0.2.tgz#b37667b7bc181c168782259bab42474fbf52b550"
@@ -15065,6 +15070,11 @@ svg-tags@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/svg-tags/-/svg-tags-1.0.0.tgz#58f71cee3bd519b59d4b2a843b6c7de64ac04764"
   integrity sha512-ovssysQTa+luh7A5Weu3Rta6FJlFBBbInjOh722LIt6klpU2/HtdUbszju/G4devcvk8PGt7FCLv5wftu3THUA==
+
+svg64@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/svg64/-/svg64-2.0.0.tgz#058cb47255b3c44ebd6a74e15a7e2952fe2c93f7"
+  integrity sha512-EVgAisxMctUNDSjKGFcx4tkcFrvdqtLIy/MdbBdqcwfpPwsBcwoSKQi+WYoc82c4XWFNVVIwpCup3rpY+M9KJw==
 
 svgo@^2.7.0:
   version "2.8.0"

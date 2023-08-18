@@ -64,6 +64,7 @@
   "dependencies": {
     "@antv/f2": "^4.0.46",
     "@babel/runtime": "^7.7.7",
+    "@icon-park/svg": "^1.4.2",
     "@poster-render/shared": "^3.5.3",
     "@poster-render/taro": "^3.6.3",
     "@poster-render/taro-react": "^3.6.3",
@@ -88,6 +89,7 @@
     "process": "^0.11.10",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "svg64": "^2.0.0",
     "taro-code": "^4.0.1",
     "umtrack-alipay": "^2.8.0",
     "umtrack-tt": "^2.8.0",
