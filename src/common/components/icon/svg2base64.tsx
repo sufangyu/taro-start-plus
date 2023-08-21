@@ -7,17 +7,21 @@ import svg64 from 'svg64';
 import { IconProps } from './types';
 
 const svg2base64 = (originIcon: Icon, props: IconProps): ReactNode => {
-  const { size = 32 } = props;
+  const { size = 32, className, onClick } = props;
   const base64Data = svg64(originIcon(props));
   
   return (<Image
     src={base64Data}
+    className={className}
     style={{
       fontSize: size,
       width: '1em',
       height: '1em',
     }}
     mode="widthFix"
+    onClick={(ev) => {
+      typeof onClick === 'function' && onClick(ev);
+    }}
   />);
 };
 

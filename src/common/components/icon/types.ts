@@ -1,3 +1,5 @@
+import { ITouchEvent } from '@tarojs/components';
+
 const themes = {
   outline: '线框',
   filled: '填充',
@@ -22,4 +24,13 @@ export interface IconProps {
    * 图表大小
    */
   size?: number;
+  /**
+   * 自定义 class
+   */
+  className?: string;
+  /**
+   * 点击事件回调
+   * @returns 
+   */
+   onClick?: (ev: ITouchEvent) => void;
 }
