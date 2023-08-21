@@ -1,0 +1,13 @@
+.container {
+  // background-color: #f6f6f6;
+  min-height: 100vh;
+}
+
+.custom-extra {
+  display: flex;
+
+  > view {
+    margin-left: 16px;
+    color: #004fd4;
+  }
+}

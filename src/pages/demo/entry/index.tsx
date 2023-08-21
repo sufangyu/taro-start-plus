@@ -35,6 +35,7 @@ export default function Index() {
     { label: '弹出气泡 Popover', path: appRouterConfig.popover.path },
     { label: '下拉菜单 DropdownMenu', path: appRouterConfig.dropdownMenu.path },
     { label: '步骤条 Steps', path: appRouterConfig.steps.path },
+    { label: '通知栏 NoticeBar', path: appRouterConfig.noticeBar.path },
 
     { label: '下拉刷新 useList', path: appRouterConfig.pullDownRefresh.path },
     { label: '列表 hooks useList', path: appRouterConfig.list.path },

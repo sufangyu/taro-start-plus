@@ -32,5 +32,6 @@ export default {
   popover: { path: '/pages/demo/popover/index', title: '弹出气泡' } as RouterConfig,
   dropdownMenu: { path: '/pages/demo/dropdown-menu/index', title: '下拉菜单' } as RouterConfig,
   steps: { path: '/pages/demo/steps/index', title: '步骤条' } as RouterConfig,
+  noticeBar: { path: '/pages/demo/notice-bar/index', title: '通知栏' } as RouterConfig,
   charts: { path: '/pages/demo/charts/index', title: '可视化图表' } as RouterConfig,
 };

@@ -1,0 +1,78 @@
+.notice-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 80px;
+  padding: 0 32px;
+  font-size: 28px;
+  line-height: 48px;
+  
+  &__prefix {
+    display: flex;
+    justify-content: center;
+    margin-right: 16px;
+
+    image {
+      display: block;
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &__extra {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 16px;
+
+    .icon-action {
+      margin-left: 16px;
+    }
+  }
+
+  &__wrap {
+    position: relative;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__content {
+    line-height: 1.5;
+    position: absolute;
+    white-space: nowrap;
+    transition-timing-function: linear;
+
+    &.ellipsis {
+      max-width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  // 多行显示
+  &--wrapable {
+    height: auto;
+    padding: 16px 32px;
+    align-items: flex-start;
+    
+    .notice-bar__prefix,
+    .notice-bar__extra {
+      position: relative;
+      top: 8px;
+    }
+
+    .notice-bar__wrap {
+      height: auto;
+    }
+
+    .notice-bar__content {
+      position: relative;
+      white-space: normal;
+      word-wrap: break-word;
+    }
+  }
+}

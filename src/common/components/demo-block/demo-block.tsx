@@ -7,6 +7,7 @@ import './index.scss';
 interface Props {
   title: string;
   children: ReactNode;
+  simple: boolean;
 }
 
 /**
@@ -15,12 +16,14 @@ interface Props {
  * @returns 
  */
 const Index = (props: Props) => {
-  const { title, children } = props;
+  const { title, children, simple = false } = props;
   
   return (
     <View className="demo-block">
       <View className="demo-block__title">{title}</View>
-      <View className="demo-block__content">{children}</View>
+      {
+        simple ? children : <View className="demo-block__content">{children}</View>
+      }
     </View>
   );
 };
