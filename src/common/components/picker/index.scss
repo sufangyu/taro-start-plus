@@ -1,0 +1,66 @@
+.picker {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  background-color: #fff;
+  border-radius: 16px 16px 0 0;
+  font-size: 32px;
+
+  &__header {
+    padding: 8px;
+    height: 96px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+  }
+
+  &__cancel,
+  &__confirm {
+    padding: 0 32px;
+    font-size: 28px;
+    width: 160px;
+  }
+
+  &__cancel {
+    text-align: left;
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  &__confirm {
+    text-align: right;
+    color: #0052d9;
+  }
+
+  /* stylelint-disable */
+  &__title {
+    flex: 1;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    lines: 1;
+  }
+  /* stylelint-enable */
+
+  &__content {
+    flex-grow: 1;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* stylelint-disable */
+    text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      lines: 1;
+    }
+    /* stylelint-enable */
+  }
+}
+

@@ -7,7 +7,7 @@ import './index.scss';
 interface Props {
   title: string;
   children: ReactNode;
-  simple: boolean;
+  simple?: boolean;
 }
 
 /**

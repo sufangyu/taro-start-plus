@@ -24,6 +24,7 @@ interface Props {
   position?: 'center' | 'top' | 'bottom' | 'right' | 'left';
   /** 是否显示圆角 */
   round?: boolean;
+  simple?: boolean;
   /** 标题 */
   title?: string;
   /** 是否显示关闭按钮 */
@@ -49,7 +50,7 @@ const systenInfo = appUtil.getSystemInfo();
 const Index = (props: Props) => {
   const {
     children, visible, extraClass, title, closeable = false, closeIcon,
-    closeIconPosition = 'top-right', zIndex = 100, overlay = true, 
+    closeIconPosition = 'top-right', zIndex = 100, overlay = true, simple = false,
     closeOnOverlayClick = true, position = 'center', round = false, lockScroll = true, 
     safeAreaInsetTop = false, safeAreaInsetBottom = true, onOpened, onClosed,
   } = props;
@@ -97,6 +98,7 @@ const Index = (props: Props) => {
     popup: true,
     [`popup--${position}`]: true,
     'popup--round': round,
+    'popup--simple': simple,
     'popup--active': visible,
     'popup--safe-top': safeAreaInsetTop,
     'popup--safe-bottom': safeAreaInsetBottom,

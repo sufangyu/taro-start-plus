@@ -15,6 +15,7 @@ export * from './list';
 export * from './steps';
 export * from './icon';
 export * from './notice-bar';
+export * from './picker';
 export * from './f2-canvas';
 
 // fix: canvas id "taro-poster-render" not found

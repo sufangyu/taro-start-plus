@@ -188,6 +188,13 @@ $radius         : 16px;
     }
   }
 
+  //------------- 简约（内容没有边距） -------------
+  &--simple {
+    .popup__body {
+      padding: 0;
+    }
+  }
+
   //------------- 显示 -------------
   &--active {
     visibility: visible;
