@@ -1,0 +1,85 @@
+@use '@/common/styles/mixins/index' as mixins;
+
+.cell-group {
+  &__title {
+    padding: 32px 32px 16px;
+    color: #969799;
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  &__content {
+    background-color: #fff;
+  }
+
+  &--inset {
+    border-radius: 16px;
+    margin: 0 32px;
+    overflow: hidden;
+  }
+}
+
+.cell {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  padding: 24px 32px;
+  width: 100%;
+  overflow: hidden;
+  color: #323233;
+  font-size: 32px;
+  line-height: 1;
+  background-color: #fff;
+
+  &:not(:last-child)::after {
+    @include mixins.hairline();
+  }
+
+  &--center {
+    align-items: center;
+  }
+
+  &__prefix {
+    margin-right: 16px;
+    line-height: 1;
+
+    image {
+      display: block;
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &__content,
+  &__extra {
+    flex: 1;
+  }
+
+  &__description {
+    margin-top: 4px;
+    color: #969799;
+    font-size: 28px;
+    line-height: 1.5;
+  }
+
+  &__extra {
+    position: relative;
+    overflow: hidden;
+    color: #969799;
+    text-align: right;
+    vertical-align: middle;
+    word-wrap: break-word;
+    font-size: 30px;
+  }
+
+  &__suffix {
+    margin-left: 8px;
+    line-height: 1;
+
+    image {
+      display: block;
+      width: 32px;
+      height: 32px;
+    }
+  }
+}

@@ -37,6 +37,7 @@ export default function Index() {
     { label: '步骤条 Steps', path: appRouterConfig.steps.path },
     { label: '通知栏 NoticeBar', path: appRouterConfig.noticeBar.path },
     { label: '选择器 Picker', path: appRouterConfig.picker.path },
+    { label: '单元格 Cell', path: appRouterConfig.cell.path },
 
     { label: '下拉刷新 useList', path: appRouterConfig.pullDownRefresh.path },
     { label: '列表 hooks useList', path: appRouterConfig.list.path },

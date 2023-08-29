@@ -1,7 +1,8 @@
 /**
  * Mixins
  */
- @import './libs/line.scss';
- @import './libs/active.scss';
-@import './libs/overlay.scss';
-@import './libs/safe-are.mixin';
+@import url('./libs/text');
+@import url('./libs/line');
+@import url('./libs/active');
+@import url('./libs/overlay');
+@import url('./libs/safe-are.mixin');

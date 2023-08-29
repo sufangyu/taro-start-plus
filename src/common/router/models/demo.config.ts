@@ -34,5 +34,6 @@ export default {
   steps: { path: '/pages/demo/steps/index', title: '步骤条' } as RouterConfig,
   noticeBar: { path: '/pages/demo/notice-bar/index', title: '通知栏' } as RouterConfig,
   picker: { path: '/pages/demo/picker/index', title: '选择器' } as RouterConfig,
+  cell: { path: '/pages/demo/cell/index', title: '单元格' } as RouterConfig,
   charts: { path: '/pages/demo/charts/index', title: '可视化图表' } as RouterConfig,
 };

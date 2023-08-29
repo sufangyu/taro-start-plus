@@ -1,17 +1,15 @@
 /**
- * 超出省略号
+ * 底部横线（1像素）
  */
- @mixin line($num: 1) {
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  @if ($num == 1) {
-    white-space: nowrap;
-  } @else {
-    display: -webkit-box;
-    -webkit-line-clamp: $num;
-
-    /* autoprefixer: off */
-    -webkit-box-orient: vertical;
-  }
+ @mixin hairline($left: 32px, $right: 0) {
+  content: ' ';
+  display: block;
+  position: absolute;
+  box-sizing: border-box;
+  pointer-events: none;
+  left: $left;
+  right: $right;
+  bottom: 0;
+  border-bottom: 1px solid #e7e7e7;
+  transform: scaleY(0.5);
 }
