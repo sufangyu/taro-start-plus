@@ -1,8 +1,10 @@
 /**
  * Mixins
  */
-@import url('./libs/text');
-@import url('./libs/line');
-@import url('./libs/active');
-@import url('./libs/overlay');
-@import url('./libs/safe-are.mixin');
+/* stylelint-disable */
+@import './libs/text.mixin';
+@import './libs/line.mixin';
+@import './libs/active.mixin';
+@import './libs/overlay.mixin';
+@import './libs/safe-are.mixin';
+/* stylelint-enable */
