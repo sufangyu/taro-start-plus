@@ -25,8 +25,8 @@ const Index = (props: CellProps) => {
 
   function renderSuffix(): ReactNode {
     const arrowIcon: Record<'right' | 'down', ReactNode> = {
-      right: <Right fill="#969799" size={18} />,
-      down: <Down fill="#969799" size={18} />,
+      right: <Right fill="#969799" size={36} />,
+      down: <Down fill="#969799" size={36} />,
     };
 
     return (

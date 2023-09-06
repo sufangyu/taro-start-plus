@@ -31,19 +31,19 @@ export default function Index() {
           <Cell
             title="单元格"
             extra="内容"
-            prefix={<HomeTwo fill="#808080" size={16} />}
+            prefix={<HomeTwo fill="#808080" size={32} />}
           />
           <Cell
             title="单元格"
             extra="内容"
             description="描述信息" 
-            prefix={<HomeTwo fill="#808080" size={16} />}
+            prefix={<HomeTwo fill="#808080" size={32} />}
           />
           <Cell
             title="单元格"
             extra="内容"
             description="描述信息"
-            prefix={<HomeTwo fill="#808080" size={16} />}
+            prefix={<HomeTwo fill="#808080" size={32} />}
             suffix="//img.yzcdn.cn/public_files/2017/8/10/6af5b7168eed548100d9041f07b7c616.png"
             arrow
           />
@@ -86,7 +86,7 @@ export default function Index() {
           <Cell 
             title="单元格"
             extra="内容"
-            prefix={<HomeTwo fill="#808080" size={16} />}
+            prefix={<HomeTwo fill="#808080" size={32} />}
             arrow
             center
           />
@@ -94,7 +94,7 @@ export default function Index() {
             title="单元格" 
             extra="内容"
             description="描述信息"
-            prefix={<HomeTwo fill="#808080" size={16} />}
+            prefix={<HomeTwo fill="#808080" size={32} />}
             arrow
             center
           />
@@ -102,7 +102,7 @@ export default function Index() {
             title="单元格"
             extra="内容"
             description="描述信息"
-            prefix={<HomeTwo fill="#808080" size={16} />}
+            prefix={<HomeTwo fill="#808080" size={32} />}
             suffix="//img.yzcdn.cn/public_files/2017/8/10/6af5b7168eed548100d9041f07b7c616.png"
             arrow
             center

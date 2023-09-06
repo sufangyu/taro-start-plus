@@ -142,7 +142,7 @@ const Index = (props: NoticeBarProps) => {
   const renderPrefix = () => {
     return (
       typeof icon === 'string' ? <Image src={icon} /> : icon
-    ) ?? <VolumeNotice fill={themeConfig[theme].color} size={16} />;
+    ) ?? <VolumeNotice fill={themeConfig[theme].color} size={32} />;
   };
 
 
@@ -181,14 +181,14 @@ const Index = (props: NoticeBarProps) => {
         {extra}
         {
           mode === 'link'
-            && <Right className="icon-action" fill={themeConfig[theme].color} size={16} />
+            && <Right className="icon-action" fill={themeConfig[theme].color} size={32} />
         }
         {
           mode === 'closeable'
             && <CloseSmall
               className="icon-action"
               fill={themeConfig[theme].color}
-              size={16}
+              size={32}
               onClick={(ev) => {
                 ev.stopPropagation();
                 ev.preventDefault();

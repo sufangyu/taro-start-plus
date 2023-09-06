@@ -1,4 +1,5 @@
 import { Image } from '@tarojs/components';
+import Taro from '@tarojs/taro';
 
 import { Icon } from '@icon-park/svg/lib/runtime';
 import { ReactNode } from 'react';
@@ -14,7 +15,7 @@ const svg2base64 = (originIcon: Icon, props: IconProps): ReactNode => {
     src={base64Data}
     className={className}
     style={{
-      fontSize: size,
+      fontSize: Taro.pxTransform(size),
       width: '1em',
       height: '1em',
     }}
