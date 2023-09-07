@@ -38,6 +38,8 @@ export default function Index() {
     { label: '通知栏 NoticeBar', path: appRouterConfig.noticeBar.path },
     { label: '选择器 Picker', path: appRouterConfig.picker.path },
     { label: '单元格 Cell', path: appRouterConfig.cell.path },
+    { label: '单选框 Radio', path: appRouterConfig.radio.path },
+    { label: '复选框 Checkbox', path: appRouterConfig.checkbox.path },
 
     { label: '下拉刷新 useList', path: appRouterConfig.pullDownRefresh.path },
     { label: '列表 hooks useList', path: appRouterConfig.list.path },

@@ -35,5 +35,7 @@ export default {
   noticeBar: { path: '/pages/demo/notice-bar/index', title: '通知栏' } as RouterConfig,
   picker: { path: '/pages/demo/picker/index', title: '选择器' } as RouterConfig,
   cell: { path: '/pages/demo/cell/index', title: '单元格' } as RouterConfig,
+  radio: { path: '/pages/demo/radio/index', title: '单选框' } as RouterConfig,
+  checkbox: { path: '/pages/demo/checkbox/index', title: '复选框' } as RouterConfig,
   charts: { path: '/pages/demo/charts/index', title: '可视化图表' } as RouterConfig,
 };

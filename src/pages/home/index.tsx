@@ -4,7 +4,7 @@ import {
 import Taro, { useDidShow, useLoad } from '@tarojs/taro';
 
 import {
-  Close, HomeTwo, VolumeNotice, 
+  Check, CheckOne, Close, HomeTwo, Round, VolumeNotice, 
 } from '@/common/components';
 import type CustomTabBar from '@/custom-tab-bar/index';
 
@@ -29,9 +29,14 @@ export default function Index() {
     <View className="index">
       <Text>Hello world!</Text>
 
-      <HomeTwo theme="filled" fill="#007fff" size={16} />
-      <Close size={16} />
-      <VolumeNotice size={16} />
+      <View>
+        <HomeTwo theme="filled" fill="#007fff" size={32} />
+        <Close size={32} />
+        <VolumeNotice size={32} />
+        <Check size={32} fill="#007fff" />
+        <CheckOne size={32} theme="filled" fill="#007fff" />
+        <Round size={32} fill="#dcdcdc" />
+      </View>
 
       <Button
         onClick={() => {
