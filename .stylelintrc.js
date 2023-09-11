@@ -30,5 +30,9 @@ module.exports = {
     "color-function-notation": null,
     "alpha-value-notation": null,
     "no-descending-specificity": null,
+    // 兼容自定义标签名
+    "selector-type-no-unknown": [true, {
+      "ignoreTypes": ['picker']
+    }],
   }
 }
