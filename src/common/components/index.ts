@@ -17,8 +17,11 @@ export * from './icon';
 export * from './notice-bar';
 export * from './picker';
 export * from './cell';
+export * from './input';
 export * from './radio';
 export * from './checkbox';
+export * from './form-item';
+export * from './picker-select';
 export * from './f2-canvas';
 
 // fix: canvas id "taro-poster-render" not found

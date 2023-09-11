@@ -1,0 +1,154 @@
+@use '@/common/styles/mixins/index' as mixins;
+
+.form-item {
+  position: relative;
+  display: flex;
+  align-items: self-start;
+  line-height: 1.5;
+  padding: 24px 32px;
+  background-color: #fff;
+
+  &::after {
+    @include mixins.hairline();
+  }
+
+  image {
+    display: block;
+    line-height: 1;
+    font-size: 0;
+  }
+
+  &__title {
+    width: 160px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    margin-right: 24px;
+    font-size: 32px;
+    min-height: 48px;
+    line-height: 48px;
+    // background-color: rgba($color: #000000, $alpha: 0.1);
+  }
+
+  &__prefix {
+    margin-right: 8px;
+    line-height: 1;
+  }
+
+  &__content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    // background-color: rgba($color: #000000, $alpha: 0.1);
+
+    .input-wrapper {
+      width: 100%;
+    }
+
+    input,
+    textarea {
+      box-sizing: border-box;
+      font-size: 30px;
+      line-height: 1.5;
+      flex: 1;
+      width: 100%;
+    }
+
+    input {
+      height: 48px;
+      line-height: 48px;
+      min-height: 48px;
+    }
+
+    textarea {
+      line-height: 48px;
+    }
+  }
+
+  &__children {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  &__extra {
+    margin-left: 16px;
+    display: flex;
+    align-items: center;
+  }
+
+
+
+  // 必填项 ---------------------------------
+  &--required {
+    .form-item__title {
+      position: relative;
+
+      &::before {
+        content: "*";
+        color: #f56c6c;
+        position: absolute;
+        left: -20px;
+        top: 4px;
+        font-size: 28px;
+      }
+    }
+  }
+
+  // 垂直布局 ---------------------------------
+  &--vertical {
+    display: block;
+
+    .form-item__title {
+      width: auto !important;
+      margin-right: 0;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .form-item__title__extra {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  // 只读模式 对齐 ---------------------------------
+  &__content--center {
+    .form-item__children {
+      justify-content: center;
+    }
+  }
+
+  &__content--right {
+    .form-item__children{
+      justify-content: flex-end;
+    }
+  }
+}
+
+
+.form-placeholder {
+  display: flex;
+  align-items: center;
+  line-height: 48px;
+  width: 100%;
+
+  &--is-placeholder {
+    color: #808080;
+  }
+
+  &__text {
+    flex: 1;
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  &--right {
+    text-align: right;
+  }
+}

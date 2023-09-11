@@ -32,7 +32,9 @@ const Index = (props: CheboxkGroupProps) => {
     } else {
       setCheckAllStatus('indeterminate');
     }
-  }, [groupValues, allValues]);
+
+    setGroupValues(defaultValues);
+  }, [groupValues, allValues, defaultValues]);
 
 
   const rootClasses = classNames({

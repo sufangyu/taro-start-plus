@@ -37,5 +37,6 @@ export default {
   cell: { path: '/pages/demo/cell/index', title: '单元格' } as RouterConfig,
   radio: { path: '/pages/demo/radio/index', title: '单选框' } as RouterConfig,
   checkbox: { path: '/pages/demo/checkbox/index', title: '复选框' } as RouterConfig,
+  form: { path: '/pages/demo/form/index', title: '表单组件' } as RouterConfig,
   charts: { path: '/pages/demo/charts/index', title: '可视化图表' } as RouterConfig,
 };

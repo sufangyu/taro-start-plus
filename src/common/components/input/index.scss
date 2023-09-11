@@ -1,0 +1,14 @@
+.input-wrapper {
+  display: inline-flex;
+  align-items: center;
+
+  .icon-clear {
+    margin-left: 8px;
+    line-height: 1;
+    border: 2px solid transparent;
+
+    image {
+      line-height: 1;
+    }
+  }
+}

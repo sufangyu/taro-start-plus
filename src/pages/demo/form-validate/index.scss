@@ -1,26 +1,5 @@
 .container {
-  padding: 30px;
-}
-
-.form-item {
-  display: flex;
-  align-items: center;
-  padding: 20px 0;
-  border-bottom: 1PX solid #ddd;
-
-  label {
-    min-width: 100px;
-    margin-right: 20px;
-  }
-
-  input {
-    flex: 1;
-  }
-
-  .picker-placeholder {
-    font-size: 28px;
-    flex: 1;
-  }
+  min-height: 100vh;
 }
 
 .form-actions {

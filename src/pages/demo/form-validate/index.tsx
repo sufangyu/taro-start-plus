@@ -1,8 +1,13 @@
 import {
-  View, Button, Input, Label, Picker, Switch, 
+  View, Button, Picker, Switch, Textarea, Text, 
 } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 
+import { useState } from 'react';
+
+import {
+  Input, FormItem, VolumeNotice, PreviewClose, PreviewOpen, FormPlaceholder, 
+} from '@/common/components';
 import { useInput } from '@/core/hooks';
 import { Validation } from '@/core/utils';
 
@@ -10,6 +15,8 @@ import './index.scss';
 
 
 export default function Index() {
+  const [visible, setVisible] = useState(false);
+  
   const [name, setName] = useInput<string>('');
   const [addressBackup, setAddressBackup] = useInput<string[]>([]);
   const [others, setOthers] = useInput({
@@ -18,6 +25,7 @@ export default function Index() {
     age: '',
     address: [],
     delivery: true,
+    remark: '',
   });
 
   // 处理提交事件
@@ -27,13 +35,13 @@ export default function Index() {
     validator.add(name, 'require', '账号不能为空');
     validator.add(password, [
       { type: 'require', msg: '请输入密码' },
-      { type: 'minLength', minLen: 6, msg: '密码长度不符合要求' },
+      { type: 'minLength', minLen: 6, msg: '密码长度不够' },
     ]);
     validator.add(mobile, [
       { type: 'require', msg: '手机号不能为空' },
       {
         type: 'validator',
-        msg: '手机号格式不正确',
+        msg: '手机号格式不对',
         validator: (value: string) => value.startsWith('1') && /\d{11}/.test(value),
       },
     ]);
@@ -52,36 +60,46 @@ export default function Index() {
 
   return (
     <View className="container">
-      <View className="form-item">
-        <Label>账号：</Label>
+      <FormItem label="账号">
         <Input
+          placeholder="请输入账号"
           value={name}
           onInput={(ev) => setName(ev)}
         />
-      </View>
-
-      <View className="form-item">
-        <Label>密码：</Label>
+      </FormItem>
+     
+      <FormItem
+        label="密码"
+        extra={!visible ? (
+          <PreviewClose size={32} onClick={() => setVisible(true)} />
+        ) : (
+          <PreviewOpen size={32} onClick={() => setVisible(false)} />
+        )}
+      >
         <Input
-          password
+          password={!visible}
+          placeholder="请输入密码"
           value={others.password}
           onInput={(ev) => setOthers(ev, 'password')}
         />
-      </View>
+      </FormItem>
 
-      <View className="form-item">
-        <Label>手机号：</Label>
+      <FormItem
+        label="手机号"
+        extra={<Text style={{ color: '#0052d9', fontSize: 13 }}>发送验证码</Text>}
+      >
         <Input
+          placeholder="请输入手机号"
           type="number"
           value={others.mobile}
           onInput={(ev) => setOthers(ev, 'mobile')}
         />
-      </View>
+      </FormItem>
 
-      <View className="form-item">
-        <Label>年龄：</Label>
+      <FormItem label="年龄">
         <Input
           value={others.age}
+          placeholder="请输入年龄"
           type="number"
           onInput={(ev) => {
             return setOthers(ev, 'age', (val: number) => {
@@ -89,10 +107,9 @@ export default function Index() {
             });
           }}
         />
-      </View>
+      </FormItem>
 
-      <View className="form-item">
-        <Label>地址：</Label>
+      <FormItem label="地址">
         <Picker
           value={others.address}
           mode="region"
@@ -101,12 +118,13 @@ export default function Index() {
             setOthers(value, 'address');
           }}
         >
-          <View className="picker-placeholder">{others.address.length === 0 ? '请选择地址' : others.address.join()}</View>
+          <FormPlaceholder align="left" isPlaceholder={others.address.length === 0}>
+            {others.address.length === 0 ? '请选择地址' : others.address.join()}
+          </FormPlaceholder>
         </Picker>
-      </View>
+      </FormItem>
 
-      <View className="form-item">
-        <Label>备用地址：</Label>
+      <FormItem label="备用地址">
         <Picker
           value={addressBackup}
           mode="region"
@@ -114,17 +132,29 @@ export default function Index() {
             setAddressBackup(ev.detail.value);
           }}
         >
-          <View className="picker-placeholder">{addressBackup.length === 0 ? '请选择地址' : addressBackup.join(',')}</View>
+          <FormPlaceholder align="left" isPlaceholder={addressBackup.length === 0}>
+            {addressBackup.length === 0 ? '请选择地址' : addressBackup.join(',')}
+          </FormPlaceholder>
         </Picker>
-      </View>
+      </FormItem>
 
-      <View className="form-item">
-        <Label>送货上门</Label>
+      <FormItem label="送货上门">
         <Switch
           checked={others.delivery}
           onChange={(ev) => setOthers(ev, 'delivery')}
         />
-      </View>
+      </FormItem>
+
+      <FormItem
+        label="备注"
+      >
+        <Textarea
+          style={{ height: '100px' }}
+          placeholder="请输入备注"
+          value={others.remark}
+          onInput={(ev) => setOthers(ev, 'remark')}
+        />
+      </FormItem>
 
       <View className="form-actions">
         <Button
