@@ -1,13 +1,10 @@
 @use '@/common/styles/mixins/index' as mixins;
 
-.demo-title {
-  padding: 16px 32px;
-  color: #808080;
-  font-size: 32px;
-}
+.container {
+  min-height: 100vh;
+  background-color: #f6f6f6;
 
-.demo-content {
-  margin-bottom: 32px;
+  @include mixins.safeAreaPaddingBottom();
 
   button {
     margin: 8px auto;
@@ -26,14 +23,6 @@
     font-weight: normal;
   }
 }
-
-.container {
-  padding: 30px;
-  min-height: 100vh;
-  
-  @include mixins.safeAreaPaddingBottom();
-}
-
 
 .popup-custom .popup__body {
   padding: 0;

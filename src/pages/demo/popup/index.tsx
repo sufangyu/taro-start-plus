@@ -6,7 +6,7 @@ import Taro from '@tarojs/taro';
 import { useState } from 'react';
 
 import icClose from '@/assets/images/icons/ic-close.png';
-import { Popup } from '@/common/components';
+import { DemoBlock, Popup } from '@/common/components';
 
 import './index.scss';
 
@@ -25,6 +25,12 @@ export default function Index() {
     closeIconCustom: false,
     closeIconPosition: false,
     closeIconForH: false,
+
+    closeIconTopLeft: false,
+    closeIconTopRight: false,
+    closeIconBottomLeft: false,
+    closeIconBottomRight: false,
+    
 
     round: false,
     overlay: false,
@@ -46,8 +52,7 @@ export default function Index() {
 
   return (
     <View className="container">
-      <View className="demo-title">基本用法</View>
-      <View className="demo-content">
+      <DemoBlock title="基本用法">
         <Button type="primary" onClick={() => handleTogglePopup('base', true)}>展示弹出层</Button>
         <Popup
           visible={visible.base}
@@ -56,10 +61,9 @@ export default function Index() {
         >
           <View style={{ padding: '32px 48px' }}>内容</View>
         </Popup>
-      </View>
+      </DemoBlock>
 
-      <View className="demo-title">弹出位置</View>
-      <View className="demo-content">
+      <DemoBlock title="弹出位置">
         <Button type="primary" onClick={() => handleTogglePopup('positionTop', true)}>顶部弹出</Button>
         <Popup
           visible={visible.positionTop}
@@ -69,7 +73,6 @@ export default function Index() {
         >
           <View style={{ textAlign: 'center', height: '250px' }}>顶部弹窗的内容</View>
         </Popup>
-
         
         <Button type="primary" onClick={() => handleTogglePopup('positionBottom', true)}>底部弹出</Button>
         <Popup
@@ -79,7 +82,6 @@ export default function Index() {
         >
           <View style={{ textAlign: 'center', height: '250px', lineHeight: '250px' }}>底部弹窗的内容</View>
         </Popup>
-
         
         <Button type="primary" onClick={() => handleTogglePopup('positionLeft', true)}>左侧弹出</Button>
         <Popup
@@ -91,7 +93,6 @@ export default function Index() {
           <View style={{ textAlign: 'center', width: Taro.pxTransform(420) }}>左侧弹窗的内容</View>
         </Popup>
 
-
         <Button type="primary" onClick={() => handleTogglePopup('positionRight', true)}>右侧弹出</Button>
         <Popup
           visible={visible.positionRight}
@@ -101,10 +102,10 @@ export default function Index() {
         >
           <View style={{ textAlign: 'center', width: Taro.pxTransform(420) }}>右侧弹窗的内容</View>
         </Popup>
-      </View>
+      </DemoBlock>
 
-      <View className="demo-title">标题 & 关闭图标</View>
-      <View className="demo-content">
+
+      <DemoBlock title="标题 & 关闭图标">
         <Button type="primary" onClick={() => handleTogglePopup('title', true)}>标题</Button>
         <Popup
           visible={visible.title}
@@ -114,7 +115,6 @@ export default function Index() {
         >
           <View style={{ textAlign: 'center', height: Taro.pxTransform(250) }}>有标题的弹窗内容</View>
         </Popup>
-
 
         <Button type="primary" onClick={() => handleTogglePopup('closeIcon', true)}>关闭图标</Button>
         <Popup
@@ -140,7 +140,6 @@ export default function Index() {
           <View style={{ textAlign: 'center', width: Taro.pxTransform(420) }}>标题+关闭的左侧弹窗内容</View>
         </Popup>
 
-
         <Button type="primary" onClick={() => handleTogglePopup('closeIconCustom', true)}>自定义图标</Button>
         <Popup
           visible={visible.closeIconCustom}
@@ -154,7 +153,6 @@ export default function Index() {
           <View style={{ textAlign: 'center', height: Taro.pxTransform(250) }}>标题+自定义的弹窗内容</View>
         </Popup>
 
-
         <Button type="primary" onClick={() => handleTogglePopup('closeIconPosition', true)}>关闭图标位置</Button>
         <Popup
           visible={visible.closeIconPosition}
@@ -167,10 +165,63 @@ export default function Index() {
         >
           <View style={{ textAlign: 'center', width: Taro.pxTransform(420) }}>关闭图标位置弹窗内容</View>
         </Popup>
-      </View>
+      </DemoBlock>
 
-      <View className="demo-title">圆角、遮罩层弹窗</View>
-      <View className="demo-content">
+      <DemoBlock title="关闭图标位置">
+        <Button type="primary" onClick={() => handleTogglePopup('closeIconTopRight', true)}>右上关闭按钮</Button>
+        <Popup
+          visible={visible.closeIconTopRight}
+          title="弹窗标题"
+          position="bottom"
+          closeable
+          extra={<View style={{ color: '#2151d1', fontSize: '14px' }}>确定</View>}
+          onClosed={() => handleTogglePopup('closeIconTopRight', false)}
+        >
+          <View style={{ textAlign: 'center', height: Taro.pxTransform(250) }}>弹出层内容</View>
+        </Popup>
+
+        <Button type="primary" onClick={() => handleTogglePopup('closeIconTopLeft', true)}>左上关闭按钮</Button>
+        <Popup
+          visible={visible.closeIconTopLeft}
+          title="弹窗标题"
+          position="bottom"
+          closeable
+          closeIconPosition="top-left"
+          extra={<View style={{ color: '#2151d1', fontSize: '14px' }}>确定</View>}
+          onClosed={() => handleTogglePopup('closeIconTopLeft', false)}
+        >
+          <View style={{ textAlign: 'center', height: Taro.pxTransform(250) }}>弹出层内容</View>
+        </Popup>
+
+        <Button type="primary" onClick={() => handleTogglePopup('closeIconBottomRight', true)}>右下关闭按钮</Button>
+        <Popup
+          visible={visible.closeIconBottomRight}
+          title="弹窗标题"
+          position="top"
+          closeable
+          closeIconPosition="bottom-right"
+          extra={<View style={{ color: '#2151d1', fontSize: '14px' }}>确定</View>}
+          onClosed={() => handleTogglePopup('closeIconBottomRight', false)}
+        >
+          <View style={{ textAlign: 'center', height: Taro.pxTransform(250) }}>弹出层内容</View>
+        </Popup>
+
+        <Button type="primary" onClick={() => handleTogglePopup('closeIconBottomLeft', true)}>左下关闭按钮</Button>
+        <Popup
+          visible={visible.closeIconBottomLeft}
+          title="弹窗标题"
+          position="top"
+          closeable
+          closeIconPosition="bottom-left"
+          extra={<View style={{ color: '#2151d1', fontSize: '14px' }}>确定</View>}
+          onClosed={() => handleTogglePopup('closeIconBottomLeft', false)}
+        >
+          <View style={{ textAlign: 'center', height: Taro.pxTransform(250) }}>弹出层内容</View>
+        </Popup>
+      </DemoBlock>
+
+
+      <DemoBlock title="圆角、遮罩层弹窗">
         <Button type="primary" onClick={() => handleTogglePopup('round', true)}>圆角弹窗</Button>
         <Popup
           visible={visible.round}
@@ -180,7 +231,6 @@ export default function Index() {
         >
           <View style={{ textAlign: 'center', height: Taro.pxTransform(250) }}>圆角弹窗内容</View>
         </Popup>
-
 
         <Button type="primary" onClick={() => handleTogglePopup('overlay', true)}>没有遮罩层弹窗</Button>
         <Popup
@@ -194,7 +244,6 @@ export default function Index() {
           <View style={{ textAlign: 'center', height: Taro.pxTransform(250) }}>没有遮罩层弹窗内容</View>
         </Popup>
 
-
         <Button type="primary" onClick={() => handleTogglePopup('overlayUnclick', true)}>遮罩层不关闭弹窗</Button>
         <Popup
           visible={visible.overlayUnclick}
@@ -206,10 +255,10 @@ export default function Index() {
         >
           <View style={{ textAlign: 'center', height: Taro.pxTransform(250) }}>遮罩层不关闭弹窗内容</View>
         </Popup>
-      </View>
+      </DemoBlock>
 
-      <View className="demo-title">回调函数、长内容</View>
-      <View className="demo-content">
+
+      <DemoBlock title="回调函数、长内容">
         <Button type="primary" onClick={() => handleTogglePopup('callback', true)}>打开、关闭回调函数</Button>
         <Popup
           visible={visible.callback}
@@ -234,7 +283,6 @@ export default function Index() {
           <View style={{ textAlign: 'center', height: Taro.pxTransform(250) }}>打开、关闭回调函数弹窗内容</View>
         </Popup>
 
-
         <Button type="primary" onClick={() => handleTogglePopup('longContent', true)}>内容超长滚动</Button>
         <Popup
           extraClass="popup-custom"
@@ -251,9 +299,8 @@ export default function Index() {
             <View style={{ height: 250, backgroundColor: '#999' }} />
           </ScrollView>
         </Popup>
-      </View>
+      </DemoBlock>
 
-      <View style={{ height: 200, backgroundColor: '#f5f5f5' }} />
     </View>
   );
 }
