@@ -29,6 +29,12 @@ $radius         : 16px;
     font-size: 28px;
     min-height: 72px;
     line-height: 72px;
+
+    &__extra {
+      position: absolute;
+      height: 36px;
+      line-height: 36px;
+    }
   }
 
   &__body {
@@ -75,28 +81,65 @@ $radius         : 16px;
         height: 100%;
       }
     }
+  }
 
+  //------------- 标题关闭按钮 & 扩展内容位置 -------------
+  .popup__header {
     // 关闭图标位置
-    &--top-left {
-      top: 16px;
-      left: 16px;
+    &.icon-close--top-left {
+      .icon-close,
+      .icon-close--custom {
+        top: 16px;
+        left: 16px;
+      }
+
+      .popup__header__extra {
+        top: 16px;
+        right: 16px;
+      }
     }
 
-    &--top-right {
-      top: 16px;
-      right: 16px;
+    &.icon-close--top-right {
+      .icon-close,
+      .icon-close--custom {
+        top: 16px;
+        right: 16px;
+      }
+
+      .popup__header__extra {
+        top: 16px;
+        left: 16px;
+      }
     }
 
-    &--bottom-left {
-      bottom: 16px;
-      left: 16px;
+    &.icon-close--bottom-left {
+      .icon-close,
+      .icon-close--custom {
+        bottom: 16px;
+        left: 16px;
+      }
+
+      .popup__header__extra {
+        bottom: 16px;
+        right: 16px;
+      }
     }
 
-    &--bottom-right {
-      bottom: 16px;
-      right: 16px;
+    &.icon-close--bottom-right {
+      .icon-close,
+      .icon-close--custom {
+        bottom: 16px;
+        right: 16px;
+      }
+
+      .popup__header__extra {
+        bottom: 16px;
+        left: 16px;
+      }
     }
   }
+  
+
 
   //------------- 显示位置 -------------
   &--center {

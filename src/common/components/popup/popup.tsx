@@ -24,15 +24,18 @@ interface Props {
   position?: 'center' | 'top' | 'bottom' | 'right' | 'left';
   /** 是否显示圆角 */
   round?: boolean;
+  /** 简单模式. 主内容没有内边距 */
   simple?: boolean;
   /** 标题 */
-  title?: string;
+  title?: ReactNode;
   /** 是否显示关闭按钮 */
   closeable?: boolean;
   /** 关闭图标组件或图片资源链接 */
   closeIcon?: string | ReactNode;
   /** 关闭图标位置，可选值为 top-right top-left bottom-left bottom-right */
   closeIconPosition?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
+  /** 扩展内容 */
+  extra?: ReactNode;
   /** 是否锁定背景滚动 */
   lockScroll?: boolean;
   /** 是否留出顶部安全距离 */
@@ -49,7 +52,7 @@ const systenInfo = appUtil.getSystemInfo();
 
 const Index = (props: Props) => {
   const {
-    children, visible, extraClass, title, closeable = false, closeIcon,
+    children, visible, extraClass, title, closeable = false, closeIcon, extra,
     closeIconPosition = 'top-right', zIndex = 100, overlay = true, simple = false,
     closeOnOverlayClick = true, position = 'center', round = false, lockScroll = true, 
     safeAreaInsetTop = false, safeAreaInsetBottom = true, onOpened, onClosed,
@@ -94,6 +97,40 @@ const Index = (props: Props) => {
     safaCloseIconPosition = (systenInfo?.statusBarHeight ?? 0) + (16 / 2) + 2;
   }
 
+
+  function renderHeader():ReactNode {
+    return (
+      <View className={`popup__header icon-close--${closeIconPosition}`}>
+        {title && <View>{title}</View>}
+        {closeable && (
+          closeIcon
+            ? (
+              // 自定义图标
+              <View
+                onClick={handleCloseClick}
+                className="icon-close--custom"
+                style={{
+                  top: safeAreaInsetTop ? safaCloseIconPosition : undefined,
+                }}
+              >
+                {
+                typeof closeIcon === 'string' ? <Image src={closeIcon} /> : closeIcon
+              }
+              </View>
+            )
+            : <View
+                onClick={handleCloseClick}
+                className="icon-close"
+                style={{
+                  top: safeAreaInsetTop ? safaCloseIconPosition : undefined,
+                }}
+            />
+        )}
+        {extra && <View className="popup__header__extra">{extra}</View>}
+      </View>
+    );
+  }
+
   const popupRootClass = classNames({
     popup: true,
     [`popup--${position}`]: true,
@@ -124,37 +161,7 @@ const Index = (props: Props) => {
         }}
         catchMove={lockScroll}
       >
-        {
-          (title || closeable) && (
-            <View className="popup__header">
-              {title && <View>{title}</View>}
-              {closeable && (
-                closeIcon
-                  ? (
-                    // 自定义图标
-                    <View
-                      onClick={handleCloseClick}
-                      className={`icon-close--${closeIconPosition} icon-close--custom`}
-                      style={{
-                        top: safeAreaInsetTop ? safaCloseIconPosition : undefined,
-                      }}
-                    >
-                      {
-                        typeof closeIcon === 'string' ? <Image src={closeIcon} /> : closeIcon
-                      }
-                    </View>
-                  )
-                  : <View
-                      onClick={handleCloseClick}
-                      className={`icon-close icon-close--${closeIconPosition}`}
-                      style={{
-                        top: safeAreaInsetTop ? safaCloseIconPosition : undefined,
-                      }}
-                  />
-              )}
-            </View>
-          )
-        }
+        {(title || closeable || extra) && renderHeader()}
         <View className="popup__body">{children}</View>
       </View>
     </View>
