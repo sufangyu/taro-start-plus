@@ -21,7 +21,8 @@ export default function Index() {
     { label: '全局状态', path: appRouterConfig.store.path },
     { label: '页面跳转', path: appRouterConfig.navigation.path },
     { label: '网络请求', path: appRouterConfig.request.path },
-    
+
+    { label: '图标 Icon', path: appRouterConfig.icon.path },
     { label: '图片查看 ImagePreview', path: appRouterConfig.imagePreview.path },
     { label: '文件选择&上传 FilePicker', path: appRouterConfig.filePicker.path },
     { label: '动作面板 SheetAction', path: appRouterConfig.actionsheet.path },
