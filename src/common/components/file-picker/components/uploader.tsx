@@ -66,7 +66,16 @@ const Uploader = (props: Props) => {
           onSuccess(medie);
         }
       });
-    } catch (_) {}
+    } catch (err) {
+      const { errMsg } = err;
+      const [type, errInfo] = errMsg.split(':');
+      if (errInfo.includes('fail api scope is not declared in the privacy agreement')) {
+        Taro.showToast({
+          icon: 'none',
+          title: `隐私协议缺少配置【${type}】`,
+        });
+      }
+    }
   };
 
   return (

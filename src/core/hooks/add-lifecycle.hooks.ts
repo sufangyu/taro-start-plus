@@ -89,7 +89,6 @@ Page = (page) => {
 function addLifecycleHook (type: 'appHooks', hook: AppHook, method: HookFunc): void
 function addLifecycleHook (type: 'pageHooks', hook: PageHook, method: HookFunc): void
 function addLifecycleHook(type: any, hook: any, method: any): void {
-  console.log(type);
   switch (type) {
     case 'appHooks':
       appHooks[hook].push(method);
