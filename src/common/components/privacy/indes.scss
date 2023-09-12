@@ -1,0 +1,50 @@
+.privacy {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.privacy__content {
+  background-color: #fff;
+  width: 600px;
+  padding: 32px;
+  border-radius: 24px;
+  font-size: 28px;
+  color: #333;
+  line-height: 1.5;
+  text-align: justify;
+
+  text {
+    color: #004fd4;
+  }
+
+  .privacy__title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 8px 0 32px;
+  }
+
+  .privacy__button-group {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    button {
+      margin: 0;
+      display: block;
+      width: 240px;
+      font-size: 30px;
+      font-weight: normal;
+
+      &[type="primary"] {
+        background-color: #004fd4;
+      }
+    }
+  }
+}

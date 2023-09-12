@@ -7,6 +7,7 @@ import { PropsWithChildren } from 'react';
 import { updateUtil } from '@/core/utils';
 import '@/core/analysis';
 
+import './common/components/privacy';
 import './app.scss';
 
 

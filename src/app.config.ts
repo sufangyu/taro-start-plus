@@ -29,4 +29,5 @@ export default defineAppConfig({
     },
   },
   requiredPrivateInfos: ['getLocation', 'onLocationChange', 'chooseLocation'],
+  __usePrivacyCheck__: true,
 });
