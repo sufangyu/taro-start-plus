@@ -8,6 +8,7 @@ import './index.scss';
 export default function Index() {
   const [value1, setValue1] = useState(1);
   const [value2, setValue2] = useState<'YES' | 'NO'>('NO');
+  const [valuesGroup, setValuesGroup] = useState<string[]>([]);
 
   
   return (
@@ -53,9 +54,24 @@ export default function Index() {
 
       <DemoBlock title="纵向多选框组" simple>
         <CheckboxGroup
-          defaultValues={[]}
-          onChange={(values) => {
+          defaultValues={valuesGroup}
+          onChange={(values: string[]) => {
             console.log('纵向多选框组 =>', values);
+            setValuesGroup([...values]);
+          }}
+        >
+          <Checkbox label="多选框选项 1" value="1" />
+          <Checkbox label="多选框选项 2" value="2" />
+          <Checkbox label="多选框选项 3" value="3" />
+        </CheckboxGroup>
+      </DemoBlock>
+
+      <DemoBlock title="带全选多选框组" simple>
+        <CheckboxGroup
+          defaultValues={valuesGroup}
+          onChange={(values: string[]) => {
+            console.log('纵向多选框组 =>', values);
+            setValuesGroup([...values]);
           }}
         >
           <Checkbox label="全选" checkAll />
@@ -65,26 +81,14 @@ export default function Index() {
         </CheckboxGroup>
       </DemoBlock>
 
-      <DemoBlock title="带全选多选框组" simple>
-        <CheckboxGroup
-          defaultValues={['1']}
-          onChange={(values) => {
-            console.log('纵向多选框组 =>', values);
-          }}
-        >
-          <Checkbox label="多选框选项 1" value="1" />
-          <Checkbox label="多选框选项 2" value="2" />
-          <Checkbox label="多选框选项 3" value="3" />
-        </CheckboxGroup>
-      </DemoBlock>
-
 
       <DemoBlock title="横向多选框组" simple>
         <CheckboxGroup
-          defaultValues={['1']}
+          defaultValues={valuesGroup}
           block={false}
-          onChange={(values) => {
+          onChange={(values: string[]) => {
             console.log('纵向多选框组 =>', values);
+            setValuesGroup([...values]);
           }}
         >
           <Checkbox label="多选标题1" value="1" />
@@ -107,7 +111,14 @@ export default function Index() {
 
 
       <DemoBlock title="非通栏单选样式" simple>
-        <CheckboxGroup defaultValues={['1']} theme="card">
+        <CheckboxGroup
+          defaultValues={valuesGroup}
+          theme="card"
+          onChange={(values: string[]) => {
+            console.log('纵向多选框组 =>', values);
+            setValuesGroup([...values]);
+          }}
+        >
           <Checkbox label="多选框选项 1" value="1" />
           <Checkbox label="多选框选项 2" value="2" />
           <Checkbox label="多选框选项 3" value="3" />
