@@ -33,7 +33,7 @@ const tabBarList: TabbarItem[] = [
     selectedIconPath: 'assets/images/tabbar/home-selected.png',
   },
   {
-    text: '示例',
+    text: '组件',
     pagePath: 'pages/demo/entry/index',
     iconPath: 'assets/images/tabbar/started.png',
     selectedIconPath: 'assets/images/tabbar/started-selected.png',

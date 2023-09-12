@@ -18,11 +18,11 @@
     &::after {
       content: '';
       display: block;
-      width: 100%;
       height: 1PX;
       background-color: #eee;
       position: absolute;
       left: 60px;
+      right: 0;
       bottom: 0;
     }
   }

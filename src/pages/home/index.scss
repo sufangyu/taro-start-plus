@@ -1,0 +1,29 @@
+
+.page-title {
+  font-weight: 500;
+  font-size: 36px;
+  padding: 50px 60px;
+  background-color: #f5f5f5;
+}
+
+.menu {
+  background: #fff;
+
+  &-item {
+    height: 90px;
+    line-height: 90px;
+    padding-left: 60px;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      height: 1PX;
+      background-color: #eee;
+      position: absolute;
+      left: 60px;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
