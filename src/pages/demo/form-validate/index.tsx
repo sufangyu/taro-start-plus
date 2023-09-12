@@ -23,6 +23,8 @@ export default function Index() {
     password: '',
     mobile: '',
     age: '',
+    price: '',
+    count: '',
     address: [],
     delivery: true,
     remark: '',
@@ -105,6 +107,34 @@ export default function Index() {
             return setOthers(ev, 'age', (val: number) => {
               return val > 18 ? 18 : val;
             });
+          }}
+        />
+      </FormItem>
+
+      <FormItem label="价格" extra={<View>元</View>}>
+        <Input
+          style={{
+            textAlign: 'right',
+          }}
+          value={others.price}
+          placeholder="0.00"
+          type="number"
+          onInput={(ev) => {
+            setOthers(ev, 'price');
+          }}
+        />
+      </FormItem>
+
+      <FormItem label="数量" extra={<View>个</View>}>
+        <Input
+          style={{
+            textAlign: 'right',
+          }}
+          value={others.count}
+          placeholder="填写个数"
+          type="number"
+          onInput={(ev) => {
+            setOthers(ev, 'count');
           }}
         />
       </FormItem>
