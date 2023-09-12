@@ -6,7 +6,7 @@ import Taro from '@tarojs/taro';
 import { useState } from 'react';
 
 import {
-  Input, FormItem, VolumeNotice, PreviewClose, PreviewOpen, FormPlaceholder, 
+  Input, FormItem, PreviewClose, PreviewOpen, FormPlaceholder, 
 } from '@/common/components';
 import { useInput } from '@/core/hooks';
 import { Validation } from '@/core/utils';

@@ -1,7 +1,7 @@
 /**
  * 底部横线（1像素）
  */
- @mixin hairline($left: 32px, $right: 0) {
+@mixin hairline($left: 32px, $right: 0) {
   content: ' ';
   display: block;
   position: absolute;
@@ -12,4 +12,40 @@
   bottom: 0;
   border-bottom: 1px solid #e7e7e7;
   transform: scaleY(0.5);
+}
+
+/**
+ * 右侧横线（1像素）
+ */
+@mixin hairlineLeft($top: 0, $right: 0) {
+  content: ' ';
+  display: block;
+  position: absolute;
+  box-sizing: border-box;
+  pointer-events: none;
+  top: $top;
+  right: $right;
+  bottom: 0;
+  border-right: 1px solid #e7e7e7;
+  transform: scaleX(0.5);
+}
+
+@mixin hairlineBase() {
+  position: absolute;
+  box-sizing: border-box;
+  content: ' ';
+  pointer-events: none;
+  inset: -50%;
+  border: 0 solid #e7e7e7;
+  transform: scale(0.5);
+}
+
+/**
+ * 右下侧横线（1像素）
+ */
+@mixin hairlineLeftBottom() {
+  @include hairlineBase();
+
+  z-index: 1;
+  border-width: 0 1px 1px 0;
 }

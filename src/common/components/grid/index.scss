@@ -1,0 +1,73 @@
+@use '@/common/styles/mixins/index' as mixins;
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+
+  // 卡片 ------------------------
+  &--card {
+    margin: 32px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  // 边框 ------------------------
+  &--border {
+    .grid-item {
+      &__content {
+        &::after {
+          @include mixins.hairlineLeftBottom();
+        }
+      }
+    }
+  }
+  // 正方形 ------------------------
+  &--square {
+    .grid-item {
+      height: 0;
+
+      &__content {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+      }
+    }
+  }
+}
+
+.grid-item {
+  position: relative;
+  box-sizing: border-box;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 32px 16px;
+    background-color: #fff;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    image {
+      line-height: 1;
+    }
+  }
+
+  &__text {
+    color: #646566;
+    font-size: 24px;
+    line-height: 1.5;
+    word-break: break-all;
+    margin-top: 16px;
+  }
+}

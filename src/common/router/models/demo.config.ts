@@ -38,5 +38,6 @@ export default {
   radio: { path: '/pages/demo/radio/index', title: '单选框' } as RouterConfig,
   checkbox: { path: '/pages/demo/checkbox/index', title: '复选框' } as RouterConfig,
   form: { path: '/pages/demo/form/index', title: '表单组件' } as RouterConfig,
+  grid: { path: '/pages/demo/grid/index', title: '宫格布局' } as RouterConfig,
   charts: { path: '/pages/demo/charts/index', title: '可视化图表' } as RouterConfig,
 };
