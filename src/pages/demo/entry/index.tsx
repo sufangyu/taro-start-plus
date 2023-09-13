@@ -39,6 +39,7 @@ export default function Index() {
     { label: '表单 Form', path: appRouterConfig.form.path },
     { label: '宫格布局 Grid', path: appRouterConfig.grid.path },
     { label: '条形码、二维码生成', path: appRouterConfig.code.path },
+    { label: '结果 Result', path: appRouterConfig.result.path },
   ];
 
   useDidShow(() => {

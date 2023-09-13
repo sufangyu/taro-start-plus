@@ -1,0 +1,45 @@
+.result {
+  padding: 64px 24px;
+  background-color: #fff;
+
+  &__icon {
+    box-sizing: border-box;
+    width: 128px;
+    height: 128px;
+    margin: 0 auto 40px;
+    padding: 12px;
+
+    image {
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+      line-height: 1;
+    }
+  }
+
+  &__title {
+    color: #333;
+    font-size: 36;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  &__description {
+    margin-top: 16px;
+    color: #999;
+    font-size: 26px;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  &__actions {
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-around;
+
+    button {
+      margin: 0;
+    }
+  }
+
+}

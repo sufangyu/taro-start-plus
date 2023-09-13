@@ -44,4 +44,5 @@ export default {
   form: { path: '/pages/demo/form/index', title: '表单组件' } as RouterConfig,
   grid: { path: '/pages/demo/grid/index', title: '宫格布局' } as RouterConfig,
   code: { path: '/pages/demo/code/index', title: '条形码、二维码生成' } as RouterConfig,
+  result: { path: '/pages/demo/result/index', title: '结果' } as RouterConfig,
 };
