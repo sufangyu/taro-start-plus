@@ -11,7 +11,7 @@ import './indes.scss';
 
 const resolveSet = new Set<(e: { event: string; buttonId: string }) => void>();
 const onCloseSet = new Set<() => void>();
-const nonMandatoryPages = new Set(['pages/webview']);
+const nonMandatoryPages = new Set(['pages/framework/webview/index']);
 
 type PrivacyProps = {
   onDisagree: () => any;
@@ -111,7 +111,12 @@ if (process.env.TARO_ENV === 'weapp') {
         const { privacyContractName } = ev;
         const pages = Taro.getCurrentPages();
         const currentPage = pages[pages.length - 1];
-        if (ev.needAuthorization && !nonMandatoryPages.has(currentPage.route!)) {
+        console.log('currentPage.route =>>', currentPage.route);
+        if (
+          ev.needAuthorization
+          // 忽略不弹隐私协议, 也可以根据实际情况改为指定页面集合才弹
+          && !nonMandatoryPages.has(currentPage.route!)
+        ) {
           try {
             popUpPrivacy(currentPage.$taroPath, privacyContractName);
           } catch (err) {
