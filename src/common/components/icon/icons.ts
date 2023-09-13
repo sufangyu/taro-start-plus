@@ -5,7 +5,7 @@ import {
   CloseSmall as originCloseSmall,
   VolumeNotice as originVolumeNotice,
   Right as originRight,
-  Light as originLeft,
+  Left as originLeft,
   Up as originUp,
   Down as originDown,
   Check as originCheck,
