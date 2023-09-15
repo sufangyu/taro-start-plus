@@ -1,5 +1,6 @@
 /* eslint-disable import/extensions */
 export * from './app.util';
+export * from './component.util';
 export * from './update.util';
 export * from './route.util';
 export * from './storage.util';

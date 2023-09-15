@@ -1,2 +1,13 @@
-export { default as Grid } from './grid';
-export { default as GridItem } from './grid-item';
+import { componentUtil } from '@/core/utils';
+
+import GridRaw from './grid';
+import GridItem from './grid-item';
+
+const Grid = componentUtil.attachPropertiesToComponent(GridRaw, {
+  Item: GridItem,
+});
+
+export {
+  Grid,
+  GridItem,
+};
