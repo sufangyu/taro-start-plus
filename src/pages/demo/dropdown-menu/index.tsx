@@ -3,7 +3,7 @@ import Taro from '@tarojs/taro';
 
 import { useState } from 'react';
 
-import { DropdownMenu, DropdownMenuItem, type DropdownOption } from '@/common/components';
+import { DropdownMenu, type DropdownOption } from '@/common/components';
 
 import './index.scss';
 
@@ -41,7 +41,7 @@ export default function Index() {
             });
           }}
         >
-          <DropdownMenuItem
+          <DropdownMenu.Item
             value={queryOptions.option1}
             // title="商品类型"
             options={[
@@ -50,7 +50,7 @@ export default function Index() {
               { text: '活动商品', value: 2 },
             ]}
           />
-          <DropdownMenuItem
+          <DropdownMenu.Item
             value={queryOptions.option2}
             options={[
               { text: '默认排序', value: 'a' },
@@ -85,7 +85,7 @@ export default function Index() {
             });
           }}
         >
-          <DropdownMenuItem
+          <DropdownMenu.Item
             value={queryOptionsMulti.option1}
             multiple
             optionsColumns={1}
@@ -102,7 +102,7 @@ export default function Index() {
               { text: '禁用选项', value: 8, disabled: true },
             ]}
           />
-          <DropdownMenuItem
+          <DropdownMenu.Item
             value={queryOptionsMulti.option2}
             multiple
             optionsColumns={2}
@@ -120,7 +120,7 @@ export default function Index() {
               { text: '禁用选项', value: 'j', disabled: true },
             ]}
           />
-          <DropdownMenuItem
+          <DropdownMenu.Item
             value={queryOptionsMulti.option3}
             multiple
             optionsColumns={3}
@@ -153,7 +153,7 @@ export default function Index() {
         }}
       >
         <DropdownMenu
-          onChange={(index, option) => {
+          onChange={(index, option: DropdownOption) => {
             setQueryOptions(() => {
               const key = ['option1', 'option2'];
               const state = Object.assign({}, queryOptions, {
@@ -163,7 +163,7 @@ export default function Index() {
             });
           }}
         >
-          <DropdownMenuItem
+          <DropdownMenu.Item
             disabled
             value={queryOptions.option1}
             // title="商品类型"
@@ -173,7 +173,7 @@ export default function Index() {
               { text: '活动商品', value: 2 },
             ]}
           />
-          <DropdownMenuItem
+          <DropdownMenu.Item
             value={queryOptions.option2}
             options={[
               { text: '默认排序', value: 'a' },

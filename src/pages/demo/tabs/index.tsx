@@ -1,7 +1,7 @@
 import { View } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 
-import { Tabs, Tab } from '@/common/components';
+import { Tabs } from '@/common/components';
 
 import './index.scss';
 
@@ -18,18 +18,18 @@ export default function Index() {
           }}
           style={{ height: Taro.pxTransform(250) }}
         >
-          <Tab title="标签1">
+          <Tabs.Item title="标签1">
             <View className="demo-text-1">标签内容 1</View>
-          </Tab>
-          <Tab title="标签2">
+          </Tabs.Item>
+          <Tabs.Item title="标签2">
             <View className="demo-text-2" onClick={() => Taro.showToast({ title: '我被点击了' })}>标签内容 2</View>
-          </Tab>
-          <Tab title="标签3">
+          </Tabs.Item>
+          <Tabs.Item title="标签3">
             <View className="demo-text-3">标签内容 3</View>
-          </Tab>
-          <Tab title="标签4">
+          </Tabs.Item>
+          <Tabs.Item title="标签4">
             <View className="demo-text-4">标签内容 4</View>
-          </Tab>
+          </Tabs.Item>
         </Tabs>
       </View>
 
@@ -43,30 +43,30 @@ export default function Index() {
           }}
           style={{ height: Taro.pxTransform(250) }}
         >
-          <Tab title="标签1">
+          <Tabs.Item title="标签1">
             <View className="demo-text-1">标签内容 1</View>
-          </Tab>
-          <Tab title="标签2">
+          </Tabs.Item>
+          <Tabs.Item title="标签2">
             <View className="demo-text-2" onClick={() => Taro.showToast({ title: '我被点击了' })}>标签内容 2</View>
-          </Tab>
-          <Tab title="标签3">
+          </Tabs.Item>
+          <Tabs.Item title="标签3">
             <View className="demo-text-3">标签内容 3</View>
-          </Tab>
-          <Tab title="标签4">
+          </Tabs.Item>
+          <Tabs.Item title="标签4">
             <View className="demo-text-4">标签内容 4</View>
-          </Tab>
-          <Tab title="标签5">
+          </Tabs.Item>
+          <Tabs.Item title="标签5">
             <View className="demo-text-4">标签内容 5</View>
-          </Tab>
-          <Tab title="标签6">
+          </Tabs.Item>
+          <Tabs.Item title="标签6">
             <View className="demo-text-4">标签内容 6</View>
-          </Tab>
-          <Tab title="标签7">
+          </Tabs.Item>
+          <Tabs.Item title="标签7">
             <View className="demo-text-4">标签内容 7</View>
-          </Tab>
-          <Tab title="标签8">
+          </Tabs.Item>
+          <Tabs.Item title="标签8">
             <View className="demo-text-4">标签内容 8</View>
-          </Tab>
+          </Tabs.Item>
         </Tabs>
       </View>
 
@@ -80,18 +80,18 @@ export default function Index() {
           }}
           style={{ height: Taro.pxTransform(250) }}
         >
-          <Tab title="标签1">
+          <Tabs.Item title="标签1">
             <View className="demo-text-1" onClick={() => Taro.showToast({ title: '我被点击了' })}>标签内容 1</View>
-          </Tab>
-          <Tab title="标签2">
+          </Tabs.Item>
+          <Tabs.Item title="标签2">
             <View className="demo-text-2">标签内容 2</View>
-          </Tab>
-          <Tab title="标签3">
+          </Tabs.Item>
+          <Tabs.Item title="标签3">
             <View className="demo-text-3">标签内容 3</View>
-          </Tab>
-          <Tab title="标签4">
+          </Tabs.Item>
+          <Tabs.Item title="标签4">
             <View className="demo-text-4">标签内容 4</View>
-          </Tab>
+          </Tabs.Item>
         </Tabs>
       </View>
 
@@ -104,18 +104,18 @@ export default function Index() {
           }}
           style={{ height: Taro.pxTransform(250) }}
         >
-          <Tab title="标签1">
+          <Tabs.Item title="标签1">
             <View className="demo-text-1">标签内容 1</View>
-          </Tab>
-          <Tab title="标签2">
+          </Tabs.Item>
+          <Tabs.Item title="标签2">
             <View className="demo-text-2">标签内容 2</View>
-          </Tab>
-          <Tab title="禁用状态" disabled>
+          </Tabs.Item>
+          <Tabs.Item title="禁用状态" disabled>
             <View className="demo-text-3">标签内容 3</View>
-          </Tab>
-          <Tab title="标签4">
+          </Tabs.Item>
+          <Tabs.Item title="标签4">
             <View className="demo-text-4">标签内容 4</View>
-          </Tab>
+          </Tabs.Item>
         </Tabs>
       </View>
 
@@ -126,18 +126,18 @@ export default function Index() {
           placement="bottom"
           style={{ height: Taro.pxTransform(250) }}
         >
-          <Tab title="标签1">
+          <Tabs.Item title="标签1">
             <View className="demo-text-1">标签内容 1</View>
-          </Tab>
-          <Tab title="标签2">
+          </Tabs.Item>
+          <Tabs.Item title="标签2">
             <View className="demo-text-2">标签内容 2</View>
-          </Tab>
-          <Tab title="标签3">
+          </Tabs.Item>
+          <Tabs.Item title="标签3">
             <View className="demo-text-3">标签内容 3</View>
-          </Tab>
-          <Tab title="标签4">
+          </Tabs.Item>
+          <Tabs.Item title="标签4">
             <View className="demo-text-4">标签内容 4</View>
-          </Tab>
+          </Tabs.Item>
         </Tabs>
       </View>
 
@@ -151,30 +151,30 @@ export default function Index() {
           }}
           style={{ height: Taro.pxTransform(500) }}
         >
-          <Tab title="标签1">
+          <Tabs.Item title="标签1">
             <View className="demo-text-1">标签内容 1</View>
-          </Tab>
-          <Tab title="标签2">
+          </Tabs.Item>
+          <Tabs.Item title="标签2">
             <View className="demo-text-2">标签内容 2</View>
-          </Tab>
-          <Tab title="标签3">
+          </Tabs.Item>
+          <Tabs.Item title="标签3">
             <View className="demo-text-3">标签内容 3</View>
-          </Tab>
-          <Tab title="标签4">
+          </Tabs.Item>
+          <Tabs.Item title="标签4">
             <View className="demo-text-4">标签内容 4</View>
-          </Tab>
-          <Tab title="标签5">
+          </Tabs.Item>
+          <Tabs.Item title="标签5">
             <View className="demo-text-4">标签内容 5</View>
-          </Tab>
-          <Tab title="标签6">
+          </Tabs.Item>
+          <Tabs.Item title="标签6">
             <View className="demo-text-4">标签内容 6</View>
-          </Tab>
-          <Tab title="标签7">
+          </Tabs.Item>
+          <Tabs.Item title="标签7">
             <View className="demo-text-4">标签内容 7</View>
-          </Tab>
-          <Tab title="标签8">
+          </Tabs.Item>
+          <Tabs.Item title="标签8">
             <View className="demo-text-4">标签内容 8</View>
-          </Tab>
+          </Tabs.Item>
         </Tabs>
       </View>
 
@@ -185,22 +185,20 @@ export default function Index() {
           placement="right"
           style={{ height: Taro.pxTransform(400) }}
         >
-          <Tab title="标签1">
+          <Tabs.Item title="标签1">
             <View className="demo-text-1">标签内容 1</View>
-          </Tab>
-          <Tab title="标签2">
+          </Tabs.Item>
+          <Tabs.Item title="标签2">
             <View className="demo-text-2">标签内容 2</View>
-          </Tab>
-          <Tab title="标签3">
+          </Tabs.Item>
+          <Tabs.Item title="标签3">
             <View className="demo-text-3">标签内容 3</View>
-          </Tab>
-          <Tab title="标签4">
+          </Tabs.Item>
+          <Tabs.Item title="标签4">
             <View className="demo-text-4">标签内容 4</View>
-          </Tab>
+          </Tabs.Item>
         </Tabs>
       </View>
-      
-
     </View>
   );
 }

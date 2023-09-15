@@ -5,8 +5,8 @@ import {
   FC, ReactNode, useEffect, useState, 
 } from 'react';
 
-import SwipeAction from './action';
-import { OpenedPosition, SwipeActionOption } from './types';
+import SwipeCellAction from './action';
+import { OpenedPosition, SwipeCellActionOption } from './types';
 import { range, getDirection } from './utils';
 
 import './index.scss';
@@ -17,9 +17,9 @@ export interface PropsCell {
   /** 拓展 className */
   extraClass?: string;
   /** 左侧 action 的配置项 */
-  leftOptions?: SwipeActionOption[];
+  leftOptions?: SwipeCellActionOption[];
   /** 右侧 action 的配置项 */
-  rightOptions?: SwipeActionOption[];
+  rightOptions?: SwipeCellActionOption[];
   /** aciton item 宽度, 用于计算打开时的偏移量. 默认是 70 */
   actionItemWidth?: number;
   /** 打开操作的位置. 为空表示关闭 */
@@ -29,7 +29,7 @@ export interface PropsCell {
   /** 点击选项时,是否自动关闭 */
   autoClose?: boolean;
   /** 点击触发事件(action item 触发) */
-  onClickAction?: (item: SwipeActionOption, index: number) => void;
+  onClickAction?: (item: SwipeCellActionOption, index: number) => void;
   /** 完全打开时触发 */
   onOpened?: (position: OpenedPosition) => void;
   /** 完全关闭时触发 */
@@ -143,10 +143,10 @@ const Index: FC<PropsCell> = (props: PropsCell) => {
   /**
    * 点击 action 回调
    *
-   * @param {SwipeActionOption} item 当前 item 项
+   * @param {SwipeCellActionOption} item 当前 item 项
    * @param {number} index 序号
    */
-  const handleActionClick = (item: SwipeActionOption, index: number) => {
+  const handleActionClick = (item: SwipeCellActionOption, index: number) => {
     close();
     typeof onClickAction === 'function' && onClickAction(item, index);
   };
@@ -229,9 +229,9 @@ const Index: FC<PropsCell> = (props: PropsCell) => {
 
 
   // 渲染操作内容
-  const renderActions = (options: SwipeActionOption[] = []) => {
+  const renderActions = (options: SwipeCellActionOption[] = []) => {
     return options.map((option, idx) => {
-      return <SwipeAction key={`swipe-action-${idx}`} option={option} onClick={() => handleActionClick(option, idx)} />;
+      return <SwipeCellAction key={`swipe-action-${idx}`} option={option} onClick={() => handleActionClick(option, idx)} />;
     });
   };
 

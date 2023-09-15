@@ -1,4 +1,4 @@
-export interface SwipeActionOption {
+export interface SwipeCellActionOption {
   /** 名称 */
   text: string;
   /** 图标 */
