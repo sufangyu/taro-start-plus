@@ -49,13 +49,17 @@ export default class Index extends Component {
 
   // 渲染 item
   renderRabbarItem(tabbar: TabbarItem, index: number) {
-    const { selected, normalColor, selectedColor } = this.state;
+    const { selected, normalColor, selectedColor } = this.state as {
+      selected: null | number;
+      normalColor: string;
+      selectedColor: string;
+    };
     const isSelected = selected === index;
 
     return (
       <View
         className="tabbar__item"
-        onClick={() => this.handleSwitchTab(tabbar, index)}
+        onClick={() => this.handleSwitchTab(tabbar)}
         data-path={tabbar.pagePath}
         key={tabbar.text}
       >
@@ -80,8 +84,8 @@ export default class Index extends Component {
       <View className="tabbar">
         <View className="tabbar__border" />
         {
-        tabBarList.map((item, index) => this.renderRabbarItem(item, index))
-      }
+          tabBarList.map((item, index) => this.renderRabbarItem(item, index))
+        }
       </View>
     );
   }

@@ -111,7 +111,6 @@ if (process.env.TARO_ENV === 'weapp') {
         const { privacyContractName } = ev;
         const pages = Taro.getCurrentPages();
         const currentPage = pages[pages.length - 1];
-        console.log('currentPage.route =>>', currentPage.route);
         if (
           ev.needAuthorization
           // 忽略不弹隐私协议, 也可以根据实际情况改为指定页面集合才弹
