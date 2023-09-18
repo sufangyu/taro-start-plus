@@ -21,6 +21,7 @@ export * from './input';
 export * from './radio';
 export * from './checkbox';
 export * from './form-item';
+export * from './select';
 export * from './picker-select';
 export * from './grid';
 export * from './result';

@@ -40,6 +40,7 @@ export default function Index() {
     { label: '宫格布局 Grid', path: appRouterConfig.grid.path },
     { label: '条形码、二维码生成', path: appRouterConfig.code.path },
     { label: '结果 Result', path: appRouterConfig.result.path },
+    { label: '选择项 Select', path: appRouterConfig.select.path },
   ];
 
   useDidShow(() => {

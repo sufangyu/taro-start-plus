@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 import {
   VolumeNotice, PreviewClose, PreviewOpen, DemoBlock, AddOne,
-  Input, FormItem, FormPlaceholder, PickerSelect, 
+  Input, FormItem, FormPlaceholder, PickerSelect, Select, 
 } from '@/common/components';
 import { useInput } from '@/core/hooks';
 
@@ -244,6 +244,19 @@ export default function Index() {
             onChange={(ev) => setOthers(ev, 'delivery')}
           />
         </FormItem>
+        <FormItem label="发票种类" layout="horizontal" contentAlign="right">
+          <Select
+            values={[]}
+            layout="horizontal"
+            size="mini"
+            options={[
+              { label: '纸质票', value: '1' },
+              { label: '电子票', value: '2' },
+              { label: '无发票', value: '3' },
+            ]}
+          />
+        </FormItem>
+
         <FormItem label="喜欢水果">
           <PickerSelect
             title="喜欢水果"
