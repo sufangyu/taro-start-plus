@@ -52,7 +52,8 @@ const typesTep = `export interface Props {}
 const scssTep = ``;
 
 // 入口
-const entryTep = `export { default as ${dirName} } from './${dirName}';`;
+const compName = dirName.replace(dirName[0], dirName[0].toUpperCase());
+const entryTep = `export { default as ${compName} } from './${dirName}';`;
 
 
 mkdirsSync(fullpath); // mkdir $1
