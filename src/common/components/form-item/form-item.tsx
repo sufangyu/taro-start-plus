@@ -21,7 +21,7 @@ const Index = (props: FormItemProps) => {
     'form-item--required': required,
     'form-item--disabled': disabled,
     'form-item--readonly': readOnly,
-    [`form-item__content--${contentAlign}`]: readOnly,
+    [`form-item__content--${contentAlign}`]: true,
   });
 
 
