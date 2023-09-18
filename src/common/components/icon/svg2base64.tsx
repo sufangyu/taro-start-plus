@@ -19,6 +19,7 @@ const svg2base64 = (originIcon: Icon, props: IconProps): ReactNode => {
       width: '1em',
       height: '1em',
       lineHeight: 1,
+      display: 'block',
     }}
     mode="widthFix"
     onClick={(ev) => {

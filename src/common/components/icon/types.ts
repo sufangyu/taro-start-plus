@@ -32,5 +32,5 @@ export interface IconProps {
    * 点击事件回调
    * @returns 
    */
-   onClick?: (ev: ITouchEvent) => void;
+  onClick?: (ev: ITouchEvent) => void;
 }
