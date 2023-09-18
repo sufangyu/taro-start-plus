@@ -18,6 +18,7 @@ const svg2base64 = (originIcon: Icon, props: IconProps): ReactNode => {
       fontSize: Taro.pxTransform(size),
       width: '1em',
       height: '1em',
+      lineHeight: 1,
     }}
     mode="widthFix"
     onClick={(ev) => {
