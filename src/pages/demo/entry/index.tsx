@@ -41,6 +41,7 @@ export default function Index() {
     { label: '条形码、二维码生成', path: appRouterConfig.code.path },
     { label: '结果 Result', path: appRouterConfig.result.path },
     { label: '选择项 Select', path: appRouterConfig.select.path },
+    { label: '间距 Space', path: appRouterConfig.space.path },
   ];
 
   useDidShow(() => {

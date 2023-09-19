@@ -46,4 +46,5 @@ export default {
   code: { path: '/pages/demo/code/index', title: '条形码、二维码生成' } as RouterConfig,
   result: { path: '/pages/demo/result/index', title: '结果' } as RouterConfig,
   select: { path: '/pages/demo/select/index', title: '选择项' } as RouterConfig,
+  space: { path: '/pages/demo/space/index', title: '间距' } as RouterConfig,
 };

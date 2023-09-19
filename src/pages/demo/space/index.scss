@@ -1,0 +1,16 @@
+.container {
+  background-color: #f6f6f6;
+  min-height: 100vh;
+
+  .button-demo {
+    border: 1PX solid #eee;
+    line-height: 1.5;
+    display: inline-block;
+    padding: 16px 28px;
+    border-radius: 6px;
+    background-color: #fff;
+    font-size: 28px;
+    min-width: 140px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,85 @@
+.space {
+  display: inline-flex;
+
+  // 块级元素 -------------------
+  &--block {
+    display: flex;
+  }
+
+
+  // 水平 间距方向 -------------------
+  &--horizontal {
+    flex-direction: row;
+
+    .space-item:last-child {
+      margin-right: 0 !important;
+    }
+
+    // 换行
+    &.space--wrap {
+      flex-wrap: wrap;
+    }
+  }
+
+
+  // 垂直 间距方向 -------------------
+  &--vertical {
+    flex-direction: column;
+
+    .space-item:last-child {
+      margin-bottom: 0 !important;
+    }
+  }
+
+
+  // 主轴对其方式 -------------------
+  &-justify {
+    &--start {
+      justify-content: flex-start;
+    }
+
+    &--end {
+      justify-content: flex-end;
+    }
+
+    &--center {
+      justify-content: center;
+    }
+
+    &--between {
+      justify-content: space-between;
+    }
+
+    &--around {
+      justify-content: space-around;
+    }
+
+    &--evenly {
+      justify-content: space-evenly;
+    }
+
+    &--stretch {
+      justify-content: stretch;
+    }
+  }
+
+  
+  // 交叉轴对齐方式 -------------------
+  &-align {
+    &--start {
+      align-items: flex-start;
+    }
+
+    &--end {
+      align-items: flex-end;
+    }
+
+    &--center {
+      align-items: center;
+    }
+
+    &--baseline {
+      align-items: baseline;
+    }
+  }
+}
