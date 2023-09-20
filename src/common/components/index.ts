@@ -26,6 +26,7 @@ export * from './picker-select';
 export * from './grid';
 export * from './result';
 export * from './space';
+export * from './avatar';
 export * from './f2-canvas';
 
 // fix: canvas id "taro-poster-render" not found

@@ -1,0 +1,81 @@
+$size-small: 64px;
+$size-medium: 96px;
+$size-large: 128px;
+
+.avatar {
+  box-sizing: border-box;
+  color: #333;
+  background-color: #eee;
+  display: inline-flex;
+  border-radius: 8px;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+
+  image {
+    display: block;
+    line-height: 1;
+    width: 100%;
+    height: 100%;
+  }
+
+  // 圆角 ----------------------------------
+  &--round {
+    border-radius: 100%;
+  }
+
+  // 尺寸 ----------------------------------
+  &--small {
+    width: $size-small;
+    height: $size-small;
+    font-size: 22px;
+  }
+
+  &--medium {
+    width: $size-medium;
+    height: $size-medium;
+    font-size: 26px;
+  }
+
+  &--large {
+    width: $size-large;
+    height: $size-large;
+    font-size: 40px;
+  }
+}
+
+
+.avatar-group {
+  display: flex;
+  padding-left: 16px;
+
+  .avatar {
+    position: relative;
+    margin-left: -16px;
+    border: 6px solid #fff;
+  }
+
+  &--small {
+    padding-left: 16px;
+
+    .avatar {
+      margin-left: -16px;
+    }
+  }
+
+  &--medium {
+    padding-left: 20px;
+
+    .avatar {
+      margin-left: -24px;
+    }
+  }
+
+  &--large {
+    padding-left: 32px;
+
+    .avatar {
+      margin-left: -32px;
+    }
+  }
+}

@@ -47,4 +47,5 @@ export default {
   result: { path: '/pages/demo/result/index', title: '结果' } as RouterConfig,
   select: { path: '/pages/demo/select/index', title: '选择项' } as RouterConfig,
   space: { path: '/pages/demo/space/index', title: '间距' } as RouterConfig,
+  avatar: { path: '/pages/demo/avatar/index', title: '头像' } as RouterConfig,
 };

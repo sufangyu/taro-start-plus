@@ -42,6 +42,7 @@ export default function Index() {
     { label: '结果 Result', path: appRouterConfig.result.path },
     { label: '选择项 Select', path: appRouterConfig.select.path },
     { label: '间距 Space', path: appRouterConfig.space.path },
+    { label: '头像 Avatar', path: appRouterConfig.avatar.path },
   ];
 
   useDidShow(() => {

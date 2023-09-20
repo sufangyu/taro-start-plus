@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 
 import {
   icSuccess, icInfo, icWaiting, icError, icWarning, 
-} from './imags';
+} from './images';
 import { ResultProps, ResultStatus } from './types';
 import './index.scss';
 
