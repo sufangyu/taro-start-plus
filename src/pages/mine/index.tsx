@@ -5,7 +5,7 @@ import Taro, { useDidShow, useLoad, usePageScroll } from '@tarojs/taro';
 
 import { useState } from 'react';
 
-import { DebugEnv, NavigationBar } from '@/common/components';
+import { DebugEnv, Drag, NavigationBar } from '@/common/components';
 import { useAccountStore } from '@/common/store';
 import { routeUtil } from '@/core/utils';
 import type CustomTabBar from '@/custom-tab-bar/index';
@@ -44,6 +44,7 @@ export default function Index() {
         />
       </View>
 
+
       <View className="container">
         <View className="header">
           <View>
@@ -78,8 +79,17 @@ export default function Index() {
 
         <View style={{ height: 1200 }} />
       </View>
-      
-      <DebugEnv />
+
+      <Drag
+        attract
+        style={{ top: '100px', right: '16px' }}
+        boundary={{
+          left: 16, right: 16, top: 100, bottom: 16,
+        }}
+      >
+        <DebugEnv />
+      </Drag>
+
     </>
   );
 }

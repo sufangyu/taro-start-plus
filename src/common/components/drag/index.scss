@@ -1,0 +1,11 @@
+.drag {
+  display: inline-flex;
+  width: fit-content;
+  height: fit-content;
+  touch-action: none;
+  user-select: none;
+  font-size: 0;
+  z-index: 9999;
+  position: fixed;
+  box-sizing: border-box;
+}
