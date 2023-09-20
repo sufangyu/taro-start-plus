@@ -501,7 +501,14 @@ try {
 - 触发钩子事件, 接入 IM 通知结果：在 `config/ci.hooks.js` 文件中具体实现逻辑
 
 
+##  升级 Taro
+```bash
+# 将项目依赖升级到与 @tarojs/cli 一致的版本
+$ taro update project
 
+# 将项目依赖升级到指定版本
+$ taro update project [版本号]
+```
 
 
 
