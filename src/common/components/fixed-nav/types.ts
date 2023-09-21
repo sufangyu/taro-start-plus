@@ -2,7 +2,13 @@ import { ReactElement, ReactNode } from 'react';
 
 export interface FixedNavOption {
   id?: number | string;
+  /**
+   * 文本 
+   */
   text?: string;
+  /**
+   * 图标. 可以是 图片地址, 也可以是组件
+   */
   icon?: ReactNode;
 }
 
