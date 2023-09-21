@@ -49,4 +49,5 @@ export default {
   space: { path: '/pages/demo/space/index', title: '间距' } as RouterConfig,
   avatar: { path: '/pages/demo/avatar/index', title: '头像' } as RouterConfig,
   drag: { path: '/pages/demo/drag/index', title: '拖拽' } as RouterConfig,
+  fixedNav: { path: '/pages/demo/fixed-nav/index', title: '悬浮导航' } as RouterConfig,
 };

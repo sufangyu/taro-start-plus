@@ -28,6 +28,7 @@ export * from './result';
 export * from './space';
 export * from './avatar';
 export * from './drag';
+export * from './fixed-nav';
 export * from './f2-canvas';
 
 // fix: canvas id "taro-poster-render" not found

@@ -44,9 +44,6 @@ const Index = (props: DragProps) => {
     createSelectorQuery()
       .select(`.${uniqueClassName}`)
       .boundingClientRect((rec: any) => {
-        console.log(screenWidth, windowHeight);
-        console.log(rec);
-    
         setBoundaryState({
           top: -rec.top + top,
           left: -rec.left + left,

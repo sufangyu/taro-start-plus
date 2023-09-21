@@ -44,6 +44,7 @@ export default function Index() {
     { label: '间距 Space', path: appRouterConfig.space.path },
     { label: '头像 Avatar', path: appRouterConfig.avatar.path },
     { label: '拽像 Drag', path: appRouterConfig.drag.path },
+    { label: '悬浮导航 FixedNav', path: appRouterConfig.fixedNav.path },
   ];
 
   useDidShow(() => {
