@@ -1,4 +1,4 @@
-@import url('@/common/styles/mixins/index');
+@use '@/common/styles/mixins/index' as mixins;
 
 $width: 160px;
 $height: 100px;
@@ -152,7 +152,8 @@ $fix-nav-duration: 300ms;
 
   // 遮罩层 --------------------------------------
   &__overlay {
-    @include overlay;
+    @include mixins.overlay();
+
 
     transform: none;
     visibility: hidden;
