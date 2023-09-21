@@ -5,11 +5,10 @@
  *  npm run create:comp '文件夹' or '路径/文件夹'
 */
 const fs = require('fs');
-const { mkdirsSync } = require('./utils');
+const { mkdirsSync, formatConversion } = require('./utils');
 
 const dirName = process.argv[2];
 
-console.log(dirName);
 
 if (!dirName) {
   console.warn('组件名称不能为空');
@@ -24,18 +23,20 @@ if (isExist) {
   process.exit(0);
 }
 
+// 组件名称
+const compName = formatConversion(dirName);
 
-// 模板
+// 组件模板 ---------------
 const indexTep = `import { View } from '@tarojs/components';
 
-import { Props } from './types';
+import { ${compName}Props } from './types';
 import './index.scss';
 
-const Index = (props: Props) => {
+const Index = (props: ${compName}Props) => {
   const {} = props;
   
   return (
-    <View className="container">
+    <View className="${dirName}">
       This is empty component
     </View>
   );
@@ -44,16 +45,18 @@ const Index = (props: Props) => {
 export default Index;
 `;
 
-// types 模板
-const typesTep = `export interface Props {}
+// types 模板 ---------------
+const typesTep = `export interface ${compName}Props {}
 `;
 
-// scss 模板
-const scssTep = ``;
+// scss 模板 ---------------
+const scssTep = `.${dirName} {
 
-// 入口
-const compName = dirName.replace(dirName[0], dirName[0].toUpperCase());
-const entryTep = `export { default as ${compName} } from './${dirName}';`;
+}`;
+
+// 入口 ---------------
+const entryTep = `export { default as ${compName} } from './${dirName}';
+`;
 
 
 mkdirsSync(fullpath); // mkdir $1
@@ -63,5 +66,5 @@ fs.writeFileSync(`types.ts`, typesTep); // write types
 fs.writeFileSync(`index.scss`, scssTep); // write scss
 fs.writeFileSync(`index.ts`, entryTep); // write tsx
 
-console.log('创建成功');
+console.log(`组件 ${dirName} 创建成功`);
 process.exit(0);
