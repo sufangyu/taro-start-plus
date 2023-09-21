@@ -2,9 +2,9 @@ import { View } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 
 import {
-  AddOne, Check, CheckOne, Close, CloseOne, CloseSmall, Down, 
-  Grid, GridItem, HomeTwo, Left, PreviewClose, PreviewOpen, 
-  RadioTwo, ReduceOne, Right, Round, Up, VolumeNotice, 
+  AddOne, CategoryManagement, Check, CheckOne, Close, CloseOne, CloseSmall, Down, 
+  Grid, GridItem, HomeTwo, Left, People, PlayCycle, PreviewClose, PreviewOpen, 
+  RadioTwo, ReduceOne, Right, Round, ShoppingCart, Up, VolumeNotice, 
 } from '@/common/components';
 import './index.scss';
 
@@ -13,6 +13,9 @@ export default function Index() {
   
   const iconList = [
     { icon: <HomeTwo size={size} />, label: 'HomeTwo' },
+    { icon: <People size={size} />, label: 'People' },
+    { icon: <ShoppingCart size={size} />, label: 'ShoppingCart' },
+    { icon: <CategoryManagement size={size} />, label: 'Category Management' },
     { icon: <Close size={size} />, label: 'Close' },
     { icon: <CloseOne size={size} />, label: 'CloseOne' },
     { icon: <CloseSmall size={size} />, label: 'CloseSmall' },
@@ -29,6 +32,7 @@ export default function Index() {
     { icon: <ReduceOne size={size} />, label: 'ReduceOne' },
     { icon: <PreviewClose size={size} />, label: 'PreviewClose' },
     { icon: <PreviewOpen size={size} />, label: 'PreviewOpen' },
+    { icon: <PlayCycle size={size} />, label: 'PlayCycle' },
   ];
 
 
@@ -47,7 +51,7 @@ export default function Index() {
               key={idx}
               text={it.label}
               icon={it.icon}
-              onClick={() => copyElement(it.label)}
+              onClick={() => copyElement(it.label.replace(/\s*/g, ''))}
             />),
           )
         }

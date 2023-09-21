@@ -1,5 +1,8 @@
 import {
   HomeTwo as originHomeTwo,
+  People as originPeople,
+  ShoppingCart as originShoppingCart,
+  CategoryManagement as originCategoryManagement,
   Close as originClose,
   CloseOne as originCloseOne,
   CloseSmall as originCloseSmall,
@@ -23,6 +26,9 @@ import svg2base64 from './svg2base64';
 import { IconProps } from './types';
 
 const HomeTwo = (props: IconProps) => svg2base64(originHomeTwo, props);
+const People = (props: IconProps) => svg2base64(originPeople, props);
+const ShoppingCart = (props: IconProps) => svg2base64(originShoppingCart, props);
+const CategoryManagement = (props: IconProps) => svg2base64(originCategoryManagement, props);
 const Close = (props: IconProps) => svg2base64(originClose, props);
 const CloseOne = (props: IconProps) => svg2base64(originCloseOne, props);
 const CloseSmall = (props: IconProps) => svg2base64(originCloseSmall, props);
@@ -43,6 +49,9 @@ const PlayCycle = (props: IconProps) => svg2base64(originPlayCycle, props);
 
 export {
   HomeTwo,
+  People,
+  ShoppingCart,
+  CategoryManagement,
   Close,
   CloseOne,
   CloseSmall,
