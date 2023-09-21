@@ -21,6 +21,10 @@ export interface IconProps {
    */
   fill?: string | string[];
   /**
+   * 线条宽度
+   */
+  strokeWidth?: number;
+  /**
    * 图表大小
    */
   size?: number;
