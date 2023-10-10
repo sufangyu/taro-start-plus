@@ -9,6 +9,22 @@
 
   &__content {
     background-color: #fff;
-    padding:  32px;
+    padding: 32px;
+  }
+
+  // 没内容
+  &--simple {
+    .demo-block__content {
+      padding: 0;
+    }
+  }
+
+  // 卡片
+  &--card {
+    .demo-block__content {
+      margin: 0 30px;
+      border-radius: 16px;
+      overflow: hidden;
+    }
   }
 }

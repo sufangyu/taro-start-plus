@@ -8,6 +8,7 @@ interface Props {
   title: string;
   children: ReactNode;
   simple?: boolean;
+  card?: boolean;
 }
 
 /**
@@ -16,14 +17,14 @@ interface Props {
  * @returns 
  */
 const Index = (props: Props) => {
-  const { title, children, simple = false } = props;
+  const {
+    title, children, simple = false, card = false, 
+  } = props;
   
   return (
-    <View className="demo-block">
+    <View className={`demo-block ${simple ? 'demo-block--simple' : ''} ${card ? 'demo-block--card' : ''}`}>
       <View className="demo-block__title">{title}</View>
-      {
-        simple ? children : <View className="demo-block__content">{children}</View>
-      }
+      <View className="demo-block__content">{children}</View>
     </View>
   );
 };
