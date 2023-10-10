@@ -6,10 +6,11 @@ import classNames from 'classnames';
 import { SpaceProps } from './types';
 import './index.scss';
 
-const Index = (props: SpaceProps) => {
+const Index = (props: SpaceProps & Omit<React.HTMLAttributes<HTMLDivElement>, ''>) => {
   const {
     children, direction = 'horizontal', block = false, wrap = false,
     justify, align, gap = 16, gapHorizontal, gapVertical,
+    style = {}, className,
   } = props;
 
   const spaceChildren = Array.isArray(children) ? children : [children];
@@ -27,6 +28,7 @@ const Index = (props: SpaceProps) => {
     'space--wrap': isWrap,
     [`space-justify--${justify}`]: justify,
     [`space-align--${align}`]: align,
+    [`${className}`]: className,
   });
   
   return (
@@ -34,6 +36,7 @@ const Index = (props: SpaceProps) => {
       className={rootClasses}
       style={{
         marginBottom: isWrap ? `-${spaceVertical}` : '',
+        ...style,
       }}
     >
       {
