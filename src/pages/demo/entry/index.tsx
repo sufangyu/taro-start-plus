@@ -45,6 +45,7 @@ export default function Index() {
     { label: '头像 Avatar', path: appRouterConfig.avatar.path },
     { label: '拽像 Drag', path: appRouterConfig.drag.path },
     { label: '悬浮导航 FixedNav', path: appRouterConfig.fixedNav.path },
+    { label: '日历 Calendar', path: appRouterConfig.calendar.path },
   ];
 
   useDidShow(() => {
