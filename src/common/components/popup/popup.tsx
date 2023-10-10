@@ -1,7 +1,7 @@
 import { Image, View } from '@tarojs/components';
 
 import classNames from 'classnames';
-import { ReactNode, useEffect } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 
 import { appUtil } from '@/core/utils';
 
@@ -16,6 +16,10 @@ interface Props {
   extraClass?: string;
   /** z-index 层级. 默认 100 */
   zIndex?: number;
+  /** 组件的内联样式, 可以动态设置的内联样式 */
+  style?: React.CSSProperties;
+  /** 组件不可见时，卸载内容. 默认 false */
+  destroyOnClose?: boolean;
   /** 是否显示遮罩层. 默认 true */
   overlay?: boolean;
   /** 点击背景蒙层后是否关闭 */
@@ -52,22 +56,49 @@ const systenInfo = appUtil.getSystemInfo();
 
 const Index = (props: Props) => {
   const {
-    children, visible, extraClass, title, closeable = false, closeIcon, extra,
-    closeIconPosition = 'top-right', zIndex = 100, overlay = true, simple = false,
-    closeOnOverlayClick = true, position = 'center', round = false, lockScroll = true, 
-    safeAreaInsetTop = false, safeAreaInsetBottom = true, onOpened, onClosed,
+    children,
+    visible,
+    extraClass,
+    style = {},
+    zIndex = 100,
+    title, 
+    destroyOnClose = false,
+    closeable = false,
+    closeIcon,
+    extra,
+    closeIconPosition = 'top-right', 
+    overlay = true, 
+    simple = false,
+    closeOnOverlayClick = true,
+    position = 'center',
+    round = false,
+    lockScroll = true, 
+    safeAreaInsetTop = false,
+    safeAreaInsetBottom = true,
+    onOpened,
+    onClosed,
   } = props;
+
+  const [showChildren, setShowChildren] = useState(true);
 
 
   useEffect(() => {
     if (visible) {
+      if (destroyOnClose) {
+        setShowChildren(true);
+      }
       typeof onOpened === 'function' && onOpened();
     }
-  }, [visible, onOpened]);
+  }, [visible, onOpened, destroyOnClose]);
 
 
   // 关闭事件, 触发关闭回调
   const close = () => {
+    if (destroyOnClose) {
+      setTimeout(() => {
+        setShowChildren(false);
+      }, 300);
+    }
     typeof onClosed === 'function' && onClosed();
   };
 
@@ -84,50 +115,55 @@ const Index = (props: Props) => {
   };
   
 
-  // 处理 safaPaddingTop 下内容的 top
-  let safaPaddingTop;
+  // 处理 safePaddingTop 下内容的 top
+  let safePaddingTop: number | undefined;
   if (safeAreaInsetTop && ['top', 'left', 'right'].includes(position)) {
-    safaPaddingTop = systenInfo?.statusBarHeight ?? null;
+    safePaddingTop = systenInfo?.statusBarHeight ?? undefined;
   }
 
 
-  // 处理 safaPaddingTop、safaPaddingBottom 关闭按钮的位置 
-  let safaCloseIconPosition;
+  // 处理 safePaddingTop、safaPaddingBottom 关闭按钮的位置 
+  let safeCloseIconPosition: number;
   if (safeAreaInsetTop && ['top-right', 'top-left'].includes(closeIconPosition)) {
-    safaCloseIconPosition = (systenInfo?.statusBarHeight ?? 0) + (16 / 2) + 2;
+    safeCloseIconPosition = (systenInfo?.statusBarHeight ?? 0) + (16 / 2) + 2;
   }
 
 
   function renderHeader():ReactNode {
+    // (title || closeable || extra) && 
     return (
-      <View className={`popup__header icon-close--${closeIconPosition}`}>
-        {title && <View>{title}</View>}
+      <>
+        {
+          (title || extra) && (
+            <View className={`popup__header icon-close--${closeIconPosition}`}>
+              {title && <View>{title}</View>}
+              {extra && <View className="popup__header__extra">{extra}</View>}
+            </View>
+          )
+        }
         {closeable && (
           closeIcon
             ? (
               // 自定义图标
               <View
                 onClick={handleCloseClick}
-                className="icon-close--custom"
+                className={`icon-close--custom  icon-close--${closeIconPosition}`}
                 style={{
-                  top: safeAreaInsetTop ? safaCloseIconPosition : undefined,
+                  top: safeAreaInsetTop ? safeCloseIconPosition : undefined,
                 }}
               >
-                {
-                typeof closeIcon === 'string' ? <Image src={closeIcon} /> : closeIcon
-              }
+                {typeof closeIcon === 'string' ? <Image src={closeIcon} /> : closeIcon}
               </View>
             )
             : <View
                 onClick={handleCloseClick}
-                className="icon-close"
+                className={`icon-close icon-close--${closeIconPosition}`}
                 style={{
-                  top: safeAreaInsetTop ? safaCloseIconPosition : undefined,
+                  top: safeAreaInsetTop ? safeCloseIconPosition : undefined,
                 }}
             />
         )}
-        {extra && <View className="popup__header__extra">{extra}</View>}
-      </View>
+      </>
     );
   }
 
@@ -157,12 +193,14 @@ const Index = (props: Props) => {
         className="popup__wrapper"
         style={{
           zIndex: zIndex + 1,
-          paddingTop: safaPaddingTop ?? undefined,
+          paddingTop: safePaddingTop,
         }}
         catchMove={lockScroll}
       >
-        {(title || closeable || extra) && renderHeader()}
-        <View className="popup__body">{children}</View>
+        {renderHeader()}
+        <View className="popup__body" style={style}>
+          {showChildren ? children : ''}
+        </View>
       </View>
     </View>
   );

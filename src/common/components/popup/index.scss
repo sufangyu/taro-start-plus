@@ -47,6 +47,7 @@ $radius         : 16px;
     width: 40px;
     height: 40px;
     overflow: hidden;
+    z-index: 10001;
   
     &::before,
     &::after {
@@ -83,16 +84,43 @@ $radius         : 16px;
     }
   }
 
+  //------------- 关闭按钮位置 -------------
+  .icon-close--top-left {
+    &.icon-close,
+    &.icon-close--custom {
+      top: 16px;
+      left: 16px;
+    }
+  }
+
+  .icon-close--top-right {
+    &.icon-close,
+    &.icon-close--custom {
+      top: 16px;
+      right: 16px;
+    }
+  }
+
+  .icon-close--bottom-left {
+    &.icon-close,
+    &.icon-close--custom {
+      bottom: 16px;
+      left: 16px;
+    }
+  }
+
+  .icon-close--bottom-right {
+    &.icon-close,
+    &.icon-close--custom {
+      bottom: 16px;
+      right: 16px;
+    }
+  }
+  
+
   //------------- 标题关闭按钮 & 扩展内容位置 -------------
   .popup__header {
-    // 关闭图标位置
     &.icon-close--top-left {
-      .icon-close,
-      .icon-close--custom {
-        top: 16px;
-        left: 16px;
-      }
-
       .popup__header__extra {
         top: 16px;
         right: 16px;
@@ -100,12 +128,6 @@ $radius         : 16px;
     }
 
     &.icon-close--top-right {
-      .icon-close,
-      .icon-close--custom {
-        top: 16px;
-        right: 16px;
-      }
-
       .popup__header__extra {
         top: 16px;
         left: 16px;
@@ -113,12 +135,6 @@ $radius         : 16px;
     }
 
     &.icon-close--bottom-left {
-      .icon-close,
-      .icon-close--custom {
-        bottom: 16px;
-        left: 16px;
-      }
-
       .popup__header__extra {
         bottom: 16px;
         right: 16px;
@@ -126,12 +142,6 @@ $radius         : 16px;
     }
 
     &.icon-close--bottom-right {
-      .icon-close,
-      .icon-close--custom {
-        bottom: 16px;
-        right: 16px;
-      }
-
       .popup__header__extra {
         bottom: 16px;
         left: 16px;
