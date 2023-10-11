@@ -58,7 +58,7 @@ function getSubPackages(config: Record<string, string[]>) {
   // eslint-disable-next-line no-restricted-syntax, guard-for-in
   for (const key in config) {
     const subPackage = {
-      root: key,
+      root: key.substring(0, key.length - 1),
       pages: config[key],
     };
     subPackages.push(subPackage);

@@ -8,6 +8,9 @@ const umengConfig = {
   /** 飞书小程序 appKey */
   mpLarkAppKey: '64a3cb2fa1a164591b4216da',
 
+  /** 飞书小程序 appKey */
+  mpTTAppKey: '64a3cb2fa1a164591b4216da',
+
   /** H5 appKey */
   h5AppKey: '',
 };
