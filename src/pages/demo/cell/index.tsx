@@ -19,7 +19,7 @@ export default function Index() {
       </DemoBlock>
 
 
-      <DemoBlock title="卡片风格" simple>
+      <DemoBlock title="卡片风格" simple bg={false}>
         <CellGroup inset>
           <Cell title="单元格" extra="内容" />
           <Cell title="单元格" extra="内容" description="描述信息" />
