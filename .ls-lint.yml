@@ -4,18 +4,19 @@
 # regex:[a-z|.|-]+
 
 ls:
-  .js: kebabcase | pointcase
-  .ts: kebabcase | pointcase
-  .enum.ts: kebabcase | pointcase
-  .hooks.ts: kebabcase | pointcase
-  .config.ts: kebabcase | pointcase
-  .store.ts: kebabcase | pointcase
-  .d.ts: kebabcase | pointcase
-  .tsx: kebabcase | pointcase
-  .css: kebabcase | pointcase
-  .scss: kebabcase | pointcase
-  .mixin.scss: kebabcase | pointcase
-  .json: kebabcase | pointcase
+  .js: kebab-case | kebabcase | pointcase
+  .ts: kebab-case | kebabcase | pointcase
+  .enum.ts: kebab-case | kebabcase | pointcase
+  .hooks.ts: kebab-case | kebabcase | pointcase
+  .config.ts: kebab-case | kebabcase | pointcase
+  .store.ts: kebab-case | kebabcase | pointcase
+  .type.ts: kebab-case | kebabcase | pointcase
+  .d.ts: kebab-case | kebabcase | pointcase
+  .tsx: kebab-case | kebabcase | pointcase
+  .css: kebab-case | kebabcase | pointcase
+  .scss: kebab-case | kebabcase | pointcase
+  .mixin.scss: kebab-case | kebabcase | pointcase
+  .json: kebab-case | kebabcase | pointcase
 
 ignore:
   - dist

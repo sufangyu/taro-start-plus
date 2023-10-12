@@ -3,14 +3,14 @@
  */
 
 // 头部安全区域
-@mixin safeAreaPaddingTop($height: '0px') {
+@mixin safeAreaPaddingTop($height: '0.1px') {
   padding-top: calc(#{$height} + constant(safe-area-inset-top));
   padding-top: calc(#{$height} + env(safe-area-inset-top));
 }
 
 
 // 底部安全区域
-@mixin safeAreaPaddingBottom($height: '0px') {
+@mixin safeAreaPaddingBottom($height: '0.1px') {
   padding-bottom: calc(#{$height} + constant(safe-area-inset-bottom));
   padding-bottom: calc(#{$height} + env(safe-area-inset-bottom));
 }
