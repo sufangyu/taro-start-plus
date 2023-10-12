@@ -1,0 +1,72 @@
+$priceColor: #fa2c19;
+
+.price {
+  display: inline-block;
+  color: $priceColor;
+  font-size: 0;
+
+  // 符号 ------------------------
+  &-symbol {
+    display: inline-block;
+
+    &--small {
+      font-size: 20px;
+    }
+
+    &--normal {
+      font-size: 28px;
+    }
+
+    &--large {
+      font-size: 36px;
+    }
+  }
+
+  // 整数部分 ------------------------
+  &-integer {
+    display: inline-block;
+
+    &--small {
+      font-size: 24px;
+    }
+
+    &--normal {
+      font-size: 32px;
+    }
+
+    &--large {
+      font-size: 48px;
+    }
+  }
+
+  // 小数点、小数部分 ------------------------
+  &-decimal {
+    display: inline-block;
+
+    &--small {
+      font-size: 20px;
+    }
+
+    &--normal {
+      font-size: 28px;
+    }
+
+    &--large {
+      font-size: 36px;
+    }
+  }
+
+  // 删除线 ------------------------
+  &--strike {
+    position: relative;
+    
+    .price-line {
+      position: absolute;
+      top: 50%;
+      height: 1px;
+      margin-top: -2px;
+      background-color: $priceColor;
+      width: 100%;
+    }
+  }
+}

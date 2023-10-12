@@ -51,4 +51,5 @@ export default {
   drag: { path: '/pages/demo/drag/index', title: '拖拽' } as RouterConfig,
   fixedNav: { path: '/pages/demo/fixed-nav/index', title: '悬浮导航' } as RouterConfig,
   calendar: { path: '/pages/demo/calendar/index', title: '日历' } as RouterConfig,
+  price: { path: '/pages/demo/price/index', title: '日历' } as RouterConfig,
 };
