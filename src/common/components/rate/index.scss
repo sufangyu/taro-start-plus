@@ -1,0 +1,39 @@
+.rate {
+  display: inline-flex;
+  align-items: center;
+
+  &-box {
+    position: relative;
+  }
+
+  &-star {
+    padding: 8px;
+    line-height: 48px;
+    font-size: 48px;
+    color: #E3E6EB;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: all .3s;
+
+    &--active {
+      color: #ED7B2F;
+    }
+
+    // 半星
+    &__half {
+      padding-right: 0;
+      width: 50%;
+      position: absolute;
+      left: 0;
+      top: 0; 
+    }
+  }
+
+  &__text {
+    color: #0009;
+    font-size: 32px;
+    margin-left: 24px;
+  }
+}

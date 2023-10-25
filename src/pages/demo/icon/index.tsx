@@ -4,7 +4,7 @@ import Taro from '@tarojs/taro';
 import {
   AddOne, CategoryManagement, Check, CheckOne, Close, CloseOne, CloseSmall, Down, 
   Grid, GridItem, HomeTwo, Left, People, PlayCycle, PreviewClose, PreviewOpen, 
-  RadioTwo, ReduceOne, Right, Round, ShoppingCart, Up, VolumeNotice, 
+  RadioTwo, ReduceOne, Right, Round, ShoppingCart, Star, Up, VolumeNotice, 
 } from '@/common/components';
 import './index.scss';
 
@@ -33,6 +33,7 @@ export default function Index() {
     { icon: <PreviewClose size={size} />, label: 'PreviewClose' },
     { icon: <PreviewOpen size={size} />, label: 'PreviewOpen' },
     { icon: <PlayCycle size={size} />, label: 'PlayCycle' },
+    { icon: <Star size={size} />, label: 'Star' },
   ];
 
 

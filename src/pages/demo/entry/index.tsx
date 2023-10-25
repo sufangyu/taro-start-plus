@@ -47,6 +47,7 @@ export default function Index() {
     { label: '悬浮导航 FixedNav', path: appRouterConfig.fixedNav.path },
     { label: '日历 Calendar', path: appRouterConfig.calendar.path },
     { label: '价格展示 Price', path: appRouterConfig.price.path },
+    { label: '评分 Rate', path: appRouterConfig.rate.path },
   ];
 
   useDidShow(() => {

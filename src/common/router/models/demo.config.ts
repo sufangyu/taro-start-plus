@@ -52,4 +52,5 @@ export default {
   fixedNav: { path: '/pages/demo/fixed-nav/index', title: '悬浮导航' } as RouterConfig,
   calendar: { path: '/pages/demo/calendar/index', title: '日历' } as RouterConfig,
   price: { path: '/pages/demo/price/index', title: '日历' } as RouterConfig,
+  rate: { path: '/pages/demo/rate/index', title: '评分' } as RouterConfig,
 };
