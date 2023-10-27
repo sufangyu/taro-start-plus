@@ -41,6 +41,7 @@ export default {
   cell: { path: '/pages/demo/cell/index', title: '单元格' } as RouterConfig,
   radio: { path: '/pages/demo/radio/index', title: '单选框' } as RouterConfig,
   checkbox: { path: '/pages/demo/checkbox/index', title: '复选框' } as RouterConfig,
+  inputNumber: { path: '/pages/demo/input-number/index', title: '数字输入框' } as RouterConfig,
   form: { path: '/pages/demo/form/index', title: '表单组件' } as RouterConfig,
   grid: { path: '/pages/demo/grid/index', title: '宫格布局' } as RouterConfig,
   code: { path: '/pages/demo/code/index', title: '条形码、二维码生成' } as RouterConfig,

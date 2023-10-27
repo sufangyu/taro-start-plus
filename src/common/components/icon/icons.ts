@@ -21,6 +21,8 @@ import {
   PreviewOpen as originPreviewOpen,
   PlayCycle as originPlayCycle,
   Star as originStar,
+  Plus as originPlus,
+  Minus as originMinus,
 } from '@icon-park/svg';
 
 import svg2base64 from './svg2base64';
@@ -48,6 +50,8 @@ const PreviewClose = (props: IconProps) => svg2base64(originPreviewClose, props)
 const PreviewOpen = (props: IconProps) => svg2base64(originPreviewOpen, props);
 const PlayCycle = (props: IconProps) => svg2base64(originPlayCycle, props);
 const Star = (props: IconProps) => svg2base64(originStar, props);
+const Plus = (props: IconProps) => svg2base64(originPlus, props);
+const Minus = (props: IconProps) => svg2base64(originMinus, props);
 
 export {
   HomeTwo,
@@ -72,4 +76,6 @@ export {
   PreviewOpen,
   PlayCycle,
   Star,
+  Plus,
+  Minus,
 };

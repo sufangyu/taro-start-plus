@@ -1,0 +1,219 @@
+$sizeSmall: 24px * 2;
+$fontSizeSmall: 12px * 2;
+$sizeDefault: 30px * 2;
+$fontSizeDefault: 14px * 2;
+$sizeLarge: 38px * 2;
+$fontSizeLarge: 16px * 2;
+$borderRadius: 4px * 2;
+
+$borderColor: #dedede;
+$borderColorActive: #004fd4;
+
+.input-number {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  user-select: none;
+
+  &-controls--hidden {
+    padding: 0 !important;
+
+    .input-number__wrapper {
+      border-radius: $borderRadius;
+    }
+  }
+
+  &__prefix,
+  &__suffix {
+    color: #333;
+    font-size: 28px;
+  }
+
+  &__prefix {
+    margin-right: 8px;
+  }
+
+  &__suffix {
+    margin-left: 8px;
+  }
+
+  &__wrapper {
+    border: 1px solid $borderColor;
+    display: flex;
+    padding: 0 8px;
+    margin: 0 -1px;
+    align-items: center;
+
+    // &:hover {
+    //   border-color: $borderColorActive;
+    // }
+  }
+
+  &__input {
+    width: 100%;
+    text-align: center;
+    font-weight: normal;
+    flex: 1;
+    color: #333;
+  }
+
+  &__decrease,
+  &__increase {
+    border: 1px solid $borderColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    z-index: 11;
+    overflow: hidden;
+
+    // &:hover {
+    //   border-color: $borderColorActive;
+    // }
+  }
+
+  &__decrease {
+    left: 0;
+    border-radius: $borderRadius 0 0 $borderRadius;
+  }
+
+  &__increase {
+    right: 0;
+    border-radius: 0 $borderRadius $borderRadius 0;
+  }
+
+
+  // 尺寸 -----------------------------------
+  &-size--small {
+    padding: 0 $sizeSmall;
+
+    .input-number__wrapper {
+      height: $sizeSmall;
+    }
+    
+    .input-number__input {
+      font-size: $fontSizeSmall;
+    }
+
+    .input-number__decrease,
+    .input-number__increase {
+      width: $sizeSmall;
+      height: $sizeSmall;
+    }
+  }
+
+  &-size--default {
+    padding: 0 $sizeDefault;
+
+    .input-number__wrapper {
+      height: $sizeDefault;
+      padding: 0 12px;
+    }
+
+    .input-number__input {
+      font-size: $fontSizeDefault;
+    }
+
+    .input-number__decrease,
+    .input-number__increase {
+      width: $sizeDefault;
+      height: $sizeDefault;
+    }
+  }
+
+  &-size--large {
+    padding: 0 $sizeLarge;
+
+    .input-number__wrapper {
+      height: $sizeLarge;
+      padding: 0 16px;
+    }
+
+    .input-number__input {
+      font-size: $fontSizeLarge;
+    }
+
+    .input-number__decrease,
+    .input-number__increase {
+      width: $sizeLarge;
+      height: $sizeLarge;
+    }
+  }
+
+
+  // 对齐方式 -----------------------------------
+  &-align {
+    &--left {
+      .input-number__input {
+        text-align: left;
+      }
+    }
+
+    &--center {
+      .input-number__input {
+        text-align: center;
+      }
+    }
+
+    &--right {
+      .input-number__input {
+        text-align: right;
+      }
+    }
+  }
+
+
+  // 控制按钮位置
+  &-controls--right {
+    padding: 0 !important;
+    
+    .input-number__wrapper {
+      border-radius: $borderRadius;
+      padding-right: $sizeDefault + 8px;
+    }
+
+    .input-number__decrease,
+    .input-number__increase {
+      left: auto;
+      top: auto;
+      right: 0;
+      height: ($sizeDefault - 6) / 2;
+      background-color: #f3f3f3;
+      border: none;
+    }
+
+    .input-number__decrease {
+      bottom: 1px;
+      border-radius: 0 0 $borderRadius 0;
+    }
+
+    .input-number__increase {
+      top: 1px;
+      border-radius: 0 $borderRadius 0 0;
+    }
+
+    &.input-number-size--small {
+      .input-number__wrapper {
+        padding-right: $sizeSmall + 8px;
+      }
+
+      .input-number__decrease,
+      .input-number__increase {
+        height: ($sizeSmall - 6) / 2;
+      }
+    }
+
+    &.input-number-size--large {
+      .input-number__wrapper {
+        padding-right: $sizeLarge + 8px;
+      }
+
+      .input-number__decrease,
+      .input-number__increase {
+        height: ($sizeLarge - 6) / 2;
+      }
+    }
+  }
+}

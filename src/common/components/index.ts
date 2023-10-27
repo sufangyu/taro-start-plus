@@ -19,6 +19,7 @@ export * from './picker';
 export * from './cell';
 export * from './input';
 export * from './radio';
+export * from './input-number';
 export * from './checkbox';
 export * from './form-item';
 export * from './select';
