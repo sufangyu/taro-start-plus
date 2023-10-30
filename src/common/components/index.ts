@@ -24,6 +24,7 @@ export * from './checkbox';
 export * from './form-item';
 export * from './select';
 export * from './picker-select';
+export * from './number-keyboard';
 export * from './grid';
 export * from './result';
 export * from './space';

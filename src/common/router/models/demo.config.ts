@@ -42,6 +42,7 @@ export default {
   radio: { path: '/pages/demo/radio/index', title: '单选框' } as RouterConfig,
   checkbox: { path: '/pages/demo/checkbox/index', title: '复选框' } as RouterConfig,
   inputNumber: { path: '/pages/demo/input-number/index', title: '数字输入框' } as RouterConfig,
+  numberKeyboard: { path: '/pages/demo/number-keyboard/index', title: '数字键盘' } as RouterConfig,
   form: { path: '/pages/demo/form/index', title: '表单组件' } as RouterConfig,
   grid: { path: '/pages/demo/grid/index', title: '宫格布局' } as RouterConfig,
   code: { path: '/pages/demo/code/index', title: '条形码、二维码生成' } as RouterConfig,
@@ -52,6 +53,6 @@ export default {
   drag: { path: '/pages/demo/drag/index', title: '拖拽' } as RouterConfig,
   fixedNav: { path: '/pages/demo/fixed-nav/index', title: '悬浮导航' } as RouterConfig,
   calendar: { path: '/pages/demo/calendar/index', title: '日历' } as RouterConfig,
-  price: { path: '/pages/demo/price/index', title: '日历' } as RouterConfig,
+  price: { path: '/pages/demo/price/index', title: '价格' } as RouterConfig,
   rate: { path: '/pages/demo/rate/index', title: '评分' } as RouterConfig,
 };

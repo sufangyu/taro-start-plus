@@ -23,6 +23,7 @@ import {
   Star as originStar,
   Plus as originPlus,
   Minus as originMinus,
+  DeleteTwo as originDeleteTwo,
 } from '@icon-park/svg';
 
 import svg2base64 from './svg2base64';
@@ -52,6 +53,7 @@ const PlayCycle = (props: IconProps) => svg2base64(originPlayCycle, props);
 const Star = (props: IconProps) => svg2base64(originStar, props);
 const Plus = (props: IconProps) => svg2base64(originPlus, props);
 const Minus = (props: IconProps) => svg2base64(originMinus, props);
+const DeleteTwo = (props: IconProps) => svg2base64(originDeleteTwo, props);
 
 export {
   HomeTwo,
@@ -78,4 +80,5 @@ export {
   Star,
   Plus,
   Minus,
+  DeleteTwo,
 };

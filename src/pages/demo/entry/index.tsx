@@ -37,6 +37,7 @@ export default function Index() {
     { label: '单选框 Radio', path: appRouterConfig.radio.path },
     { label: '复选框 Checkbox', path: appRouterConfig.checkbox.path },
     { label: '数字输入框 InputNumber', path: appRouterConfig.inputNumber.path },
+    { label: '数字键盘 NumberKeyboard', path: appRouterConfig.numberKeyboard.path },
     { label: '表单 Form', path: appRouterConfig.form.path },
     { label: '宫格布局 Grid', path: appRouterConfig.grid.path },
     { label: '条形码、二维码生成', path: appRouterConfig.code.path },

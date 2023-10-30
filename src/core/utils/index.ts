@@ -12,3 +12,4 @@ export * from './date.util';
 export * from './permission.util';
 export * from './scan.util';
 export * from './track.util';
+export * from './array.util';

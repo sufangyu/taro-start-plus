@@ -2,7 +2,7 @@ import { View } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 
 import {
-  AddOne, CategoryManagement, Check, CheckOne, Close, CloseOne, CloseSmall, Down, 
+  AddOne, CategoryManagement, Check, CheckOne, Close, CloseOne, CloseSmall, DeleteTwo, Down, 
   Grid, GridItem, HomeTwo, Left, Minus, People, PlayCycle, Plus, PreviewClose, PreviewOpen, 
   RadioTwo, ReduceOne, Right, Round, ShoppingCart, Star, Up, VolumeNotice, 
 } from '@/common/components';
@@ -36,6 +36,7 @@ export default function Index() {
     { icon: <Star size={size} />, label: 'Star' },
     { icon: <Plus size={size} />, label: 'Plus' },
     { icon: <Minus size={size} />, label: 'Minus' },
+    { icon: <DeleteTwo size={size} />, label: 'DeleteTwo' },
   ];
 
 
