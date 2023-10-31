@@ -4,6 +4,20 @@ export interface NumberKeyboardProps {
    */
   visible?: boolean;
   /**
+   * 是否显示遮罩层. 默认 true
+   */
+  overlay?: boolean;
+  /**
+   * 背景颜色
+   * 
+   * 例如: rgba(255, 0, 0, 0.5)
+   */
+  overlayBgColor?: string;
+  /**
+   * 是否震动
+   */
+  vibrate?: boolean;
+  /**
    * 完成按钮文案，null 不展示. 默认 null
    */
   confirmText?: string | null;

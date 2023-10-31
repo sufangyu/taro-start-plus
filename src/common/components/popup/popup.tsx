@@ -22,6 +22,11 @@ interface Props {
   destroyOnClose?: boolean;
   /** 是否显示遮罩层. 默认 true */
   overlay?: boolean;
+  /** 背景颜色
+   * 
+   * 例如: rgba(255, 0, 0, 0.5)
+   */
+  overlayBgColor?: string;
   /** 点击背景蒙层后是否关闭 */
   closeOnOverlayClick?: boolean;
   /** 弹出位置，可选值为 center top bottom right left */
@@ -67,7 +72,8 @@ const Index = (props: Props) => {
     closeIcon,
     extra,
     closeIconPosition = 'top-right', 
-    overlay = true, 
+    overlay = true,
+    overlayBgColor,
     simple = false,
     closeOnOverlayClick = true,
     position = 'center',
@@ -184,7 +190,7 @@ const Index = (props: Props) => {
       {overlay && (
         <View 
           className="popup__overlay"
-          style={{ zIndex }}
+          style={{ zIndex, backgroundColor: overlayBgColor || '' }}
           onClick={handleOverlayClick}
           catchMove={lockScroll}
         />

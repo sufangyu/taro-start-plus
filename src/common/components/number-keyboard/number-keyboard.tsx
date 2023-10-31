@@ -1,4 +1,5 @@
 import { ITouchEvent, View } from '@tarojs/components';
+import Taro from '@tarojs/taro';
 
 import classNames from 'classnames';
 import { ReactNode, useMemo } from 'react';
@@ -15,6 +16,9 @@ import './index.scss';
 const Index = (props: NumberKeyboardProps) => {
   const {
     visible = false,
+    overlay = true,
+    overlayBgColor,
+    vibrate = true,
     confirmText,
     closeOnConfirm = true,
     customKey,
@@ -51,6 +55,10 @@ const Index = (props: NumberKeyboardProps) => {
 
   const handleKeyPress = (ev: ITouchEvent, key: string) => {
     ev.preventDefault();
+
+    if (key !== '' && vibrate) {
+      Taro.vibrateShort({ type: 'heavy' });
+    }
 
     switch (key) {
       case 'BACKSPACE':
@@ -122,6 +130,9 @@ const Index = (props: NumberKeyboardProps) => {
       visible={visible}
       position="bottom"
       simple
+      overlay={overlay}
+      overlayBgColor={overlayBgColor}
+      destroyOnClose
       onClosed={() => {
         typeof onClose === 'function' && onClose();
       }}

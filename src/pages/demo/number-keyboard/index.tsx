@@ -19,6 +19,10 @@ export default function Index() {
     customMulti: false,
     customSingleWithConfirm: false,
     customMultiWithConfirm: false,
+
+    overlayHidden: false,
+    overlayBgColor: false,
+    vibrate: false,
   });
   const [inputValue, setInputValue] = useState('');
 
@@ -152,13 +156,52 @@ export default function Index() {
         onClose={() => toggleVisible('customSingleWithConfirm', false)}
         onInput={(value: string) => showInputValue(value)}
       />
-
       <NumberKeyboard
         data-desc="自定义键盘 - 多个+确认"
         visible={visible.customMultiWithConfirm}
         customKey={['-', '.']}
         confirmText="确定"
         onClose={() => toggleVisible('customMultiWithConfirm', false)}
+        onInput={(value: string) => showInputValue(value)}
+      />
+
+
+      <DemoBlock title="遮罩层&震动" simple>
+        <Cell
+          title="不显示遮罩层"
+          arrow
+          onClick={() => toggleVisible('overlayHidden', true)}
+        />
+        <Cell
+          title="自定义遮罩层颜色"
+          arrow
+          onClick={() => toggleVisible('overlayBgColor', true)}
+        />
+        <Cell
+          title="不震动"
+          arrow
+          onClick={() => toggleVisible('vibrate', true)}
+        />
+      </DemoBlock>
+      <NumberKeyboard
+        data-desc="不显示遮罩层"
+        visible={visible.overlayHidden} 
+        overlay={false}
+        onClose={() => toggleVisible('overlayHidden', false)}
+        onInput={(value: string) => showInputValue(value)}
+      />
+      <NumberKeyboard
+        data-desc="自定义遮罩层颜色"
+        visible={visible.overlayBgColor}
+        overlayBgColor="rgba(255, 0, 0, 0.5)"
+        onClose={() => toggleVisible('overlayBgColor', false)}
+        onInput={(value: string) => showInputValue(value)}
+      />
+      <NumberKeyboard
+        data-desc="不震动"
+        visible={visible.vibrate}
+        vibrate={false}
+        onClose={() => toggleVisible('vibrate', false)}
         onInput={(value: string) => showInputValue(value)}
       />
     </View>
