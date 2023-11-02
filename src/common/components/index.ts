@@ -34,6 +34,7 @@ export * from './fixed-nav';
 export * from './calendar';
 export * from './price';
 export * from './rate';
+export * from './car-number-keyboard';
 export * from './f2-canvas';
 
 // fix: canvas id "taro-poster-render" not found

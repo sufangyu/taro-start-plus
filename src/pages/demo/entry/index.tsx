@@ -50,6 +50,7 @@ export default function Index() {
     { label: '日历 Calendar', path: appRouterConfig.calendar.path },
     { label: '价格展示 Price', path: appRouterConfig.price.path },
     { label: '评分 Rate', path: appRouterConfig.rate.path },
+    { label: '车牌输入框 CarNumberKeyboard', path: appRouterConfig.carNumberKeyboard.path },
   ];
 
   useDidShow(() => {

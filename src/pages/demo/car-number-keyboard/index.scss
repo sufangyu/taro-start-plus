@@ -1,0 +1,44 @@
+.container {
+  background-color: #f6f6f6;
+  min-height: 100vh;
+}
+
+.car-number-result {
+  font-size: 28px;
+  color: #808080;
+  margin-bottom: 16px;
+}
+
+.car-number-input {
+  display: flex;
+  justify-content: space-around;
+
+  &__item {
+    width: 72px;
+    height: 96px;
+    border: 1PX  solid #ededed;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    transition: border .2s ease-in,color .2s ease-in;
+
+    &.active {
+      border: 1PX solid #3f9ffd;
+      color: rgba(0,0,0,.3);
+    }
+
+    &.is-province {
+      color: rgba(0,0,0,.3);
+      overflow: hidden;
+    }
+
+    &.is-new-source {
+      writing-mode: vertical-lr;
+      font-size: 22px;
+      color: rgba(0,0,0,.3);
+      overflow: hidden;
+    }
+  }
+}

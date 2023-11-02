@@ -1,0 +1,43 @@
+.car-number-keyboard {
+  background-color: #f5f8fc;
+  border-top: 1PX solid #eee;
+  font-size: 32px;
+
+  &__header {
+    padding: 16px 32px;
+    font-size: 28px;
+    color: #004fd4;
+    text-align: right;
+  }
+
+  &__body {
+    padding: 0 16px 16px;
+  }
+
+  .key-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .key {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4px;
+    width: 64px;
+    height: 80px;
+    background-color: #fff;
+    border-radius: 8px;
+
+    &__toggle,
+    &__backspace {
+      width: 128px;
+      background-color: #e6ecf4;
+    }
+
+    &--disabled {
+      opacity: 0.5;
+    }
+  }
+}
