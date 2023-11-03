@@ -56,4 +56,5 @@ export default {
   price: { path: '/pages/demo/price/index', title: '价格' } as RouterConfig,
   rate: { path: '/pages/demo/rate/index', title: '评分' } as RouterConfig,
   carNumberKeyboard: { path: '/pages/demo/car-number-keyboard/index', title: '车牌号输入框' } as RouterConfig,
+  countUp: { path: '/pages/demo/count-up/index', title: '数字滚动' } as RouterConfig,
 };

@@ -51,6 +51,7 @@ export default function Index() {
     { label: '价格展示 Price', path: appRouterConfig.price.path },
     { label: '评分 Rate', path: appRouterConfig.rate.path },
     { label: '车牌输入框 CarNumberKeyboard', path: appRouterConfig.carNumberKeyboard.path },
+    { label: '数字滚动 countUp', path: appRouterConfig.countUp.path },
   ];
 
   useDidShow(() => {

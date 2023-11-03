@@ -84,6 +84,7 @@
 		"@tarojs/shared": "3.6.17",
 		"@tarojs/taro": "3.6.17",
 		"classnames": "^2.3.2",
+		"countup.js": "^2.8.0",
 		"lodash-es": "^4.17.21",
 		"number-precision": "^1.6.0",
 		"process": "^0.11.10",
