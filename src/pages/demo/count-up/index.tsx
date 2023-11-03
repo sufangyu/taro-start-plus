@@ -28,7 +28,7 @@ export default function Index() {
               fontSize: '24px',
             }}
             ref={countupRef}
-            start={100}
+            start={20}
             end={26739.19}
             startOnMount={false}
             onStartCallback={() => {

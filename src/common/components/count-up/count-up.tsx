@@ -27,6 +27,7 @@ const Index = React.forwardRef<CountUpRef, CountUpProps & BasicComponent>((props
   const initCountUp = () => {
     countUpAnim = new CountUpJs(countupRef.current!, end, {
       ...props,
+      startVal: start,
     });
     
     if (!countUpAnim.error) {
